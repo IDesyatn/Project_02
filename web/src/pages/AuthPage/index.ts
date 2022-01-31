@@ -1,6 +1,8 @@
 import "./style.scss"
 
-console.log('login23423423423423')
+
+//выбивает ошибку при сборке вебпака
+/*console.log('login23423423423423')
 
 class Test{
     private test1: any;
@@ -11,4 +13,4 @@ class Test{
     }
 }
 
-console.log(Test)
+console.log(Test)*/

@@ -8,7 +8,7 @@
   },
   "noEmit": true,
   "lib": ["ES2019"],
-  "include": ["./src/ts/**/*.ts", "./test/ts/**/*.ts"],
+  "include": ["./web/src/**/*.ts"],
   "exclude": [
     "node_modules"
   ]

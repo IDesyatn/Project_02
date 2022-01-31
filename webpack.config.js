@@ -85,7 +85,15 @@ module.exports = {
                 filename: "main.html",
                 template: resolve('Main', 'main.html'),
                 excludeChunks: ['reg', 'auth']
-            })
+            }),
+            new CopyPlugin({
+                patterns: [
+                {
+                    from: path.resolve(__dirname, './web/src/images'),
+                    to:   path.resolve(__dirname, 'dist/images')
+                }
+        ]
+    })
         ].filter(Boolean),
     devtool: 'source-map'
 }
