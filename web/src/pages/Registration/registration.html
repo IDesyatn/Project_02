@@ -6,46 +6,57 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="registration.css">
     <title>Registration Page</title>
 </head>
 <body>
-<!--<div class="wrapper">
-    <header class="header">
-        <div class="header__container _container">
-            <a href="" class="header__logo">
-                <img src="./web/src/images/user-astronaut-solid.svg"  alt="Logo" class="header__logo_img">
-                Fantastic Five
-            </a>
-            <main>
-                <div class="form__container">
-                    <div class="form__fields">
-                        <div class="form__field">
-                            <input type="text" placeholder="Email">
-                        </div>
-                        <div class="form__field">
-                            <input type="text" class="form__input" placeholder="Password">
-                        </div>
-                        <div class="form__field">
-                            <input type="text" class="form__input" placeholder="Confirm Password">
-                        </div>
-                    </div>
-                    <div class="form__button">
-                        <button class="form__button-register">Login</button>
-                    </div>
-                </div>
-            </main>
-
-        </div>
-    </header>
-</div>-->
 
     <form class="box" action="" method="post">
-        <div>Registration</div>
+        <h1>Registration</h1>
         <input type="text" class="text" placeholder="Username" name="">
-        <input type="password" placeholder="Password" name="">
-        <input type="password" placeholder="Password confirm" name="">
+
+        <div class="box__pass">
+            <input type="password" class="pass" id="password-input" placeholder="Password" name="password">
+            <a href="#" class="checkbox" onclick="showPass()"> <img id="img" src="https://img.icons8.com/material-sharp/24/ffffff/visible.png"></a>
+        </div>
+
+        <div class="box__pass">
+            <input type="password" class="pass" id="password-input2" placeholder="Password confirm" name="password">
+            <a href="#" class="checkbox" onclick="showPass2()"> <img id="img2" src="https://img.icons8.com/material-sharp/24/ffffff/visible.png"></a>
+        </div>
+
+        <div>Need an acount? <a href="auth.html">Sign up.</a></div>
         <input type="submit" value="Register" name="">
     </form>
+
+
+<script>
+    function showPass() {
+        let x = document.getElementById("password-input");
+        let y = document.getElementById("img");
+        if (x.type === "password") {
+            x.type = "text";
+            y.src = "https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png"
+
+        } else {
+            x.type = "password";
+            y.src = "https://img.icons8.com/material-sharp/24/ffffff/visible.png"
+        }
+    }
+
+    function showPass2() {
+        let x = document.getElementById("password-input2");
+        let y = document.getElementById("img2");
+        if (x.type === "password") {
+            x.type = "text";
+            y.src = "https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png"
+        } else {
+            x.type = "password";
+            y.src = "https://img.icons8.com/material-sharp/24/ffffff/visible.png"
+        }
+    }
+</script>
+
+
 </body>
 </html>

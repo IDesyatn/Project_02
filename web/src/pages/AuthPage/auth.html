@@ -11,38 +11,32 @@
 
 </head>
 <body>
-<!--<div class="wrapper">
-    <header class="header">
-        <div class="header__container">
-            <a href="" class="header__logo">
-                <img src="./web/src/images/user-astronaut-solid.svg" alt="Logo" class="header__logo_img">
-                Fantastic Five
-            </a>
-            <main>
-                <div class="form__container">
-                   <div class="form__fields">
-                       <div class="form__field">
-                           <input type="text" class="form__input" placeholder="Email">
-                       </div>
-                       <div class="form__field">
-                           <input type="text" class="form__input" placeholder="Password">
-                       </div>
-                   </div>
-                    <div class="form__button">
-                        <button class="form__button-login">Login</button>
-                    </div>
-                </div>
-            </main>
-        </div>
-    </header>
-</div>-->
 
     <form class="box" action="" method="post">
-        <div>Login</div>
+        <h1>Login</h1>
         <input type="text" class="text" placeholder="Username" name="">
-        <input type="password" placeholder="Password" name="">
+        <div class="box__pass">
+            <input type="password" class="pass" id="password-input" placeholder="Password" name="password">
+            <a href="#" class="checkbox" onclick="showPass()"> <img id="img" src="https://img.icons8.com/material-sharp/24/ffffff/visible.png"></a>
+        </div>
+        <div class="warning">Already have an account?<a href="auth.html"> Sign in.</a></div>
         <input type="submit" value="Log in" name="">
     </form>
+
+<script>
+    function showPass() {
+        let x = document.getElementById("password-input");
+        let y = document.getElementById("img");
+        if (x.type === "password") {
+            x.type = "text";
+            y.src = "https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png"
+
+        } else {
+            x.type = "password";
+            y.src = "https://img.icons8.com/material-sharp/24/ffffff/visible.png"
+        }
+    }
+</script>
 
 </body>
 </html>

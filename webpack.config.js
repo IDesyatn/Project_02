@@ -74,17 +74,17 @@ module.exports = {
             new HtmlWebpackPlugin({
                 filename: "auth.html",
                 template: resolve('AuthPage', 'auth.html'),
-                excludeChunks: ['reg', 'main']
+                excludeChunks: ['registration', 'main']
             }),
             new HtmlWebpackPlugin({
                 filename: "registration.html",
                 template: resolve('Registration', 'registration.html'),
-                excludeChunks: ['auth', 'main']
+                excludeChunks: ['authPage', 'main']
             }),
             new HtmlWebpackPlugin({
                 filename: "main.html",
                 template: resolve('Main', 'main.html'),
-                excludeChunks: ['reg', 'auth']
+                excludeChunks: ['registration', 'authPage']
             }),
             new CopyPlugin({
                 patterns: [

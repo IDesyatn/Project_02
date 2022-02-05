@@ -23,15 +23,31 @@ body{
   border-radius: 50px;
   border: 1px solid #ffffff;
 
-  div{
+  .warning{
+    margin: 40px 0;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 15px;
+
+    a{
+      color: #ff0000;
+      text-decoration: none;
+    }
+  }
+
+  h1{
     margin: 40px 0;
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 2px;
+    font-size: 30px;
+
   }
 }
 
-.box input.text,.box input[type = "password"]{
+
+
+.box .pass{
   border: 0;
   background: none;
   display: block;
@@ -46,8 +62,34 @@ body{
   border-bottom: 0.1px solid #fff;
 }
 
+.text{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 15px auto;
+  text-align: center;
+  padding: 14px 10px;
+  width: 300px;
+
+  font-size: 20px;
+  color: white;
+
+  border-bottom: 0.1px solid #fff;
+}
+
+.box .box__pass{
+  display: flex;
+  align-items: center;
+
+}
+
+.box .checkbox{
+  width: 10px;
+  position: absolute;
+  right: 105px;
+}
+
 .box input[type = 'submit']{
-  margin-top: 20px;
   background: #ffffff;
   width: 200px;
 
@@ -63,11 +105,12 @@ body{
 }
 
 .box input[type = 'submit']:hover{
-  outline: 3px solid #c77f00;
+  outline: 2px solid #fff;
+  background: #ffb1b1;
   cursor: pointer;
 }
 
 .box input[type = 'submit']:active{
-  background: #c77f00;
-  outline: 3px solid #c77f00;
+  background: #ff0000;
+  border: 1px solid #ff0000;
 }
