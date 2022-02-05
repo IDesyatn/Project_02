@@ -1,99 +1,73 @@
-/*body {
-  //line-height: 1;
-  //font-size: 16px;
+body{
+  margin: 0;
+  padding: 0;
+
   color: white;
-  font-weight: 500;
+  /*  background-image: url('/web/src/images/darkTheme.jpg');*/
+  background: url('https://images.wallpaperscraft.ru/image/single/zvezdy_kosmos_temnyj_139528_1920x1080.jpg');
+  font-size: 30px;
   font-family: Montserrat;
+}
+
+.box{
+  min-width: 500px;
+  background-color: black;
+  padding: 40px;
+  text-align: center;
+
   position: absolute;
-  width: 1920px;
-  height: 1280px;
-  left: 0px;
-  top: 0px;
-  //background: url("darkTheme.jpg");
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 
-}
+  border-radius: 50px;
+  border: 1px solid #ffffff;
 
-.wrapper {
-  min-height: 100%;
-  overflow: hidden;
-
-}
-
-.header{
-
-  &__logo{
-    position: absolute;
-    width: 446px;
-    height: 76px;
-    left: 157px;
-    top: 45px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 48px;
-    line-height: 59px;
-    color: crimson;
-
-  }
-  &-img{
-    position: absolute;
-    width: 110px;
-    height: 128.6px;
-    left: 47px;
-    top: 16px;
-
-    //background: url(user-astronaut-solid.png);
+  div{
+    margin: 40px 0;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
   }
 }
 
-.form{
-  position: absolute;
-  width: 801px;
-  height: 895px;
-  left: 554px;
-  top: 193px;
-  background: linear-gradient(180deg, #69AEC5 0%, rgba(29, 74, 115, 0.25) 100%);
-  border: 1px solid #E5E5E5;
-  box-sizing: border-box;
+.box input.text,.box input[type = "password"]{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 15px auto;
+  text-align: center;
+  padding: 14px 10px;
+  width: 300px;
 
-  &__fields{
+  font-size: 20px;
+  color: white;
 
-  }
-  &__field{
-    position: absolute;
-    align-content: center;
-    width: 625px;
-    height: 8px;
-    border-bottom: 4px solid white;
-    //left: 647px;
-    //top: 533px;
-    background: white;
-    transform: matrix(1, 0, 0, -1, 0, 0);
-    &:active{
-      border-bottom: 4px solid #FF9C32;
-    }
+  border-bottom: 0.1px solid #fff;
+}
 
-  }
-  &__input{
-    font-size: 64px;
-    line-height: 78px;
-    font-style: normal;
-    font-weight: normal;
-    &:active{
-      text-decoration-color: #FF9C32;
-    }
+.box input[type = 'submit']{
+  margin-top: 20px;
+  background: #ffffff;
+  width: 200px;
 
-  }
-  &__button{
-    position: absolute;
-    width: 378px;
-    height: 74px;
-    left: 770px;
-    top: 913px;
+  padding: 15px;
+  border-radius: 30px;
+  border: 1px solid #ffffff;
 
-    &-login{
-      background: #FF9C32;
-      box-shadow: 4px 4px 4px #69AEC5;
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
 
-    }
-  }
-}*/
+.box input[type = 'submit']:hover{
+  outline: 3px solid #c77f00;
+  cursor: pointer;
+}
+
+.box input[type = 'submit']:active{
+  background: #c77f00;
+  outline: 3px solid #c77f00;
+}

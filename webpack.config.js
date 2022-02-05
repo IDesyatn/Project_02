@@ -77,8 +77,8 @@ module.exports = {
                 excludeChunks: ['reg', 'main']
             }),
             new HtmlWebpackPlugin({
-                filename: "reg.html",
-                template: resolve('Registration', 'reg.html'),
+                filename: "registration.html",
+                template: resolve('Registration', 'registration.html'),
                 excludeChunks: ['auth', 'main']
             }),
             new HtmlWebpackPlugin({
