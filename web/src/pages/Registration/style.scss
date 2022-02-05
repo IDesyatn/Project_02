@@ -1,3 +1,4 @@
+/*
 body {
   //line-height: 1;
   //font-size: 16px;
@@ -96,4 +97,79 @@ body {
 
     }
   }
+}
+*/
+
+body{
+  margin: 0;
+  padding: 0;
+
+  color: white;
+/*  background-image: url('/web/src/images/darkTheme.jpg');*/
+  background: url('https://images.wallpaperscraft.ru/image/single/zvezdy_kosmos_temnyj_139528_1920x1080.jpg');
+  font-size: 30px;
+  font-family: Montserrat;
+}
+
+.box{
+  min-width: 500px;
+  background-color: black;
+  padding: 40px;
+  text-align: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  border-radius: 50px;
+  border: 1px solid #ffffff;
+
+  div{
+  margin: 40px 0;
+  text-transform: uppercase;
+  font-weight: 400;
+    letter-spacing: 2px;
+  }
+}
+
+.box input.text,.box input[type = "password"]{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 15px auto;
+  text-align: center;
+  padding: 14px 10px;
+  width: 300px;
+
+  font-size: 20px;
+  color: white;
+
+  border-bottom: 0.1px solid #fff;
+}
+
+.box input[type = 'submit']{
+  margin-top: 20px;
+  background: #ffffff;
+  width: 200px;
+
+  padding: 15px;
+  border-radius: 30px;
+  border: 1px solid #ffffff;
+
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.box input[type = 'submit']:hover{
+  outline: 3px solid #c77f00;
+  cursor: pointer;
+}
+
+.box input[type = 'submit']:active{
+  background: #c77f00;
+  outline: 3px solid #c77f00;
 }
