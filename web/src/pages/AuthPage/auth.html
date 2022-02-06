@@ -12,33 +12,65 @@
 </head>
 <body>
 
-    <form class="box" action="" method="post">
-        <h1>Login</h1>
-        <input type="text" class="text" placeholder="Username" name="">
-        <div class="box__pass">
-            <input type="password" class="pass" id="password-input" placeholder="Password" name="password">
-            <a href="#" class="checkbox" onclick="showPass()"> <img id="img" src="https://img.icons8.com/material-sharp/24/ffffff/visible.png"></a>
-        </div>
-        <div class="warning">Already have an account?<a href="auth.html"> Sign in.</a></div>
-        <input type="submit" value="Log in" name="">
-    </form>
+    <div class="container" id="container">
+        <header class="header">
+            <div class="logo">
+                <img class="logo-img" src="https://cdn-icons-png.flaticon.com/512/3602/3602608.png" alt="">
+            </div>
+            <div class="ability">
+                <select onchange="mode()" name="select-mode" class="select" id="select-mode">
+                    <option value="value1" default>Dark</option>
+                    <option value="value2">Light</option>
+                </select>
+                <select name="select-lang" class="select">
+                    <option value="value1">Eng</option>
+                    <option value="value2">Ru</option>
+                </select>
+            </div>
+        </header>
+        <form class="box" id="box" action="" method="post">
+            <h1>Login</h1>
+            <input type="text" class="text" placeholder="Username" name="">
+            <div class="box__pass">
+                <input type="password" class="pass" id="password-input" placeholder="Password" name="password">
+                <a href="#" class="checkbox" onclick="showPass()"> <img id="img" src="https://img.icons8.com/material-rounded/24/fa314a/sleepy-eyes.png"></a>
+            </div>
+            <div class="warning">Already have an account?<a href="registration.html"> Sign in.</a></div>
+            <input type="submit" value="Log in" name="">
+        </form>
+    </div>
 
-<script>
-    function showPass() {
-        let x = document.getElementById("password-input");
-        let y = document.getElementById("img");
-        if (x.type === "password") {
-            x.type = "text";
-            y.src = "https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png"
 
-        } else {
-            x.type = "password";
-            y.src = "https://img.icons8.com/material-sharp/24/ffffff/visible.png"
+    <script>
+        function showPass() {
+            let x = document.getElementById("password-input");
+            let y = document.getElementById("img");
+            if (x.type === "password") {
+                x.type = "text";
+                y.src = "https://img.icons8.com/material-sharp/24/fa314a/visible.png"
+
+            } else {
+                x.type = "password";
+                y.src = "https://img.icons8.com/material-rounded/24/fa314a/sleepy-eyes.png"
+            }
         }
-    }
 
+        function mode(){
+            const a = document.getElementById('select-mode').selectedIndex;
+            const b = document.getElementById('box')
+            const c = document.getElementById('container')
 
-</script>
+            if (a === 1){
+                b.classList.add("ligth");
+                c.classList.add("ligth-container");
+            }else {
+                b.classList.remove("ligth");
+                c.classList.remove("ligth-container");
+            }
+
+        }
+
+    </script>
 
 </body>
 </html>

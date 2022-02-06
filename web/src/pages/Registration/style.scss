@@ -1,13 +1,73 @@
 body{
   margin: 0;
   padding: 0;
+}
+
+.container{
+  height: 100vh;
 
   color: white;
 /*  background-image: url('/web/src/images/darkTheme.jpg');*/
   background: url('https://images.wallpaperscraft.ru/image/single/zvezdy_kosmos_temnyj_139528_1920x1080.jpg');
   font-size: 30px;
   font-family: Montserrat;
+
+
+
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 1200px;
+    height: 100px;
+
+    .logo-img{
+      height: 80px;
+    }
+
+    .ability{
+      width: 170px;
+      display: flex;
+      justify-content: space-between;
+
+      option{
+        background: black;
+        outline: none;
+        border: none;
+        letter-spacing: 2px;
+      }
+
+    }
+
+    .select{
+      border: none;
+      color: white;
+      background: none;
+      font-size: 20px;
+      letter-spacing: 2px;
+      font-weight: 400;
+    }
+  }
 }
+
+.ligth-container{
+background: url('https://i2.piccy.info/i9/a748b367cf65b5512e7955805dddce37/1644179835/58511/1457446/lighttheme_800.jpg');
+
+  color: #000000;
+
+  .header{
+
+    .ability option{
+        background: #ffffff;
+    }
+
+    .select{
+      color: #000000;
+    }
+  }
+}
+
 
 .box{
   min-width: 500px;
@@ -22,6 +82,8 @@ body{
 
   border-radius: 50px;
   border: 1px solid #ffffff;
+
+
 
   div{
     margin: 40px 0;
@@ -43,72 +105,131 @@ body{
   font-size: 30px;
 
   }
+
+  .pass{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    padding: 14px 10px;
+    width: 300px;
+
+    font-size: 20px;
+    color: white;
+
+    border-bottom: 0.1px solid #fff;
+  }
+
+  .text{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    padding: 14px 10px;
+    width: 300px;
+
+    font-size: 20px;
+    color: white;
+
+    border-bottom: 0.1px solid #fff;
+  }
+
+  .box__pass{
+    display: flex;
+    align-items: center;
+
+  }
+
+  .checkbox{
+    width: 10px;
+    position: absolute;
+    right: 105px;
+  }
+
+  input[type = 'submit']{
+    background: #ffffff;
+    width: 200px;
+
+    padding: 15px;
+    border-radius: 30px;
+    border: 1px solid #ffffff;
+
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+
+  input[type = 'submit']:hover{
+    outline: 2px solid #fff;
+    background: #ffb1b1;
+    cursor: pointer;
+  }
+
+  input[type = 'submit']:active{
+    background: #ff0000;
+    border: 1px solid #ff0000;
+  }
 }
 
-.box .pass{
-  border: 0;
-  background: none;
-  display: block;
-  margin: 0px auto;
-  text-align: center;
-  padding: 14px 10px;
-  width: 300px;
+.ligth{
+  background-color: white;
+  border: 1px solid #000;
+  color: black;
 
-  font-size: 20px;
-  color: white;
+  div a{
+      color: #ff0000;
+      text-decoration: none;
+  }
 
-  border-bottom: 0.1px solid #fff;
+  input[type = 'submit']{
+    background: #000000;
+    border: 1px solid #000000;
+    color: #ffffff;
+
+  }
+
+  input[type = 'submit']:hover{
+    border: 1px solid #000000;
+    background: #ffb1b1;
+    cursor: pointer;
+  }
+
+  input[type = 'submit']:active{
+    background: #ff0000;
+    border: 1px solid #ff0000;
+  }
+
+  .text{
+    color: #000000;
+    border-bottom: 0.1px solid #000000;
+  }
+
+  .pass{
+    color: #000000;
+    border-bottom: 0.1px solid #000000;
+  }
+
+  .box__pass{
+
+    .img-eye{
+      background-image: url("https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png");
+    }
+
+    .img-eye2{
+      background-image: url("https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png");
+    }
+
+  }
+
+
 }
 
-.text{
-  border: 0;
-  background: none;
-  display: block;
-  margin: 0px auto;
-  text-align: center;
-  padding: 14px 10px;
-  width: 300px;
 
-  font-size: 20px;
-  color: white;
 
-  border-bottom: 0.1px solid #fff;
-}
 
-.box .box__pass{
-  display: flex;
-  align-items: center;
 
-}
 
-.box .checkbox{
-  width: 10px;
-  position: absolute;
-  right: 105px;
-}
-
-.box input[type = 'submit']{
-  background: #ffffff;
-  width: 200px;
-
-  padding: 15px;
-  border-radius: 30px;
-  border: 1px solid #ffffff;
-
-  color: #000;
-  font-size: 20px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .5px;
-}
-
-.box input[type = 'submit']:hover{
-  outline: 2px solid #fff;
-  background: #ffb1b1;
-  cursor: pointer;
-}
-
-.box input[type = 'submit']:active{
-  background: #ff0000;
-  border: 1px solid #ff0000;
-}
