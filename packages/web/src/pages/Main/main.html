@@ -1,113 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TeamProject_02</title>
-
 </head>
 <body>
-<div class="wrapper">
+<div class="wrapper" id="wrapper">
     <header class="header">
-        <div class="header__container _container">
-            <a href="" class="header__logo">
-                <img src="./web/src/images/user-astronaut-solid.svg" alt="Logo" class="header__logo_img">
-                Fantastic Five
-            </a>
-            <nav class="header__menu menu">
-                <ul class="menu__list">
-                    <li class="menu__item">
-                        <a href="" class="menu__link">Home</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="" class="menu__link">Authorization</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="" class="menu__link">RegPage</a>
-                    </li>
-                    <div class="menu__item-dropdowns">
-                        <select name="SelectLanguage" class="menu__item-dropdown">
-                            <option value="en" class="sub-menu__link" selected>EN</option>
-                            <option value="ru" class="sub-menu__link">RU</option>
-                        </select>
-                        <select name="SelectTheme" id="change" class="menu__item-dropdown">
-                            <option value="black" class="sub-menu__link">Black</option>
-                            <option value="white" class="sub-menu__link">White</option>
-                        </select>
-                        <select name="Settings" class="menu__item-dropdown">
-                            <option value="loginChange" class="sub-menu__link">Change Login</option>
-                            <option value="passwordChange" class="sub-menu__link">Change Password</option>
-                        </select>
-                    </div>
-                    <div class="menu__list_buttons">
-                        Logout
-                        <svg width="130" height="30" viewBox="0 0 130 30" xmlns="http://www.w3.org/2000/svg">
-                            <rect x='0' y='0' fill="none" width="130" height="30"/>
-                        </svg>
-                        <!--                    <button class="header__button header__button_logout" type="" id="logout">Logout</button>-->
-                    </div>
-                </ul>
-            </nav>
+        <div class="header__container container">
+            <div class="header__logo">
+                <span class="header__team-name">Fantastic Five</span>
+            </div>
+            <div class="header__menu">
+                <select name="SelectLanguage" class="header__menu_select">
+                    <option value="en" class="english" selected>English</option>
+                    <option value="ru" class="russian">Russian</option>
+                </select>
+                <select name="SelectTheme" id="change" class="header__menu_select">
+                    <option value="black" class="dark-theme">Dark</option>
+                    <option value="white" class="light-theme">Light</option>
+                </select>
+                <button class="header__menu_settings">Settings</button>
+                <button class="header__menu_logout">Logout</button>
+            </div>
         </div>
     </header>
-    <main class="page">
-        <div class="page__main-block main-block">
-            <div class="main-block__container _container">
-                <div class="main-block__body">
-                    <div class="main-block__body-items">
-                        <div class="main-block__buttons">
-                            <button class="main-block__button main-block__button_create" id="create" type="">Create</button>
-                            <button class="main-block__button main-block__button_read"  id="read" type="">Read</button>
-                            <button class="main-block__button main-block__button_update" id="update" type="">Update</button>
-                            <button class="main-block__button main-block__button_delete"  id="delete" type="">Delete</button>
+    <main class="main">
+        <div class="main__container">
+            <div class="main__container_control-panel control-panel">
+                <div class="main__container_control-panel-buttons">
+                    <button class="control-panel__create" id="create" type="">Create</button>
+                    <button class="control-panel__update" id="update" type="">Update</button>
+                    <button class="control-panel__delete" id="delete" type="">Delete</button>
+                    <button class="control-panel__clear" id="clear" type="">Clear All</button>
+                </div>
+                <select name="DataBase" class="">
+                    <option value="MySQL" class="" selected>MySQL</option>
+                    <option value="MongoDB" class="">MongoDB</option>
+                </select>
+            </div>
+            <div class="main__container_search">
+                <label class="main__container_search_label" for="search">Search: First name</label>
+                <input name="searchFname" class="main__container_search_input" id="search" placeholder="Search Fname..."
+                       type="text">
+                <a href="#" class="main__container_search_submit" type="submit">
+                    <img src="../../assets/img/icons/search.png" alt="search" class="main__container_search_img">
+                </a>
+            </div>
+        </div>
 
+        <!--        modal-->
 
-                            <div class="main-block__search">
-                                <form action="" method="get" class="main-block__search_form">
-                                    <input name="searchFname" class="main-block__search_Input" placeholder="Search Fname..." type="text">
-                                    <a href="#" class="main-block__search_Btn" type="submit">
-                                        <img src="./img/" alt="">
-                                    </a>
-                                </form>
-                                <form action="" method="get" class="main-block__search_form">
-                                    <input name="searchLname" class="main-block__search_Input"  placeholder="Search Lname..." type="text">
-                                    <button class="main-block__search_Btn" type="submit">Поиск</button>
-                                </form>
-                            </div>
-
-                        </div>
-                        <div class="main-block__dropdownContent">
-                            <div class="main-block__dropdown">
-                                <!--                    <li class="main-block__dropdown">Data Bases</li>-->
-                                <select name="DataBase" class="main-block__dropdown main-block__dropdown_item">
-                                    <option value="MySQL" class="main-block__dropdown_itemLink">MySQL</option>
-                                    <option value="PostgreSQL" class="main-block__dropdown_itemLink">PostgreSQL</option>
-                                    <option value="H2" class="main-block__dropdown_itemLink">H2</option>
-                                    <option value="MongoDB" class="main-block__dropdown_itemLink">MongoDB</option>
-                                    <option value="Redis" class="main-block__dropdown_itemLink">Redis</option>
-                                    <option value="Cassandra" class="main-block__dropdown_itemLink">Cassandra</option>
-                                    <option value="GraphDB" class="main-block__dropdown_itemLink">GraphDB</option>
-                                </select>
-
-                                <!--                    <li class="main-block__dropdown">Sorting By</li>-->
-                                <select name="Sort" class="main-block__dropdown main-block__dropdown_item">
-                                    <option value="Fname" class="main-block__dropdown_itemLink">Fname</option>
-                                    <option value="Lname" class="main-block__dropdown_itemLink">Lname</option>
-                                    <option value="id" class="main-block__dropdown_itemLink">Id</option>
-                                    <option value="Age" class="main-block__dropdown_itemLink">Age</option>
-                                    <option value="City" class="main-block__dropdown_itemLink">City</option>
-                                    <option value="phoneNumber" class="main-block__dropdown_itemLink">Phone Number</option>
-                                    <option value="Email" class="main-block__dropdown_itemLink">Email</option>
-                                    <option value="CompanyName" class="main-block__dropdown_itemLink">Company Name</option>
-                                </select>
-                            </div>
-                        </div>
+        <div id="settingsModal" class="settingsModal modal">
+            <a href="#wrapper" class="modal__area"></a>
+            <div class="settingsModal__body modal__body">
+                <div class="settingsModal__content modal__content">
+                    <a href="#" class="modal__close">X</a>
+                    <div class="settingsModal__content_title modal__title"><span >SETTINGS</span></div>
+                    <div class="settingsModal__block">
+                        <label for="newLogin">Login</label>
+                        <input type="text" name="newLogin" id="newLogin" data-placeholder="newLogin"
+                               class="settingsModal__block_newLogin" data-clear="clear">
+                        <label for="newPassword">Current password</label>
+                        <input type="password" name="newPassword" id="newPassword"
+                               data-placeholder="newPassword" placeholder="New password"
+                               class="settingsModal__block_newPassword" data-clear="clear" data-show="password">
+                        <span toggle="#newPassword"class="field-icon">&#128065;</span>
+                        <label for="repeatPassword">New password</label>
+                        <input type="password" name="repeatPassword" id="repeatPassword" data-placeholder="repeatPassword" placeholder="Repeat password"
+                               class="settingsModal__block_repeatPassword" data-clear="clear"
+                               data-show="password">
+                        <span toggle="#repeatPassword"class="field-icon">&#128065;</span>
+                    </div>
+                    <div class="settingsModal__buttons">
+                        <button id="settingsModal__blockConfirm" type="button" class="settingsModal__buttons_confirm">CONFIRM</button>
+                        <button id="settingsModal__blockCancel" type="button" class="settingsModal__buttons_cancel">CANCEL</button>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+
+<!--        <div class="createModal" id="createModal">-->
+<!--            <a href="#wrapper" class="modal__area"></a>-->
+<!--            <div class="createModal__body">-->
+<!--                <div class="createModal__content">-->
+<!--                    <a href="#" class="modal-close">X</a>-->
+<!--                    <div class="createModal__content_title">CREATE</div>-->
+<!--                    <div class="createModal__content_input">-->
+<!--                        <label for="firstName">First Name</label>-->
+<!--                        <input type="text" name="firstName" id="firstName" data-placeholder="firstName"-->
+<!--                               class="createModal__content_input_firstName" data-clear="clear">-->
+<!--                        <label for="lastName">Last Name</label>-->
+<!--                        <input type="text" name="lastName" id="lastName" data-placeholder="lastName"-->
+<!--                               class="createModal__content_input_lastName" data-clear="clear">-->
+<!--                        <label for="age">Age</label>-->
+<!--                        <input type="text" name="age" id="age" data-placeholder="age"-->
+<!--                               class="createModal__content_input_age" data-clear="clear">-->
+<!--                        <label for="city">City</label>-->
+<!--                        <input type="text" name="city" id="city" data-placeholder="city"-->
+<!--                               class="createModal__content_input_city" data-clear="clear">-->
+<!--                        <label for="phone">Phone</label>-->
+<!--                        <input type="text" name="phone" id="phone" data-placeholder="phone"-->
+<!--                               class="createModal__content_input_phone" data-clear="clear">-->
+<!--                        <label for="email">Email</label>-->
+<!--                        <input type="text" name="email" id="email" data-placeholder="email"-->
+<!--                        class="createModal__content_input_email" data-clear="clear">-->
+<!--                        <label for="company">Company</label>-->
+<!--                        <input type="text" name="company" id="company" data-placeholder="company"-->
+<!--                               class="createModal__content_input_company" data-clear="clear">-->
+<!--                    </div>-->
+<!--                    <button class="createModal__content_button" type="submit">Confirm</button>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="clearAllModal" id="clearAllModal">-->
+<!--            <a href="#wrapper" class="modal-area"></a>-->
+<!--            <div class="clearAllModal__body">-->
+<!--                <div class="clearAllModal__content">-->
+<!--                    <a href="#" class="modal-close">X</a>-->
+<!--                    <div class="clearAllModal__content_title">CLEAR ALL</div>-->
+<!--                    <div class="clearAllModal__content_buttons">-->
+<!--                        <button type="submit">YES</button>-->
+<!--                        <button type="submit">NO</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+</main>
 </div>
 </body>
 </html>
