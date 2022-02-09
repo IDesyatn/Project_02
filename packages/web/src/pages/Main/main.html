@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TeamProject_02</title>
 </head>
-<body>
-<div class="wrapper" id="wrapper">
+<body id="body" class="theme-light">
+<div id="wrapper" class="wrapper">
     <header class="header">
         <div class="header__container container">
             <div class="header__logo">
@@ -16,14 +16,14 @@
             </div>
             <div class="header__menu">
                 <select name="SelectLanguage" class="header__menu_select">
-                    <option value="en" class="english" selected>English</option>
+                    <option value="en" class="english">English</option>
                     <option value="ru" class="russian">Russian</option>
                 </select>
-                <select name="SelectTheme" id="change" class="header__menu_select">
-                    <option value="black" class="dark-theme">Dark</option>
-                    <option value="white" class="light-theme">Light</option>
+                <select name="theme" id="select-theme" class="header__menu_select">
+                    <option value="light" data-translate="light">Light</option>
+                    <option value="dark" data-translate="Dark">Dark</option>
                 </select>
-                <button class="header__menu_settings">Settings</button>
+                <button data-modal="modal-settings" class="header__menu_settings modal__open">Settings</button>
                 <button class="header__menu_logout">Logout</button>
             </div>
         </div>
@@ -32,10 +32,10 @@
         <div class="main__container">
             <div class="main__container_control-panel control-panel">
                 <div class="main__container_control-panel-buttons">
-                    <button class="control-panel__create" id="create" type="">Create</button>
+                    <button data-modal="modal-create" class="control-panel__create modal__open" id="create">Create</button>
                     <button class="control-panel__update" id="update" type="">Update</button>
                     <button class="control-panel__delete" id="delete" type="">Delete</button>
-                    <button class="control-panel__clear" id="clear" type="">Clear All</button>
+                    <button data-modal="modal-clear" class="control-panel__clear modal__open" id="clear">Clear All</button>
                 </div>
                 <select name="DataBase" class="">
                     <option value="MySQL" class="" selected>MySQL</option>
@@ -46,20 +46,20 @@
                 <label class="main__container_search_label" for="search">Search: First name</label>
                 <input name="searchFname" class="main__container_search_input" id="search" placeholder="Search Fname..."
                        type="text">
-                <a href="#" class="main__container_search_submit" type="submit">
-                    <img src="../../assets/img/icons/search.png" alt="search" class="main__container_search_img">
-                </a>
+                <button class="main__container_search_submit" type="submit">
+<!--                    //<img src="../src/assets/img/icons/search.png" alt="search" class="main__container_search_img">-->
+                </button>
             </div>
         </div>
 
         <!--        modal-->
 
-        <div id="settingsModal" class="settingsModal modal">
+        <div id="modal-settings" class="settingsModal modal">
             <a href="#wrapper" class="modal__area"></a>
             <div class="settingsModal__body modal__body">
                 <div class="settingsModal__content modal__content">
-                    <a href="#" class="modal__close">X</a>
-                    <div class="settingsModal__content_title modal__title"><span >SETTINGS</span></div>
+                    <a href="#" class="modal__close">&#10006;</a>
+                    <span class="settingsModal__content_title modal__title">SETTINGS</span>
                     <div class="settingsModal__block">
                         <label for="newLogin">Login</label>
                         <input type="text" name="newLogin" id="newLogin" data-placeholder="newLogin"
@@ -77,62 +77,134 @@
                     </div>
                     <div class="settingsModal__buttons">
                         <button id="settingsModal__blockConfirm" type="button" class="settingsModal__buttons_confirm">CONFIRM</button>
-                        <button id="settingsModal__blockCancel" type="button" class="settingsModal__buttons_cancel">CANCEL</button>
+                        <button id="settingsModal__buttons_cancel" type="button" class="modal__close-btn">CANCEL</button>
                     </div>
                 </div>
             </div>
         </div>
 
-<!--        <div class="createModal" id="createModal">-->
-<!--            <a href="#wrapper" class="modal__area"></a>-->
-<!--            <div class="createModal__body">-->
-<!--                <div class="createModal__content">-->
-<!--                    <a href="#" class="modal-close">X</a>-->
-<!--                    <div class="createModal__content_title">CREATE</div>-->
-<!--                    <div class="createModal__content_input">-->
-<!--                        <label for="firstName">First Name</label>-->
-<!--                        <input type="text" name="firstName" id="firstName" data-placeholder="firstName"-->
-<!--                               class="createModal__content_input_firstName" data-clear="clear">-->
-<!--                        <label for="lastName">Last Name</label>-->
-<!--                        <input type="text" name="lastName" id="lastName" data-placeholder="lastName"-->
-<!--                               class="createModal__content_input_lastName" data-clear="clear">-->
-<!--                        <label for="age">Age</label>-->
-<!--                        <input type="text" name="age" id="age" data-placeholder="age"-->
-<!--                               class="createModal__content_input_age" data-clear="clear">-->
-<!--                        <label for="city">City</label>-->
-<!--                        <input type="text" name="city" id="city" data-placeholder="city"-->
-<!--                               class="createModal__content_input_city" data-clear="clear">-->
-<!--                        <label for="phone">Phone</label>-->
-<!--                        <input type="text" name="phone" id="phone" data-placeholder="phone"-->
-<!--                               class="createModal__content_input_phone" data-clear="clear">-->
-<!--                        <label for="email">Email</label>-->
-<!--                        <input type="text" name="email" id="email" data-placeholder="email"-->
-<!--                        class="createModal__content_input_email" data-clear="clear">-->
-<!--                        <label for="company">Company</label>-->
-<!--                        <input type="text" name="company" id="company" data-placeholder="company"-->
-<!--                               class="createModal__content_input_company" data-clear="clear">-->
-<!--                    </div>-->
-<!--                    <button class="createModal__content_button" type="submit">Confirm</button>-->
+        <div class="modal" id="modal-create">
+            <a href="#wrapper" class="modal__area"></a>
+            <div class="createModal__body modal__body">
+                <div class="createModal__content modal__content">
+                    <a href="#" class="modal__close">&#10006;</a>
+                    <div class="createModal__content_title">CREATE</div>
+                    <div class="createModal__content_input">
+                        <label for="firstName">First Name</label>
+                        <input type="text" name="firstName" id="firstName" data-placeholder="firstName"
+                               class="createModal__content_input_firstName" data-clear="clear">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" name="lastName" id="lastName" data-placeholder="lastName"
+                               class="createModal__content_input_lastName" data-clear="clear">
+                        <label for="age">Age</label>
+                        <input type="text" name="age" id="age" data-placeholder="age"
+                               class="createModal__content_input_age" data-clear="clear">
+                        <label for="city">City</label>
+                        <input type="text" name="city" id="city" data-placeholder="city"
+                               class="createModal__content_input_city" data-clear="clear">
+                        <label for="phone">Phone</label>
+                        <input type="text" name="phone" id="phone" data-placeholder="phone"
+                               class="createModal__content_input_phone" data-clear="clear">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" data-placeholder="email"
+                        class="createModal__content_input_email" data-clear="clear">
+                        <label for="company">Company</label>
+                        <input type="text" name="company" id="company" data-placeholder="company"
+                               class="createModal__content_input_company" data-clear="clear">
+                    </div>
+                    <button class="createModal__content_button" type="submit">Confirm</button>
 
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+                </div>
+            </div>
+        </div>
 
-<!--        <div class="clearAllModal" id="clearAllModal">-->
-<!--            <a href="#wrapper" class="modal-area"></a>-->
-<!--            <div class="clearAllModal__body">-->
-<!--                <div class="clearAllModal__content">-->
-<!--                    <a href="#" class="modal-close">X</a>-->
-<!--                    <div class="clearAllModal__content_title">CLEAR ALL</div>-->
-<!--                    <div class="clearAllModal__content_buttons">-->
-<!--                        <button type="submit">YES</button>-->
-<!--                        <button type="submit">NO</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+        <div class="clearAllModal modal" id="modal-clear">
+            <a href="#wrapper" class="modal__area"></a>
+            <div class="clearAllModal__body modal__body">
+                <div class="clearAllModal__content modal__content">
+                    <a href="#" class="modal__close">&#10006;</a>
+                    <div class="clearAllModal__content_title modal__title">CLEAR ALL</div>
+                    <div class="clearAllModal__content_buttons">
+                        <button type="">YES</button>
+                        <button class="modal__close-btn" type="">NO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 </main>
 </div>
+<script>
+
+  const openModal = document.querySelectorAll('.modal__open');
+
+  openModal.forEach(function (button) {
+    button.addEventListener("click", (event) => {
+      const modalTarget = event.target.dataset.modal;
+      openAndClose(modalTarget);
+    });
+  });
+
+  function openAndClose(modalId){
+    const modalActive = document.getElementById(modalId);
+    const closeModal = modalActive.querySelector('.modal__close');
+    const modalArea = modalActive.querySelector('.modal__area')
+    const btnCancel = modalActive.querySelector('.modal__close-btn');
+
+    modalActive.classList.add('active');
+    if (closeModal) {
+      closeModal.addEventListener('click', () => {
+        modalActive.classList.remove('active');
+      });
+    }
+
+    if(modalArea) {
+      modalArea.addEventListener('click', () => {
+        modalActive.classList.remove('active');
+      });
+    }
+
+    if(btnCancel) {
+      btnCancel.addEventListener('click', () => {
+        modalActive.classList.remove('active');
+      });
+    }
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    themeHandler();
+  })
+
+
+  function themeHandler() {
+    const body = document.getElementById('body');
+    const selectedTheme = document.getElementById('select-theme');
+    const localStorageTheme = localStorage.getItem('selected-theme') || 'dark';
+
+    selectedTheme.value = localStorageTheme;
+    setTheme(body, localStorageTheme);
+
+    selectedTheme.addEventListener('change', () => {
+      setTheme(body, selectedTheme.value);
+    })
+  }
+
+  function setTheme(rootElement, theme) {
+    const darkThemeClass = 'theme-dark';
+    const lightThemeClass = 'theme-light';
+    localStorage.setItem('selected-theme', theme);
+    switch (theme) {
+      case 'dark':
+        rootElement.className = `${darkThemeClass}`;
+        break;
+
+      case 'light':
+        rootElement.className = `${lightThemeClass}`;
+        break;
+    }
+  }
+
+</script>
 </body>
 </html>

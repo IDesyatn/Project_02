@@ -1,13 +1,46 @@
+$d-main-color: #ffffff;
+$d-body-bg: url("../../assets/img/darkTheme1.jpg") no-repeat;
+$d-logo-bg: url("../../assets/img/icons/logo-white.png") 0 0 no-repeat;
+$d-border-color: rgb(171, 195, 204);
+$d-main-bg: linear-gradient(180deg, #69AEC5 0%, #448499 0.01%, rgba(15, 60, 93, 0.75) 100%);
+$d-hover-color: rgb(10,41,64);
+$d-button-bg: rgba(15,60,93, 0.6);
+$d-modal-area-bg: rgba(26, 26, 26, 0.9);
+$d-modal-bg: linear-gradient(180deg, #73A4C8 0%, rgba(1, 36, 63, 0.83) 100%);
+$d-select-bg: url('../../assets/img/icons/vector.png') no-repeat calc(100% - 10px) center;
+$d-option-bg: #284C64;
+$d-error: red;
+$d-input-bg: #0F3C5DA6;
+$d-search-bg: url('../../assets/img/icons/search.png') no-repeat;
+
+$l-main-color: #000000;
+$l-body-bg: url("../../assets/img/lighttheme.jpg") no-repeat;
+$l-logo-bg: url("../../assets/img/icons/logo-black.png") 0 0 no-repeat;
+$l-border-color: #000000;
+$l-main-bg: linear-gradient(180deg, #D0CBD8 0%, rgba(255, 255, 255, 0.66) 100%);
+$l-hover-color: #837788;
+$l-button-bg: #BCB3C2;
+$l-modal-bg: linear-gradient(180deg, #F5DDFF 0%, #707070 100%);
+$l-select-bg: url('../../assets/img/icons/vector-black.png') no-repeat calc(100% - 4px) center;
+$l-option-bg: #A9A0B2;
+$l-modal-area-bg: #837788A6;
+$l-input-bg: #B7ACBCCC;
+$l-search-bg: url('../../assets/img/icons/search-black.png') no-repeat;
+
+%message-shared {
+  display: flex;
+  align-items: center;
+}
 
 * {
   box-sizing: border-box;
+  font-family: Montserrat;
 }
 
 body {
-  background: url("../../assets/img/darkTheme1.jpg") no-repeat;
+  background: $d-body-bg;
   background-size: cover;
-  font-family: Montserrat;
-  color: #ffffff;
+  color: $d-main-color;
   margin: 0;
   padding: 0;
 }
@@ -16,18 +49,14 @@ body {
   padding: 13px 86px;
 
   .header {
-    height: 135px;
-
     &__container {
-      display: flex;
+      @extend %message-shared;
       justify-content: space-between;
-      align-items: center;
     }
 
     &__logo {
-      display: flex;
-      align-items: center;
-      background: url("../../assets/img/icons/logo-white.png") 0 0 no-repeat;
+      @extend %message-shared;
+      background: $d-logo-bg;
       background-size: contain;
       height: 100px;
       padding-left: 86px;
@@ -35,31 +64,31 @@ body {
 
     &__team-name {
       font-size: 38px;
+      color: $d-main-color;
     }
 
     &__menu {
-      display: flex;
+      @extend %message-shared;
       justify-content: space-around;
-      align-items: center;
       width: 554px;
       height: 60px;
-      border: 1px solid #ABC3CC;
-      background: linear-gradient(180deg, #69AEC5 0%, #448499 0.01%, rgba(15, 60, 93, 0.75) 100%);
+      border: $d-border-color;
+      background: $d-main-bg;
 
       &_select {
         appearance: none;
-        color: #ffffff;
-        background: url('../../assets/img/icons/vector.png') no-repeat right center;
+        color: $d-main-color;
+        background: $d-select-bg;
         background-size: 18px;
         border: none;
         outline: 0;
         font-family: Montserrat;
         font-size: 24px;
-        padding: 7px 22px 7px 7px;
+        padding: 7px 30px 7px 7px;
         cursor: pointer;
 
         option {
-          background: #1B4E6099;
+          background: $d-option-bg;
           cursor: pointer;
         }
       }
@@ -68,7 +97,7 @@ body {
       &_logout {
         border: none;
         background: none;
-        color: #ffffff;
+        color: $d-main-color;
         width: 110px;
         height: 37px;
         font-size: 24px;
@@ -77,25 +106,23 @@ body {
 
         &:hover,
         &:hover {
-          background: #0A2940;
+          background: $d-hover-color;
         }
       }
     }
   }
 
   .main {
-    width: 1347px;
     height: 100vh;
-    margin-top: 28px;
-    border: 1px solid #ABC3CC;
-    background: linear-gradient(180deg, #69AEC5 0%, #448499 0.01%, rgba(15, 60, 93, 0.75) 100%);
+    margin-top: 40px;
+    border: $d-border-color;
+    background: $d-main-bg;
     padding: 25px 33px;
 
     &__container {
       &_control-panel {
-        display: flex;
+        @extend %message-shared;
         justify-content: space-between;
-        align-items: center;
 
         &-buttons {
           flex: 1 1 auto;
@@ -106,24 +133,24 @@ body {
         }
 
         button {
-          background: #0F3C5D99;
+          background: $d-button-bg;
           border: none;
           box-shadow: none;
           border-radius: 0;
-          color: #EAEAEA;
+          color: #eaeaea;
           font-size: 24px;
           padding: 7px 42px;
           cursor: pointer;
 
           &:hover {
-            background: #0A2940;
+            background: $d-hover-color;
           }
         }
 
         select {
           appearance: none;
-          color: #ffffff;
-          background: #225571 url('../../assets/img/icons/vector.png') no-repeat calc(100% - 10px) center;
+          color: $d-main-color;
+          background: #225571 $d-select-bg;
           background-size: 18px;
           border: none;
           outline: 0;
@@ -134,7 +161,7 @@ body {
           min-width: 200px;
 
           option {
-            background: #1B4E6099;
+            background: $d-option-bg;
             cursor: pointer;
           }
         }
@@ -142,7 +169,7 @@ body {
 
       &_search {
         display: inline-block;
-        margin: 15px 0;
+        margin: 20px 0;
         max-width: 440px;
 
         &_label {
@@ -156,20 +183,25 @@ body {
           height: 38px;
           width: 392px;
           padding-left: 7px;
-          background: #0F3C5DA6;
+          background: $d-input-bg;
           border: none;
-          color: #ffffff;
+          color: $d-main-color;
           font-size: 16px;
 
           &:active {
-            border: 1px solid #ABC3CC;
+            border: $d-border-color;
           }
         }
 
-        &_img {
+        &_submit {
+          background: $d-search-bg;
+          height: 38px;
+          width: 38px;
           position: relative;
-          width: 32px;
-          top: 10px;
+          top: 9px;
+          background-size: 41px;
+          border: none;
+          cursor: pointer;
         }
       }
     }
@@ -180,9 +212,41 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      opacity: 0;
-      visibility: hidden;
+      background: $d-modal-area-bg;
+      transform: translateY(-44.5%) scale(0);
+      z-index: -1;
+      transition: all 0.6s ease 0s;
+
+
+      &.active {
+        z-index: 2;
+        transform: translateY(0%) scale(1);
+      }
+
+      &__body {
+        @extend %message-shared;
+        min-height: 100%;
+        justify-content: center;
+        padding: 30px 10px;
+      }
+
+      &__content {
+        background: $d-modal-bg;
+        color: $d-main-color;
+        max-width: 800px;
+        padding: 30px;
+        position: relative;
+      }
+
+      &__close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 15px;
+        text-decoration: none;
+        color: #000000;
+        cursor: pointer;
+      }
 
       &__area {
         position: absolute;
@@ -192,50 +256,132 @@ body {
         left: 0;
       }
 
-
-      &__body {
-        min-height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 30px 10px;
-      }
-
-      &__content {
-        background: linear-gradient(180deg, #73A4C8 0%, rgba(1, 36, 63, 0.83) 100%);
-        color: #ffffff;
-        max-width: 800px;
-        padding: 30px;
-        position: relative;
-      }
-
-      &__close {
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            font-size: 15px;
-            text-decoration: none;
-            color: #000000;
-          }
-
-
       &__title {
         font-size: 24px;
         margin-bottom: 10px;
         text-align: center;
       }
     }
+
     .settingsModal__block {
       display: flex;
       flex-direction: column;
+      justify-content: space-around;
+    }
+  }
+}
+
+//Light Theme
+
+.theme-light {
+  background: $l-body-bg;
+
+  .wrapper {
+
+    .header {
+
+      &__logo {
+        @extend %message-shared;
+        background: $l-logo-bg;
+        background-size: contain;
+        height: 100px;
+        padding-left: 86px;
+      }
+
+      &__team-name {
+        color: $l-main-color;
+      }
+
+      &__menu {
+        border: $l-border-color;
+        background: $l-main-bg;
+
+        &_select {
+          appearance: none;
+          color: $l-main-color;
+          background: $l-select-bg;
+
+          option {
+            background: $l-option-bg;
+          }
+        }
+
+        &_settings,
+        &_logout {
+          color: $l-main-color;
+
+          &:hover,
+          &:hover {
+            background: $l-hover-color;
+          }
+        }
+      }
     }
 
-    .field-icon {
-      float: right;
-      margin-left: -25px;
-      margin-top: -25px;
-      position: relative;
-      z-index: 2;
+    .main {
+      border: $l-border-color;
+      background: $l-main-bg;
+
+
+      &__container {
+        &_control-panel {
+
+          button {
+            background: $l-button-bg;
+            color: $l-main-color;
+
+            &:hover {
+              background: $l-hover-color;
+            }
+          }
+
+          select {
+            appearance: none;
+            color: $l-main-color;
+            background: #B7ACBCCC $l-select-bg;
+
+            option {
+              background: $l-option-bg;
+            }
+          }
+        }
+
+        &_search {
+          &_label{
+            color: $l-main-color;
+          }
+          &_input {
+            background: $l-input-bg;
+            color: $l-main-color;
+
+            &:active {
+              border: $l-border-color;
+            }
+          }
+          &_submit {
+            background: $l-search-bg;
+            height: 38px;
+            width: 38px;
+            position: relative;
+            top: 9px;
+            background-size: 41px;
+            border: none;
+          }
+        }
+      }
+
+      .modal {
+        background: $l-modal-area-bg;
+
+        &__content {
+          background: $l-modal-bg;
+          color: $l-main-color;
+        }
+
+        &__close {
+          color: #000000;
+        }
+      }
     }
   }
 }
