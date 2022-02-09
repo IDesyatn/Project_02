@@ -1,20 +1,29 @@
-import express from 'express';
+import express, { Application, RequestHandler } from 'express';
+import path from 'path';
+import { Methods } from './Methods';
 
 export class App {
-  public express;
+  private app: Application = express();
 
-  constructor() {
-    this.express = express();
-    this.loadRoutes();
-  }
+  private PORT: number = Number.parseInt(process.env.PORT, 10) || 3000;
 
-  private loadRoutes(): void {
-    const router = express.Router();
+  public setStatic = (directory: string): void => {
+    this.app.use(express.static(path.resolve(__dirname, directory)));
+  };
 
-    router.get('/', (req, res) => {
-      res.json({ message: process.env.HELLO });
-    });
+  public setRoute = (method: Methods, url: string, handler: RequestHandler): void => {
+    if (Methods[method] === 'GET') {
+      this.app.get(url, handler);
+    } else if (Methods[method] === 'POST') {
+      this.app.post(url, handler);
+    } else if (Methods[method] === 'PUT') {
+      this.app.put(url, handler);
+    } else if (Methods[method] === 'DELETE') {
+      this.app.delete(url, handler);
+    }
+  };
 
-    this.express.use('/', router);
-  }
+  public setMiddleware = (middleware): void => {
+    this.app.use(middleware);
+  };
 }
