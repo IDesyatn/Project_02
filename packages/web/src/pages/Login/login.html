@@ -18,7 +18,7 @@
     <div class="container" id="container">
         <header class="header">
             <div class="logo">
-                <img class="logo-img" src="https://cdn-icons-png.flaticon.com/512/3602/3602608.png" alt="">
+              <span class="header__team-name">Fantastic Five</span>
             </div>
             <div class="ability">
                 <select onchange="mode()" name="select-mode" class="select" id="select-mode">
@@ -26,8 +26,8 @@
                     <option value="value2">Light</option>
                 </select>
                 <select name="select-lang" class="select">
-                    <option value="value1">Eng</option>
-                    <option value="value2">Ru</option>
+                    <option value="value1">English</option>
+                    <option value="value2">Russia</option>
                 </select>
             </div>
         </header>
@@ -37,10 +37,10 @@
             <div class="box__pass">
                 <input type="password" class="pass" id="password-input" placeholder="Password" name="password">
                 <a href="#" class="checkbox" onclick="showPass()"> <img id="img"
-                        src="https://img.icons8.com/material-rounded/24/fa314a/sleepy-eyes.png"></a>
+                        src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
             </div>
-            <div class="warning">Already have an account?<a href="registration.html"> Sign in.</a></div>
             <input type="submit" value="Log in" name="">
+            <div class="warning">Already have an account?<a href="registration.html"> Sign in.</a></div>
         </form>
     </div>
 
@@ -51,11 +51,11 @@
             let y = document.getElementById("img");
             if (x.type === "password") {
                 x.type = "text";
-                y.src = "https://img.icons8.com/material-sharp/24/fa314a/visible.png"
+                y.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
 
             } else {
                 x.type = "password";
-                y.src = "https://img.icons8.com/material-rounded/24/fa314a/sleepy-eyes.png"
+                y.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
             }
         }
 

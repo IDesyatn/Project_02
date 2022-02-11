@@ -17,37 +17,38 @@
     <div class="container" id="container">
         <header class="header">
             <div class="logo">
-                <img class="logo-img" src="https://cdn-icons-png.flaticon.com/512/3602/3602608.png" alt="">
+              <span class="header__team-name">Fantastic Five</span>
             </div>
+
             <div class="ability">
                 <select onchange="mode()" name="select-mode" class="select" id="select-mode">
                     <option value="value1" default>Dark</option>
                     <option value="value2">Light</option>
                 </select>
                 <select name="select-lang" class="select">
-                    <option value="value1">Eng</option>
-                    <option value="value2">Ru</option>
+                    <option value="value1">English</option>
+                    <option value="value2">Russian</option>
                 </select>
             </div>
         </header>
         <form class="box" id="box" action="" method="post">
             <h1>Registration</h1>
-            <input type="text" class="text" placeholder="Username" name="">
+            <input type="text" class="text" placeholder="LOGIN" name="">
 
             <div class="box__pass">
-                <input type="password" class="pass" id="password-input" placeholder="Password" name="password">
+                <input type="password" class="pass" id="password-input" placeholder="PASSWORD" name="password">
                 <a href="#" class="checkbox" onclick="showPass()"> <img id="img"
-                        src="https://img.icons8.com/material-rounded/24/fa314a/sleepy-eyes.png"></a>
+                        src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
             </div>
 
             <div class="box__pass">
-                <input type="password" class="pass" id="password-input2" placeholder="Password confirm" name="password">
+                <input type="password" class="pass" id="password-input2" placeholder="CONFIRM PASSWORD" name="password">
                 <a href="#" class="checkbox" onclick="showPass2()"> <img id="img2"
-                        src="https://img.icons8.com/material-rounded/24/fa314a/sleepy-eyes.png"></a>
+                        src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
             </div>
 
-            <div>Need an acount? <a href="auth.html">Sign up.</a></div>
             <input type="submit" value="Register" name="">
+            <div>Already have an account? <a href="auth.html">Sign up.</a></div>
         </form>
     </div>
 
@@ -57,11 +58,11 @@
             let y = document.getElementById("img");
             if (x.type === "password") {
                 x.type = "text";
-                y.src = "https://img.icons8.com/material-sharp/24/fa314a/visible.png"
+                y.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
 
             } else {
                 x.type = "password";
-                y.src = "https://img.icons8.com/material-rounded/24/fa314a/sleepy-eyes.png"
+                y.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
             }
         }
 
@@ -70,10 +71,10 @@
             let y = document.getElementById("img2");
             if (x.type === "password") {
                 x.type = "text";
-                y.src = "https://img.icons8.com/material-sharp/24/fa314a/visible.png"
+                y.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
             } else {
                 x.type = "password";
-                y.src = "https://img.icons8.com/material-rounded/24/fa314a/sleepy-eyes.png"
+                y.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
             }
         }
 
