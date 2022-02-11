@@ -16,16 +16,18 @@ body {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
+    padding-top: 10px;
     width: 1200px;
     height: 100px;
 
-    .logo {
+    &__logo {
       background: url("../../assets/img/icons/logo-white.png") 0 0 no-repeat;
       background-size: contain;
       height: 100px;
       padding-left: 90px;
 
-      .header__team-name{
+
+      &-name{
         font-size: 28px;
         font-weight: 500;
         position: relative;
@@ -33,10 +35,22 @@ body {
       }
     }
 
-    .ability {
-      width: 220px;
+    &__ability {
+      width: 229px;
       display: flex;
       justify-content: space-between;
+      border: 1px solid #E5E5E5;
+
+      &-select{
+        border: none;
+        color: white;
+        background: linear-gradient(180deg, #69AEC5 0%, #448499 0.01%, rgba(15, 60, 93, 0.75) 100%);
+        font-size: 20px;
+        letter-spacing: 2px;
+        font-weight: 400;
+        padding: 10px 11px;
+        cursor: pointer;
+      }
 
 
       option {
@@ -46,23 +60,48 @@ body {
         letter-spacing: 2px;
       }
     }
-
-    .select {
-      border: none;
-      color: white;
-      background: linear-gradient(180deg, #69AEC5 0%, #448499 0.01%, rgba(15, 60, 93, 0.75) 100%);
-      font-size: 20px;
-      letter-spacing: 2px;
-      font-weight: 400;
-      padding: 10px 11px;
-      cursor: pointer;
-    }
   }
 }
 
 .ligth-container {
   background: url("../../assets/img/lighttheme.jpg") 0 0 no-repeat;
+  color: #000000;
 
+  .header {
+
+    &__logo {
+      background: url("../../assets/img/icons/logo-black.png") 0 0 no-repeat;
+      background-size: contain;
+
+      &-name{
+        font-size: 28px;
+        font-weight: 500;
+        position: relative;
+        top: 35px;
+      }
+    }
+
+    &__ability {
+      width: 229px;
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid black;
+
+      &-select{
+        color: #000000;
+        background: #B7ACBC;
+      }
+
+
+      option {
+        background: #A9A0B2FF;
+      }
+    }
+  }
+}
+
+/*.ligth-container {
+  background: url("../../assets/img/lighttheme.jpg") 0 0 no-repeat;
   color: #000000;
 
   .header {
@@ -73,14 +112,16 @@ body {
     }
 
     .ability option {
+
       background: #ffffff;
     }
 
     .select {
       color: #000000;
+      background-color: #B7ACBC;
     }
   }
-}
+}*/
 
 .box {
   min-width: 500px;
@@ -127,7 +168,10 @@ body {
 
     font-size: 17px;
     color: white;
+  }
 
+  .pass:focus {
+    outline: 2px solid #ffffff;
   }
 
   .text {
@@ -142,8 +186,11 @@ body {
     font-size: 17px;
     color: white;
 
-    border-bottom: 0.1px solid #fff;
   }
+  .text:focus {
+    outline: 2px solid #ffffff;
+  }
+
 
   .box__pass {
     display: flex;
@@ -184,12 +231,14 @@ body {
 }
 
 .ligth {
+  background: linear-gradient(180deg, #D0CBD8 0%, rgba(29, 74, 115, 0.25) 100%);
   border: 1px solid #000;
   color: black;
 
   div a {
-
     text-decoration: none;
+    color: #000000;
+    font-weight: 600;
   }
 
   .text {
@@ -202,6 +251,7 @@ body {
     border-bottom: 0.1px solid #000000;
   }
 
+
   .box__pass {
     .img-eye {
       background-image: url("https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png");
@@ -210,5 +260,21 @@ body {
     .img-eye2 {
       background-image: url("https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png");
     }
+  }
+
+  input[type="submit"] {
+    background: #b7acbc;
+    border: .1px solid #070000;
+    color: #000000;
+  }
+
+  input[type="submit"]:hover {
+    outline: .1px solid #827488;
+    background: #827488;
+  }
+
+  input[type="submit"]:active {
+    background: #63526b;
+    border: .1px solid #63526b;
   }
 }
