@@ -1,154 +1,185 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TeamProject_02</title>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>TeamProject_02</title>
 </head>
-<body id="body" class="theme-light">
-<div id="wrapper" class="wrapper">
-    <header class="header">
-        <div class="header__container container">
-            <div class="header__logo">
-                <span class="header__team-name">Fantastic Five</span>
-            </div>
-            <div class="header__menu">
-                <select name="SelectLanguage" class="header__menu_select">
-                    <option value="en" class="english">English</option>
-                    <option value="ru" class="russian">Russian</option>
-                </select>
-                <select name="theme" id="select-theme" class="header__menu_select">
-                    <option value="light" data-translate="light">Light</option>
-                    <option value="dark" data-translate="Dark">Dark</option>
-                </select>
-                <button data-modal="modal-settings" class="header__menu_settings modal__open">Settings</button>
-                <button class="header__menu_logout">Logout</button>
-            </div>
+<body id='body' class='theme-light'>
+<div id='wrapper' class='wrapper'>
+  <header class='header'>
+    <div class='header__container container'>
+      <div class='header__logo'>
+        <span class='header__team-name'>Fantastic Five</span>
+      </div>
+      <div class='header__menu'>
+        <select name='SelectLanguage' class='header__menu_select'>
+          <option value='en' class='english'>English</option>
+          <option value='ru' class='russian'>Russian</option>
+        </select>
+        <select name='theme' id='select-theme' class='header__menu_select'>
+          <option value='light' data-translate='light'>Light</option>
+          <option value='dark' data-translate='Dark'>Dark</option>
+        </select>
+        <button data-modal='modal-settings' class='header__menu_settings modal__open'>Settings
+        </button>
+        <button class='header__menu_logout'>Logout</button>
+      </div>
+    </div>
+  </header>
+  <main class='main'>
+    <div class='main__container'>
+      <div class='main__container_control-panel control-panel'>
+        <div class='main__container_control-panel-buttons'>
+          <button data-modal='modal-create' class='control-panel__create modal__open' id='create'>
+            Create
+          </button>
+          <button class='control-panel__update' id='update' type=''>Update</button>
+          <button class='control-panel__delete' id='delete' type=''>Delete</button>
+          <button data-modal='modal-clear' class='control-panel__clear modal__open' id='clear'>Clear
+            All
+          </button>
         </div>
-    </header>
-    <main class="main">
-        <div class="main__container">
-            <div class="main__container_control-panel control-panel">
-                <div class="main__container_control-panel-buttons">
-                    <button data-modal="modal-create" class="control-panel__create modal__open" id="create">Create</button>
-                    <button class="control-panel__update" id="update" type="">Update</button>
-                    <button class="control-panel__delete" id="delete" type="">Delete</button>
-                    <button data-modal="modal-clear" class="control-panel__clear modal__open" id="clear">Clear All</button>
-                </div>
-                <select name="DataBase" class="">
-                    <option value="MySQL" class="" selected>MySQL</option>
-                    <option value="MongoDB" class="">MongoDB</option>
-                </select>
+        <select name='DataBase' class=''>
+          <option value='MySQL' class='' selected>MySQL</option>
+          <option value='MongoDB' class=''>MongoDB</option>
+        </select>
+      </div>
+      <div class='main__container_search'>
+        <label class='main__container_search_label' for='search'>Search: First name</label>
+        <input name='searchFname' class='main__container_search_input' id='search'
+               placeholder='Search Fname...'
+               type='text'>
+        <button class='main__container_search_submit' type='submit'>
+          <!--                    //<img src="../src/assets/img/icons/search.png" alt="search" class="main__container_search_img">-->
+        </button>
+      </div>
+    </div>
+
+    <!--        modal-->
+
+    <div id='modal-settings' class='settingsModal modal'>
+      <a href='#wrapper' class='modal__area'></a>
+      <div class='settingsModal__body modal__body'>
+        <div class='settingsModal__content modal__content'>
+          <a href='#' class='modal__close'>&#10006;</a>
+          <div class='settingsModal__block'>
+            <span class='settingsModal__content_title modal__title'>SETTINGS</span>
+            <div class='input'>
+              <div class='input__block'>
+                <label for='newLogin'>Login</label>
+                <input type='text' name='newLogin' id='newLogin' data-placeholder='newLogin'
+                       class='settingsModal__block_newLogin' data-clear='clear'>
+              </div>
+              <div class='input__block'>
+                <label for='newPassword'>Current password</label>
+                <input id='newPassword' class='settingsModal__block_newPassword' type='password'
+                       name='newPassword' data-clear='clear'>
+              </div>
+              <div class='input__block'>
+                <label for='repeatPassword'>New password</label>
+                <input id='repeatPassword' class='settingsModal__block_repeatPassword'
+                       type='password' name='repeatPassword' data-show='password'
+                       data-clear='clear'>
+              </div>
             </div>
-            <div class="main__container_search">
-                <label class="main__container_search_label" for="search">Search: First name</label>
-                <input name="searchFname" class="main__container_search_input" id="search" placeholder="Search Fname..."
-                       type="text">
-                <button class="main__container_search_submit" type="submit">
-<!--                    //<img src="../src/assets/img/icons/search.png" alt="search" class="main__container_search_img">-->
-                </button>
-            </div>
+          </div>
+          <div class='settingsModal__buttons'>
+            <button id='settingsModal__blockConfirm' type='button'
+                    class='settingsModal__buttons_confirm modal__btn'>CONFIRM
+            </button>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <!--        modal-->
-
-        <div id="modal-settings" class="settingsModal modal">
-            <a href="#wrapper" class="modal__area"></a>
-            <div class="settingsModal__body modal__body">
-                <div class="settingsModal__content modal__content">
-                    <a href="#" class="modal__close">&#10006;</a>
-                    <span class="settingsModal__content_title modal__title">SETTINGS</span>
-                    <div class="settingsModal__block">
-                        <label for="newLogin">Login</label>
-                        <input type="text" name="newLogin" id="newLogin" data-placeholder="newLogin"
-                               class="settingsModal__block_newLogin" data-clear="clear">
-                        <label for="newPassword">Current password</label>
-                        <input type="password" name="newPassword" id="newPassword"
-                               data-placeholder="newPassword" placeholder="New password"
-                               class="settingsModal__block_newPassword" data-clear="clear" data-show="password">
-                        <span toggle="#newPassword"class="field-icon">&#128065;</span>
-                        <label for="repeatPassword">New password</label>
-                        <input type="password" name="repeatPassword" id="repeatPassword" data-placeholder="repeatPassword" placeholder="Repeat password"
-                               class="settingsModal__block_repeatPassword" data-clear="clear"
-                               data-show="password">
-                        <span toggle="#repeatPassword"class="field-icon">&#128065;</span>
-                    </div>
-                    <div class="settingsModal__buttons">
-                        <button id="settingsModal__blockConfirm" type="button" class="settingsModal__buttons_confirm">CONFIRM</button>
-                        <button id="settingsModal__buttons_cancel" type="button" class="modal__close-btn">CANCEL</button>
-                    </div>
-                </div>
+    <div class='modal' id='modal-create'>
+      <a href='#wrapper' class='modal__area'></a>
+      <div class='createModal__body modal__body'>
+        <div class='createModal__content modal__content'>
+          <a href='#' class='modal__close'>&#10006;</a>
+          <div class='createModal__content_title modal__title'>CREATE</div>
+          <div class='createModal__content_input'>
+            <div class='input'>
+              <div class='input__block'>
+                <label for='firstName'>First Name</label>
+                <input type='text' name='firstName' id='firstName' data-placeholder='firstName'
+                       class='createModal__content_input_firstName' data-clear='clear'>
+              </div>
+              <div class='input__block'>
+                <label for='lastName'>Last Name</label>
+                <input type='text' name='lastName' id='lastName' data-placeholder='lastName'
+                       class='createModal__content_input_lastName' data-clear='clear'>
+              </div>
+              <div class='input__block'>
+                <label for='age'>Age</label>
+                <input type='text' name='age' id='age' data-placeholder='age'
+                       class='createModal__content_input_age' data-clear='clear'>
+              </div>
+              <div class='input__block'>
+                <label for='city'>City</label>
+                <input type='text' name='city' id='city' data-placeholder='city'
+                       class='createModal__content_input_city' data-clear='clear'>
+              </div>
             </div>
-        </div>
+            <div class='input'>
+              <div class='input__block'>
+                <label for='phone'>Phone</label>
+                <input type='text' name='phone' id='phone' data-placeholder='phone'
+                       class='createModal__content_input_phone' data-clear='clear'>
+              </div>
+              <div class='input__block'>
+                <label for='email'>Email</label>
+                <input type='text' name='email' id='email' data-placeholder='email'
+                       class='createModal__content_input_email' data-clear='clear'>
+              </div>
+              <div class='input__block'>
+                <label for='company'>Company</label>
+                <input type='text' name='company' id='company' data-placeholder='company'
+                       class='createModal__content_input_company' data-clear='clear'>
+              </div>
+              <button class='createModal__content_button modal__btn' type='submit'>Confirm</button>
 
-        <div class="modal" id="modal-create">
-            <a href="#wrapper" class="modal__area"></a>
-            <div class="createModal__body modal__body">
-                <div class="createModal__content modal__content">
-                    <a href="#" class="modal__close">&#10006;</a>
-                    <div class="createModal__content_title">CREATE</div>
-                    <div class="createModal__content_input">
-                        <label for="firstName">First Name</label>
-                        <input type="text" name="firstName" id="firstName" data-placeholder="firstName"
-                               class="createModal__content_input_firstName" data-clear="clear">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" name="lastName" id="lastName" data-placeholder="lastName"
-                               class="createModal__content_input_lastName" data-clear="clear">
-                        <label for="age">Age</label>
-                        <input type="text" name="age" id="age" data-placeholder="age"
-                               class="createModal__content_input_age" data-clear="clear">
-                        <label for="city">City</label>
-                        <input type="text" name="city" id="city" data-placeholder="city"
-                               class="createModal__content_input_city" data-clear="clear">
-                        <label for="phone">Phone</label>
-                        <input type="text" name="phone" id="phone" data-placeholder="phone"
-                               class="createModal__content_input_phone" data-clear="clear">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" data-placeholder="email"
-                        class="createModal__content_input_email" data-clear="clear">
-                        <label for="company">Company</label>
-                        <input type="text" name="company" id="company" data-placeholder="company"
-                               class="createModal__content_input_company" data-clear="clear">
-                    </div>
-                    <button class="createModal__content_button" type="submit">Confirm</button>
-
-                </div>
             </div>
-        </div>
+          </div>
 
-        <div class="clearAllModal modal" id="modal-clear">
-            <a href="#wrapper" class="modal__area"></a>
-            <div class="clearAllModal__body modal__body">
-                <div class="clearAllModal__content modal__content">
-                    <a href="#" class="modal__close">&#10006;</a>
-                    <div class="clearAllModal__content_title modal__title">CLEAR ALL</div>
-                    <div class="clearAllModal__content_buttons">
-                        <button type="">YES</button>
-                        <button class="modal__close-btn" type="">NO</button>
-                    </div>
-                </div>
-            </div>
         </div>
+      </div>
+    </div>
 
-</main>
+    <div class='clearAllModal modal' id='modal-clear'>
+      <a href='#wrapper' class='modal__area'></a>
+      <div class='clearAllModal__body modal__body'>
+        <div class='clearAllModal__content modal__content'>
+          <a href='#' class='modal__close'>&#10006;</a>
+          <div class='clearAllModal__content_title modal__title'>CLEAR ALL</div>
+          <div class='clearAllModal__content_buttons'>
+            <button class='modal__btn' type=''>YES</button>
+            <button class='modal__btn' type=''>NO</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
 </div>
 <script>
 
   const openModal = document.querySelectorAll('.modal__open');
 
-  openModal.forEach(function (button) {
-    button.addEventListener("click", (event) => {
+  openModal.forEach(function(button) {
+    button.addEventListener('click', (event) => {
       const modalTarget = event.target.dataset.modal;
       openAndClose(modalTarget);
     });
   });
 
-  function openAndClose(modalId){
+  function openAndClose(modalId) {
     const modalActive = document.getElementById(modalId);
     const closeModal = modalActive.querySelector('.modal__close');
-    const modalArea = modalActive.querySelector('.modal__area')
+    const modalArea = modalActive.querySelector('.modal__area');
     const btnCancel = modalActive.querySelector('.modal__close-btn');
 
     modalActive.classList.add('active');
@@ -158,13 +189,13 @@
       });
     }
 
-    if(modalArea) {
+    if (modalArea) {
       modalArea.addEventListener('click', () => {
         modalActive.classList.remove('active');
       });
     }
 
-    if(btnCancel) {
+    if (btnCancel) {
       btnCancel.addEventListener('click', () => {
         modalActive.classList.remove('active');
       });
@@ -174,20 +205,20 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     themeHandler();
-  })
+  });
 
 
   function themeHandler() {
     const body = document.getElementById('body');
     const selectedTheme = document.getElementById('select-theme');
-    const localStorageTheme = localStorage.getItem('selected-theme') || 'dark';
+    const localStorageTheme = localStorage.getItem('selected-theme') || 'light';
 
     selectedTheme.value = localStorageTheme;
     setTheme(body, localStorageTheme);
 
     selectedTheme.addEventListener('change', () => {
       setTheme(body, selectedTheme.value);
-    })
+    });
   }
 
   function setTheme(rootElement, theme) {
