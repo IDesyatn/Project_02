@@ -22,33 +22,41 @@
 
             <div class="header__ability">
                 <select name="select-mode" class="header__ability-select" id="select-mode">
-                    <option value="value1" default>Dark</option>
-                    <option value="value2">Light</option>
+                    <option value="value1" id='them-1'>Dark</option>
+                    <option value="value2" id='them-2'>Light</option>
                 </select>
-                <select name="select-lang" class="header__ability-select">
-                    <option value="value1">English</option>
+                <select name="select-lang" class="header__ability-select" id="select-lang">
+                    <option value="value1" selected>English</option>
                     <option value="value2">Russian</option>
                 </select>
             </div>
         </header>
         <form class="box" id="box" action="" method="post">
-            <h1>Registration</h1>
-            <input type="text" class="text" placeholder="LOGIN" name="">
+            <h1 id='box__title'>Registration</h1>
+            <span class='box__title-1' id='box__title-1'>LOGIN</span>
+            <input type="text" class="text"  name="">
 
             <div class="box__pass">
-                <input type="password" class="pass" id="password-input" placeholder="PASSWORD" name="password">
+              <span class='box__pass-title-1' id='box__pass-title-1'>PASSWORD</span>
+                <input type="password" class="pass" id="password-input"  name="password">
                 <a href="#" class="checkbox"> <img id="img"
                         src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
             </div>
 
             <div class="box__pass">
-                <input type="password" class="pass" id="password-input2" placeholder="CONFIRM PASSWORD" name="password">
+              <span class='box__pass-title-2' id='box__pass-title-2'>CONFIRM PASSWORD</span>
+                <input type="password" class="pass" id="password-input2"  name="password">
                 <a href="#" class="checkbox" > <img id="img2"
                         src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
             </div>
 
-            <input type="submit" value="Register" name="">
-            <div>Already have an account? <a href="auth.html">Sign up.</a></div>
+            <input id='submit' type="submit" value="Register" name="">
+
+            <div class='notice'>
+              <div class="warning" id='warning'>Already have an account?</div>
+              <a href="login.html" class='warning-link' id='warning-link'>Sign up.</a>
+            </div>
+
         </form>
     </div>
 
