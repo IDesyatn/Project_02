@@ -167,3 +167,5 @@ app.setRoute(Methods.DELETE, '/main', (req, res) => {
 app.setRoute(Methods.DELETE, '/main/truncate', (req, res) => {
   // select request to users table
 });
+
+app.run();
