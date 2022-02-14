@@ -36,8 +36,8 @@
           <button data-modal='modal-create' class='control-panel__create modal__open' id='create'>
             Create
           </button>
-          <button class='control-panel__update' id='update' type=''>Update</button>
-          <button class='control-panel__delete' id='delete' type=''>Delete</button>
+          <button class='control-panel__update' id='update'>Update</button>
+          <button data-modal='modal-delete' class='control-panel__delete modal__open' id='delete'>Delete</button>
           <button data-modal='modal-clear' class='control-panel__clear modal__open' id='clear'>Clear
             All
           </button>
@@ -53,7 +53,6 @@
                placeholder='Search Fname...'
                type='text'>
         <button class='main__container_search_submit' type='submit'>
-          <!--                    //<img src="../src/assets/img/icons/search.png" alt="search" class="main__container_search_img">-->
         </button>
       </div>
     </div>
@@ -89,6 +88,9 @@
           <div class='settingsModal__buttons'>
             <button id='settingsModal__blockConfirm' type='button'
                     class='settingsModal__buttons_confirm modal__btn'>CONFIRM
+            </button>
+            <button id='settingsModal__blockCancel' type='button'
+                    class='settingsModal__buttons_confirm modal__btn modal__close-btn'>CANCEL
             </button>
           </div>
         </div>
@@ -140,7 +142,10 @@
                 <input type='text' name='company' id='company' data-placeholder='company'
                        class='createModal__content_input_company' data-clear='clear'>
               </div>
-              <button class='createModal__content_button modal__btn' type='submit'>Confirm</button>
+              <div class='createModal__content_button'>
+                <button class='createModal__content_button-confirm modal__btn' type='submit'>Confirm</button>
+                <button class='createModal__content_button-cancel modal__btn modal__close-btn' type='submit'>Cancel</button>
+              </div>
 
             </div>
           </div>
@@ -158,6 +163,21 @@
           <div class='clearAllModal__content_buttons'>
             <button class='modal__btn' type=''>YES</button>
             <button class='modal__btn modal__close-btn' type=''>NO</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='deleteModal modal' id='modal-delete'>
+      <a href='#wrapper' class='modal__area'></a>
+      <div class='deleteModal__body modal__body'>
+        <div class='deleteModal__content modal__content'>
+          <a href='#' class='modal__close'>&#10006;</a>
+          <div class='deleteModal__content_title modal__title'>DELETE</div>
+          <span>Do you want to delete the selected row in the table?</span>
+          <div class='deleteModal__content_buttons'>
+            <button class='modal__btn' type=''>YES</button>
+            <button class='modal__btn modal__close-btn'>NO</button>
           </div>
         </div>
       </div>

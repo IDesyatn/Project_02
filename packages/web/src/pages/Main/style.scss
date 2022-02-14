@@ -126,12 +126,13 @@ body {
 
     &__container {
       &_control-panel {
-        @extend %message-shared;
+        display: flex;
         justify-content: space-between;
 
         &-buttons {
           flex: 1 1 auto;
           display: flex;
+          flex-wrap: wrap;
           justify-content: space-between;
           margin-right: 20px;
           max-width: 863px;
@@ -274,7 +275,7 @@ body {
         border: none;
         background: $d-modal-btn-bg;
         color: $d-main-color;
-        margin: 0 30px;
+        margin: 0 10px;
         font-size: 18px;
         align-items: center;
         text-align: center;
@@ -292,6 +293,7 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        align-items: center;
 
         .input {
           padding: 20px;
@@ -304,7 +306,7 @@ body {
             input {
               background: rgba(21, 20, 20, 0.4);
               border: none;
-              width: 251px;
+              width: 320px;
               height: 35px;
               color: $d-main-color;
               font-size: 18px;
@@ -322,9 +324,10 @@ body {
           }
         }
       }
-
       &__buttons {
-        margin-left: 65px;
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
       }
     }
 
@@ -334,6 +337,21 @@ body {
 
         &_title {
           margin-bottom: 40px;
+        }
+      }
+    }
+
+    .deleteModal {
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 194px;
+
+        span {
+          margin: 20px 0 30px 0;
         }
       }
     }
@@ -377,15 +395,23 @@ body {
       }
 
       &_button {
+        display: flex;
+        justify-content: space-between;
         position: relative;
-        left: 34px;
-        top: 40px;
-        height: 44px;
-        width: 166px;
-        background: #00000080;
+        top: 22px;
+        flex-direction: column;
+        align-items: center;
+        height: 115px;
 
-        &:hover {
-          background: linear-gradient(180deg, rgba(92, 97, 103, 0.7) 0%, rgba(0, 0, 0, 0.7) 83.33%);
+        &-confirm,
+        &-cancel {
+          height: 44px;
+          width: 166px;
+          background: #00000080;
+
+          &:hover {
+            background: linear-gradient(180deg, rgba(92, 97, 103, 0.7) 0%, rgba(0, 0, 0, 0.7) 83.33%);
+          }
         }
       }
     }
