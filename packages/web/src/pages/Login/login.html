@@ -22,9 +22,9 @@
         </div>
 
         <div class="header__ability">
-          <select onchange="mode()" name="select-mode" class="header__ability-select" id="select-mode">
-            <option value="value1" default>Dark</option>
-            <option value="value2">Light</option>
+          <select  name="select-mode" class="header__ability-select" id="select-mode">
+            <option value="value1" >Dark</option>
+            <option value="value2" default>Light</option>
           </select>
           <select name="select-lang" class="header__ability-select">
             <option value="value1">English</option>
@@ -37,7 +37,7 @@
             <input type="text" class="text" placeholder="Username" name="">
             <div class="box__pass">
                 <input type="password" class="pass" id="password-input" placeholder="Password" name="password">
-                <a href="#" class="checkbox" onclick="showPass()"> <img id="img"
+                <a href="#" class="checkbox" > <img id="img"
                         src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
             </div>
             <input type="submit" value="Log in" name="">
@@ -45,37 +45,6 @@
         </form>
     </div>
 
-
-    <script>
-        function showPass() {
-            let x = document.getElementById("password-input");
-            let y = document.getElementById("img");
-            if (x.type === "password") {
-                x.type = "text";
-                y.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
-
-            } else {
-                x.type = "password";
-                y.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
-            }
-        }
-
-        function mode() {
-            const a = document.getElementById('select-mode').selectedIndex;
-            const b = document.getElementById('box')
-            const c = document.getElementById('container')
-
-            if (a === 1) {
-                b.classList.add("ligth");
-                c.classList.add("ligth-container");
-            } else {
-                b.classList.remove("ligth");
-                c.classList.remove("ligth-container");
-            }
-
-        }
-
-    </script>
 
 </body>
 
