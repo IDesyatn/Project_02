@@ -34,13 +34,15 @@
       </header>
         <form class="box" id="box" action="" method="post">
             <h1>Login</h1>
-            <input type="text" class="text" placeholder="Username" name="">
+            <input type="text" id="login-input" class="text" placeholder="Username" name="">
+            <p class="login-message" id='login-message'></p>
             <div class="box__pass">
                 <input type="password" class="pass" id="password-input" placeholder="Password" name="password">
                 <a href="#" class="checkbox" > <img id="img"
                         src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
             </div>
-            <input type="submit" value="Log in" name="">
+            <p class="password-message" id='password-message'></p>
+            <input id="login-button" type="submit" value="Log in" name="" disabled>
             <div class="warning">Already have an account?<a href="registration.html"> Sign in.</a></div>
         </form>
     </div>
