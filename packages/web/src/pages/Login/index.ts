@@ -1,16 +1,43 @@
 import "./style.scss"
+import {showPass, mode, loginValidation,validateStatusCheck,passwordValidation} from "./logic" 
 
+const buttonEye = document.getElementById('img');
+const dropdaunTheme = document.getElementById('select-mode');
 
-//выбивает ошибку при сборке вебпака
-/*console.log('login23423423423423')
+buttonEye.addEventListener('click', event => {
+    showPass()
+});
 
-class Test{
-    private test1: any;
-    private test2: any;
-    constructor(test1,test2) {
-        this.test1 = test1;
-        this.test2 = test2;
-    }
+dropdaunTheme.addEventListener('change', event => {
+    mode();
+});
+
+function addListener(id, eventType, callback) {
+  const node = document.getElementById(id);
+  if (node) {
+    node.addEventListener(eventType, callback);
+    return true;
+  }
+  return false;
 }
 
-console.log(Test)*/
+function init() {
+    const state = {
+        url: '/login',
+        validateStatus: [false, false],
+    };
+
+    addListener('login-input', 'input', () => {
+        loginValidation.call(null, state);
+        validateStatusCheck.call(null, state);
+    });
+    addListener('password-input', 'input', () => {
+        passwordValidation.call(null, state);
+        validateStatusCheck.call(null, state);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  init();
+});
+

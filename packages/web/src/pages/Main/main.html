@@ -214,43 +214,6 @@
 </div>
 
 <script>
-
-  const openModal = document.querySelectorAll(".modal__open");
-
-  openModal.forEach(function(button) {
-    button.addEventListener("click", (event) => {
-      const modalTarget = event.target.dataset.modal;
-      openAndClose(modalTarget);
-    });
-  });
-
-  function openAndClose(modalId) {
-    const modalActive = document.getElementById(modalId);
-    const closeModal = modalActive.querySelector(".modal__close");
-    const modalArea = modalActive.querySelector(".modal__area");
-    const btnCancel = modalActive.querySelector(".modal__close-btn");
-
-    modalActive.classList.add("active");
-    if (closeModal) {
-      closeModal.addEventListener("click", () => {
-        modalActive.classList.remove("active");
-      });
-    }
-
-    if (modalArea) {
-      modalArea.addEventListener("click", () => {
-        modalActive.classList.remove("active");
-      });
-    }
-
-    if (btnCancel) {
-      btnCancel.addEventListener("click", () => {
-        modalActive.classList.remove("active");
-      });
-    }
-  }
-</script>
-<script>
   document.addEventListener("DOMContentLoaded", () => {
     themeHandler();
   });

@@ -5,7 +5,9 @@ import { Methods } from './Methods';
 export class App {
   private app: Application = express();
 
-  private PORT: number = Number.parseInt(process.env.PORT, 10) || 3000;
+  private port: number = Number.parseInt(process.env.PORT, 10) || 3000;
+
+  private hostname: string = process.env.HOSTNAME;
 
   public setStatic = (directory: string): void => {
     this.app.use(express.static(path.resolve(__dirname, directory)));
@@ -25,5 +27,11 @@ export class App {
 
   public setMiddleware = (middleware): void => {
     this.app.use(middleware);
+  };
+
+  public run = () => {
+    this.app.listen(this.port, this.hostname, (): void => {
+      console.log(`Server is ran on host: ${this.hostname} port: ${this.port}`);
+    });
   };
 }

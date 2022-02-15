@@ -21,7 +21,7 @@
             </div>
 
             <div class="header__ability">
-                <select onchange="mode()" name="select-mode" class="header__ability-select" id="select-mode">
+                <select name="select-mode" class="header__ability-select" id="select-mode">
                     <option value="value1" default>Dark</option>
                     <option value="value2">Light</option>
                 </select>
@@ -37,13 +37,13 @@
 
             <div class="box__pass">
                 <input type="password" class="pass" id="password-input" placeholder="PASSWORD" name="password">
-                <a href="#" class="checkbox" onclick="showPass()"> <img id="img"
+                <a href="#" class="checkbox"> <img id="img"
                         src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
             </div>
 
             <div class="box__pass">
                 <input type="password" class="pass" id="password-input2" placeholder="CONFIRM PASSWORD" name="password">
-                <a href="#" class="checkbox" onclick="showPass2()"> <img id="img2"
+                <a href="#" class="checkbox" > <img id="img2"
                         src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
             </div>
 
@@ -51,50 +51,6 @@
             <div>Already have an account? <a href="auth.html">Sign up.</a></div>
         </form>
     </div>
-
-    <script>
-        function showPass() {
-            let x = document.getElementById("password-input");
-            let y = document.getElementById("img");
-            if (x.type === "password") {
-                x.type = "text";
-                y.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
-
-            } else {
-                x.type = "password";
-                y.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
-            }
-        }
-
-        function showPass2() {
-            let x = document.getElementById("password-input2");
-            let y = document.getElementById("img2");
-            if (x.type === "password") {
-                x.type = "text";
-                y.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
-            } else {
-                x.type = "password";
-                y.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
-            }
-        }
-
-        function mode() {
-            const a = document.getElementById('select-mode').selectedIndex;
-            const b = document.getElementById('box')
-            const c = document.getElementById('container')
-
-            if (a === 1) {
-                b.classList.add("ligth");
-                c.classList.add("ligth-container");
-            } else {
-                b.classList.remove("ligth");
-                c.classList.remove("ligth-container");
-            }
-
-        }
-
-
-    </script>
 
 </body>
 
