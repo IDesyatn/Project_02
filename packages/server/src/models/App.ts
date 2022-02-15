@@ -1,6 +1,6 @@
 import express, { Application, RequestHandler } from 'express';
 import path from 'path';
-import { Methods } from './Methods';
+import { Methods } from '../enums/Methods';
 
 export class App {
   private app: Application = express();
