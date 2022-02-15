@@ -1,5 +1,5 @@
 import "./style.scss"
-import {showPass, mode, loginValidation,validateStatusCheck,passwordValidation} from "./logic" 
+import {loginValidation,validateStatusCheck,passwordValidation} from "./logic" 
 
 const buttonEye = document.getElementById('img');
 const dropdaunTheme = document.getElementById('select-mode');
@@ -45,7 +45,7 @@ function mode() {
 
 
 
-changeLange.onchange = function(){
+/*changeLange.onchange = function(){
   if (changeLange[1].selected === true){
     document.getElementById('box__title').innerText = 'Вход';
     document.getElementById('them-1').innerText = 'Темная';
@@ -70,7 +70,7 @@ changeLange.onchange = function(){
     document.getElementById('box__pass-title-2').innerText = 'CONFIRM PASSWORD';
   }
 
-}
+}*/
 
 function addListener(id, eventType, callback) {
   const node = document.getElementById(id);
