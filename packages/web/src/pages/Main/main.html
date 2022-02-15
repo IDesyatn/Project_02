@@ -1,150 +1,177 @@
 <!doctype html>
-<html lang='en'>
+<html lang="en">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport'
-        content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>TeamProject_02</title>
 </head>
-<body id='body' class='theme-light'>
-<div id='wrapper' class='wrapper'>
-  <header class='header'>
-    <div class='header__container container'>
-      <div class='header__logo'>
-        <span class='header__team-name'>Fantastic Five</span>
+<body id="body" class="theme-light">
+<div id="wrapper" class="wrapper">
+  <header class="header">
+    <div class="header__container container">
+      <div class="header__logo">
+        <span class="header__team-name">Fantastic Five</span>
       </div>
-      <div class='header__menu'>
-        <select name='SelectLanguage' class='header__menu_select'>
-          <option value='en' class='english'>English</option>
-          <option value='ru' class='russian'>Russian</option>
+      <div class="header__menu">
+        <select name="language" id="select-language" class="header__menu_select">
+          <option value="english" class="english" data-translate="english">English</option>
+          <option value="russian" class="russian" data-translate="russian">Russian</option>
         </select>
-        <select name='theme' id='select-theme' class='header__menu_select'>
-          <option value='light' data-translate='light'>Light</option>
-          <option value='dark' data-translate='Dark'>Dark</option>
+        <select name="theme" id="select-theme" class="header__menu_select">
+          <option value="light" data-translate="light">Light</option>
+          <option value="dark" data-translate="dark">Dark</option>
         </select>
-        <button data-modal='modal-settings' class='header__menu_settings modal__open'>Settings
+        <button data-modal="modal-settings" class="header__menu_settings modal__open" data-translate="settings">Settings
         </button>
-        <button class='header__menu_logout'>Logout</button>
+        <button class="header__menu_logout" data-translate="logout">Logout</button>
       </div>
     </div>
   </header>
-  <main class='main'>
-    <div class='main__container'>
-      <div class='main__container_control-panel control-panel'>
-        <div class='main__container_control-panel-buttons'>
-          <button data-modal='modal-create' class='control-panel__create modal__open' id='create'>
+  <main class="main">
+    <div class="main__container">
+      <div class="main__container_control-panel control-panel">
+        <div class="main__container_control-panel-buttons">
+          <button data-modal="modal-create" class="control-panel__create modal__open" id="create" data-translate="create">
             Create
           </button>
-          <button class='control-panel__update' id='update'>Update</button>
-          <button data-modal='modal-delete' class='control-panel__delete modal__open' id='delete'>Delete</button>
-          <button data-modal='modal-clear' class='control-panel__clear modal__open' id='clear'>Clear
-            All
+          <button class="control-panel__update" id="update" data-translate="update">Update</button>
+          <button data-modal="modal-delete" class="control-panel__delete modal__open" id="delete" data-translate="delete">
+            Delete
           </button>
+          <button data-modal="modal-clear" class="control-panel__clear modal__open" id="clear" data-translate="clearAll">Clear All</button>
         </div>
-        <select name='DataBase' class=''>
-          <option value='MySQL' class='' selected>MySQL</option>
-          <option value='MongoDB' class=''>MongoDB</option>
+        <select name="DataBase" class="">
+          <option value="MySQL" class="" selected>MySQL</option>
+          <option value="MongoDB" class="">MongoDB</option>
         </select>
       </div>
-      <div class='main__container_search'>
-        <label class='main__container_search_label' for='search'>Search: First name</label>
-        <input name='searchFname' class='main__container_search_input' id='search'
-               placeholder='Search Fname...'
-               type='text'>
-        <button class='main__container_search_submit' type='submit'>
+      <div class="main__container_search">
+        <label class="main__container_search_label" for="search" data-translate="searchFName">Search: First name</label>
+        <input name="searchFname" class="main__container_search_input" id="search"
+               placeholder="Search Fname..."
+               type="text" data-placeholder="searchFirstName">
+        <button class="main__container_search_submit" type="submit">
         </button>
       </div>
+
+      <table id="table" class="table">
+        <thead class="table__header">
+        <tr class="table__header-tr tr">
+          <th class="tr-id"><span>Id</span></th>
+          <th class="tr-fname"><span data-translate="firstName">First name</span></th>
+          <th class="tr-lname"><span data-translate="lastName">Last name</span></th>
+          <th class="tr-age"><span data-translate="age">Age</span></th>
+          <th class="tr-phone"><span data-translate="phone">Phone</span></th>
+          <th class="tr-city"><span data-translate="city">City</span></th>
+          <th class="tr-email"><span data-translate="email">Email</span></th>
+          <th class="tr-company"><span data-translate="company">Company</span></th>
+        </tr>
+        </thead>
+        <tbody id="tbody" class="table__body">
+        <tr>
+          <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+          <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        </tbody>
+      </table>
     </div>
 
     <!--        modal-->
 
-    <div id='modal-settings' class='settingsModal modal'>
-      <a href='#wrapper' class='modal__area'></a>
-      <div class='settingsModal__body modal__body'>
-        <div class='settingsModal__content modal__content'>
-          <a href='#' class='modal__close'>&#10006;</a>
-          <div class='settingsModal__block'>
-            <span class='settingsModal__content_title modal__title'>SETTINGS</span>
-            <div class='input'>
-              <div class='input__block'>
-                <label for='newLogin'>Login</label>
-                <input type='text' name='newLogin' id='newLogin' data-placeholder='newLogin'
-                       class='settingsModal__block_newLogin' data-clear='clear'>
+    <div id="modal-settings" class="settingsModal modal">
+      <a href="#wrapper" class="modal__area"></a>
+      <div class="settingsModal__body modal__body">
+        <div class="settingsModal__content modal__content">
+          <a href="#" class="modal__close">&#10006;</a>
+          <div class="settingsModal__block">
+            <span class="settingsModal__content_title modal__title" data-translate="settingsM">SETTINGS</span>
+            <div class="input">
+              <div class="input__block">
+                <label for="newLogin" data-translate="login">Login</label>
+                <input type="text" name="newLogin" id="newLogin"
+                       class="settingsModal__block_newLogin" data-clear="clear">
               </div>
-              <div class='input__block'>
-                <label for='newPassword'>Current password</label>
-                <input id='newPassword' class='settingsModal__block_newPassword' type='password'
-                       name='newPassword' data-clear='clear'>
+              <div class="input__block">
+                <label for="newPassword" data-translate="currentPassword">Current password</label>
+                <input id="newPassword" class="settingsModal__block_newPassword" type="password"
+                       name="newPassword" data-clear="clear">
               </div>
-              <div class='input__block'>
-                <label for='repeatPassword'>New password</label>
-                <input id='repeatPassword' class='settingsModal__block_repeatPassword'
-                       type='password' name='repeatPassword' data-show='password'
-                       data-clear='clear'>
+              <div class="input__block">
+                <label for="repeatPassword" data-translate="newPassword">New password</label>
+                <input id="repeatPassword" class="settingsModal__block_repeatPassword"
+                       type="password" name="repeatPassword" data-show="password"
+                       data-clear="clear">
               </div>
             </div>
           </div>
-          <div class='settingsModal__buttons'>
-            <button id='settingsModal__blockConfirm' type='button'
-                    class='settingsModal__buttons_confirm modal__btn'>CONFIRM
+          <div class="settingsModal__buttons">
+            <button id="settingsModal__blockConfirm" type="button"
+                    class="settingsModal__buttons_confirm modal__btn" data-translate="confirm">CONFIRM
             </button>
-            <button id='settingsModal__blockCancel' type='button'
-                    class='settingsModal__buttons_confirm modal__btn modal__close-btn'>CANCEL
+            <button id="settingsModal__blockCancel" type="button"
+                    class="settingsModal__buttons_confirm modal__btn modal__close-btn" data-translate="cancel">CANCEL
             </button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class='modal' id='modal-create'>
-      <a href='#wrapper' class='modal__area'></a>
-      <div class='createModal__body modal__body'>
-        <div class='createModal__content modal__content'>
-          <a href='#' class='modal__close'>&#10006;</a>
-          <div class='createModal__content_title modal__title'>CREATE</div>
-          <div class='createModal__content_input'>
-            <div class='input'>
-              <div class='input__block'>
-                <label for='firstName'>First Name</label>
-                <input type='text' name='firstName' id='firstName' data-placeholder='firstName'
-                       class='createModal__content_input_firstName' data-clear='clear'>
+    <div class="modal" id="modal-create">
+      <a href="#wrapper" class="modal__area"></a>
+      <div class="createModal__body modal__body">
+        <div class="createModal__content modal__content">
+          <a href="#" class="modal__close">&#10006;</a>
+          <div class="createModal__content_title modal__title" data-translate="create">CREATE</div>
+          <div class="createModal__content_input">
+            <div class="input">
+              <div class="input__block">
+                <label for="firstName" data-translate="firstName">First Name</label>
+                <input type="text" name="firstName" id="firstName"
+                       class="createModal__content_input_firstName" data-clear="clear">
               </div>
-              <div class='input__block'>
-                <label for='lastName'>Last Name</label>
-                <input type='text' name='lastName' id='lastName' data-placeholder='lastName'
-                       class='createModal__content_input_lastName' data-clear='clear'>
+              <div class="input__block">
+                <label for="lastName" data-translate="lastName">Last Name</label>
+                <input type="text" name="lastName" id="lastName"
+                       class="createModal__content_input_lastName" data-clear="clear">
               </div>
-              <div class='input__block'>
-                <label for='age'>Age</label>
-                <input type='text' name='age' id='age' data-placeholder='age'
-                       class='createModal__content_input_age' data-clear='clear'>
+              <div class="input__block">
+                <label for="age" data-translate="age">Age</label>
+                <input type="text" name="age" id="age"
+                       class="createModal__content_input_age" data-clear="clear">
               </div>
-              <div class='input__block'>
-                <label for='city'>City</label>
-                <input type='text' name='city' id='city' data-placeholder='city'
-                       class='createModal__content_input_city' data-clear='clear'>
+              <div class="input__block">
+                <label for="city" data-translate="city">City</label>
+                <input type="text" name="city" id="city"
+                       class="createModal__content_input_city" data-clear="clear">
               </div>
             </div>
-            <div class='input'>
-              <div class='input__block'>
-                <label for='phone'>Phone</label>
-                <input type='text' name='phone' id='phone' data-placeholder='phone'
-                       class='createModal__content_input_phone' data-clear='clear'>
+            <div class="input">
+              <div class="input__block">
+                <label for="phone" data-translate="phone">Phone</label>
+                <input type="text" name="phone" id="phone"
+                       class="createModal__content_input_phone" data-clear="clear">
               </div>
-              <div class='input__block'>
-                <label for='email'>Email</label>
-                <input type='text' name='email' id='email' data-placeholder='email'
-                       class='createModal__content_input_email' data-clear='clear'>
+              <div class="input__block">
+                <label for="email" data-translate="email">Email</label>
+                <input type="text" name="email" id="email"
+                       class="createModal__content_input_email" data-clear="clear">
               </div>
-              <div class='input__block'>
-                <label for='company'>Company</label>
-                <input type='text' name='company' id='company' data-placeholder='company'
-                       class='createModal__content_input_company' data-clear='clear'>
+              <div class="input__block">
+                <label for="company" data-translate="company">Company</label>
+                <input type="text" name="company" id="company"
+                       class="createModal__content_input_company" data-clear="clear">
               </div>
-              <div class='createModal__content_button'>
-                <button class='createModal__content_button-confirm modal__btn' type='submit'>Confirm</button>
-                <button class='createModal__content_button-cancel modal__btn modal__close-btn' type='submit'>Cancel</button>
+              <div class="createModal__content_button">
+                <button class="createModal__content_button-confirm modal__btn" type="submit" data-translate="confirm">
+                  Confirm
+                </button>
+                <button class="createModal__content_button-cancel modal__btn modal__close-btn"
+                        type="submit" data-translate="cancel">Cancel
+                </button>
               </div>
 
             </div>
@@ -154,30 +181,30 @@
       </div>
     </div>
 
-    <div class='clearAllModal modal' id='modal-clear'>
-      <a href='#wrapper' class='modal__area'></a>
-      <div class='clearAllModal__body modal__body'>
-        <div class='clearAllModal__content modal__content'>
-          <a href='#' class='modal__close'>&#10006;</a>
-          <div class='clearAllModal__content_title modal__title'>CLEAR ALL</div>
-          <div class='clearAllModal__content_buttons'>
-            <button class='modal__btn' type=''>YES</button>
-            <button class='modal__btn modal__close-btn' type=''>NO</button>
+    <div class="clearAllModal modal" id="modal-clear">
+      <a href="#wrapper" class="modal__area"></a>
+      <div class="clearAllModal__body modal__body">
+        <div class="clearAllModal__content modal__content">
+          <a href="#" class="modal__close">&#10006;</a>
+          <div class="clearAllModal__content_title modal__title" data-translate="clearAll">CLEAR ALL</div>
+          <div class="clearAllModal__content_buttons">
+            <button class="modal__btn" data-translate="yes">YES</button>
+            <button class="modal__btn modal__close-btn" data-translate="no">NO</button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class='deleteModal modal' id='modal-delete'>
-      <a href='#wrapper' class='modal__area'></a>
-      <div class='deleteModal__body modal__body'>
-        <div class='deleteModal__content modal__content'>
-          <a href='#' class='modal__close'>&#10006;</a>
-          <div class='deleteModal__content_title modal__title'>DELETE</div>
-          <span>Do you want to delete the selected row in the table?</span>
-          <div class='deleteModal__content_buttons'>
-            <button class='modal__btn' type=''>YES</button>
-            <button class='modal__btn modal__close-btn'>NO</button>
+    <div class="deleteModal modal" id="modal-delete">
+      <a href="#wrapper" class="modal__area"></a>
+      <div class="deleteModal__body modal__body">
+        <div class="deleteModal__content modal__content">
+          <a href="#" class="modal__close">&#10006;</a>
+          <div class="deleteModal__content_title modal__title" data-translate="delete">DELETE</div>
+          <span data-translate="doYouWant">Do you want to delete the selected row in the table?</span>
+          <div class="deleteModal__content_buttons">
+            <button class="modal__btn" data-translate="yes">YES</button>
+            <button class="modal__btn modal__close-btn" data-translate="no">NO</button>
           </div>
         </div>
       </div>
@@ -185,12 +212,13 @@
 
   </main>
 </div>
+
 <script>
 
-  const openModal = document.querySelectorAll('.modal__open');
+  const openModal = document.querySelectorAll(".modal__open");
 
   openModal.forEach(function(button) {
-    button.addEventListener('click', (event) => {
+    button.addEventListener("click", (event) => {
       const modalTarget = event.target.dataset.modal;
       openAndClose(modalTarget);
     });
@@ -198,61 +226,185 @@
 
   function openAndClose(modalId) {
     const modalActive = document.getElementById(modalId);
-    const closeModal = modalActive.querySelector('.modal__close');
-    const modalArea = modalActive.querySelector('.modal__area');
-    const btnCancel = modalActive.querySelector('.modal__close-btn');
+    const closeModal = modalActive.querySelector(".modal__close");
+    const modalArea = modalActive.querySelector(".modal__area");
+    const btnCancel = modalActive.querySelector(".modal__close-btn");
 
-    modalActive.classList.add('active');
+    modalActive.classList.add("active");
     if (closeModal) {
-      closeModal.addEventListener('click', () => {
-        modalActive.classList.remove('active');
+      closeModal.addEventListener("click", () => {
+        modalActive.classList.remove("active");
       });
     }
 
     if (modalArea) {
-      modalArea.addEventListener('click', () => {
-        modalActive.classList.remove('active');
+      modalArea.addEventListener("click", () => {
+        modalActive.classList.remove("active");
       });
     }
 
     if (btnCancel) {
-      btnCancel.addEventListener('click', () => {
-        modalActive.classList.remove('active');
+      btnCancel.addEventListener("click", () => {
+        modalActive.classList.remove("active");
       });
     }
   }
 </script>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     themeHandler();
   });
 
 
   function themeHandler() {
-    const body = document.getElementById('body');
-    const selectedTheme = document.getElementById('select-theme');
-    const localStorageTheme = localStorage.getItem('selected-theme') || 'light';
+    const body = document.getElementById("body");
+    const selectedTheme = document.getElementById("select-theme");
+    const localStorageTheme = localStorage.getItem("selected-theme") || "light";
 
     selectedTheme.value = localStorageTheme;
     setTheme(body, localStorageTheme);
 
-    selectedTheme.addEventListener('change', () => {
+    selectedTheme.addEventListener("change", () => {
       setTheme(body, selectedTheme.value);
     });
   }
 
   function setTheme(rootElement, theme) {
-    const darkThemeClass = 'theme-dark';
-    const lightThemeClass = 'theme-light';
-    localStorage.setItem('selected-theme', theme);
+    const darkThemeClass = "theme-dark";
+    const lightThemeClass = "theme-light";
+    localStorage.setItem("selected-theme", theme);
     switch (theme) {
-      case 'dark':
+      case "dark":
         rootElement.className = `${darkThemeClass}`;
         break;
 
-      case 'light':
+      case "light":
         rootElement.className = `${lightThemeClass}`;
         break;
+    }
+  }
+
+  function selectedRow() {
+    const table = document.getElementById("table");
+    let index;
+
+    for (let i = 1; i < table.rows.length; i++) {
+
+      table.rows[i].onclick = function() {
+
+        if (typeof index !== "undefined") {
+          table.rows[index].classList.toggle("selectedRow");
+        }
+
+        index = this.rowIndex;
+        this.classList.toggle("selectedRow");
+      };
+    }
+  }
+  selectedRow();
+
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    languageHandle ();
+  });
+
+  function languageHandle () {
+    let selectedLanguage = document.getElementById('select-language');
+    const translateElements = document.querySelectorAll('[data-translate]');
+    const placeholderElements = document.querySelectorAll('[data-placeholder]');
+
+    const ruTranslations = {
+      firstName: `Имя`,
+      lastName: 'Фамилия',
+      age: 'Возраст',
+      city: 'Город',
+      phone: 'Телефон',
+      email: 'Електронная почта',
+      company: 'Компания',
+      create: 'Создать',
+      update: 'Изменить',
+      clearAll: 'Очистить все',
+      english: 'Англ',
+      russian: 'Рус',
+      light: 'Светлая',
+      dark: 'Тёмная',
+      settings: 'Настройки',
+      settingsM: 'НАСТРОЙКИ',
+      logout: 'Выйти',
+      confirm: 'Подтвердить',
+      searchFName: "Поиск: По имени",
+      searchFirstName: 'Поиск по имени...',
+      cancel: 'Отменить',
+      delete: 'Удалить',
+      currentPassword: 'Текущий пароль',
+      newPassword: 'Новый пароль',
+      yes: 'ДА',
+      no: 'НЕТ',
+      doYouWant: 'Вы хотите удалить выделеную строку таблицы?'
+    };
+    const enTranslations = {
+      firstName: 'First name',
+      lastName: 'Last name',
+      age: 'Age',
+      city: 'City',
+      phone: 'Phone',
+      email: 'Email',
+      company: 'Company',
+      create: 'Create',
+      update: 'Update',
+      delete: 'DELETE',
+      clearAll: 'Clear All',
+      english: 'English',
+      russian: 'Russian',
+      light: 'Light',
+      dark: 'Dark',
+      settings: 'Settings',
+      settingsM: 'SETTINGS',
+      logout: 'Logout',
+      confirm: 'CONFIRM',
+      cancel: 'CANCEL',
+      newLogin: 'Login',
+      yourPassword: 'Current password',
+      newPassword: 'New password',
+      searchFName: "Search: First name",
+      searchFirstName: 'Search Fname...',
+      yes: 'YES',
+      no: 'NO',
+      doYouWant: 'Do you want to delete the selected row in the table?'
+    };
+    const localStorageLanguage = localStorage.getItem('selected-language') || 'english';
+    selectedLanguage.value = localStorageLanguage;
+    setLanguage(localStorageLanguage);
+
+    selectedLanguage.addEventListener('change', (event) => {
+      setLanguage(selectedLanguage.value);
+    })
+
+    function setLanguage(lang) {
+      let translation = getTranslation(lang);
+      localStorage.setItem('selected-language', lang);
+
+      translateElements.forEach((el) => {
+        const translateKey = el.dataset.translate;
+        el.textContent = translation[translateKey];
+      });
+      placeholderElements.forEach((el) => {
+        const placeholderKey = el.dataset.placeholder;
+        el.placeholder =  translation[placeholderKey];
+      })
+    }
+
+    function getTranslation(lang) {
+      console.log(lang);
+      switch (lang) {
+        case 'russian':
+          return ruTranslations;
+        case 'english':
+          return enTranslations;
+        default:
+          return enTranslations;
+      }
     }
   }
 
