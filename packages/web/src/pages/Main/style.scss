@@ -8,12 +8,14 @@ $d-button-bg: rgba(15, 60, 93, 0.6);
 $d-modal-area-bg: rgba(26, 26, 26, 0.9);
 $d-modal-bg: linear-gradient(180deg, #73A4C8 0%, rgba(1, 36, 63, 0.83) 100%);
 $d-select-bg: url('../../assets/img/icons/vector.png') no-repeat calc(100% - 10px) center;
-$d-option-bg: #284C64;
+$d-option-bg: #284c64;
 $d-error: red;
 $d-input-bg: #0F3C5DA6;
 $d-search-bg: url('../../assets/img/icons/search.png') no-repeat;
 $d-box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
 $d-modal-btn-bg: rgba(0, 0, 0, 0.3);
+$d-table-th-bg: rgba(15, 60, 93, 0.7);
+$d-selected-row: #0A2940;
 
 
 $l-main-color: #000000;
@@ -30,6 +32,8 @@ $l-modal-area-bg: #837788A6;
 $l-input-bg: #B7ACBCCC;
 $l-search-bg: url('../../assets/img/icons/search-black.png') no-repeat;
 $l-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+$l-table-th-bg: linear-gradient(180deg, #D0CBD8 0%, rgba(255, 255, 255, 0.66) 100%);
+
 
 %message-shared {
   display: flex;
@@ -50,7 +54,7 @@ body {
 }
 
 .wrapper {
-  padding: 13px 86px;
+  padding: 13px 52px;
 
   .header {
     &__container {
@@ -102,7 +106,6 @@ body {
         border: none;
         background: none;
         color: $d-main-color;
-        width: 110px;
         height: 37px;
         font-size: 24px;
         font-family: 'Montserrat';
@@ -118,7 +121,7 @@ body {
   }
 
   .main {
-    height: 100vh;
+    min-height: 100vh;
     margin-top: 40px;
     border: $d-border-color;
     background: $d-main-bg;
@@ -213,6 +216,82 @@ body {
       }
     }
 
+    .table {
+      width: 100%;
+      border: 2px solid #ccc;
+      border-spacing: 3px;
+      border-collapse: collapse;
+
+      &__header {
+        &-tr {
+          background: $d-table-th-bg;
+        }
+
+        .tr {
+          &-id {
+            width: 60px;
+          }
+
+          &-fname {
+            width: 157px;
+          }
+
+          &-lname {
+            width: 197px;
+          }
+
+          &-age {
+            width: 80px;
+          }
+
+          &-phone {
+            width: 180px;
+          }
+
+          &-city {
+            width: 175px;
+          }
+
+          &-email {
+            width: 250px;
+          }
+
+          &-company {
+            width: 190px;
+          }
+        }
+      }
+
+      td,
+      th {
+        border: solid 2px #ccc;
+        height: 80px;
+        font-weight: lighter;
+        font-family: Montserrat;
+        font-size: 19px;
+        cursor: pointer;
+      }
+
+      tr {
+        cursor: pointer;
+        transition: all 0.25s ease-in-out;
+      }
+
+      &__body {
+        tr:hover {
+          background: $d-option-bg;
+        }
+        tr:active{
+          background: $d-selected-row;
+        }
+      }
+
+      .selectedRow {
+        background: $d-selected-row;
+      }
+
+    }
+
     .modal {
       position: fixed;
       top: 0;
@@ -251,7 +330,7 @@ body {
         top: 10px;
         font-size: 15px;
         text-decoration: none;
-        color: #000000;
+        color: $d-main-color;
         cursor: pointer;
       }
 
@@ -324,6 +403,7 @@ body {
           }
         }
       }
+
       &__buttons {
         display: flex;
         justify-content: center;
@@ -523,6 +603,35 @@ body {
         }
       }
 
+      .table {
+        border: 2px solid $l-main-color;
+        color: $l-main-color;
+
+        &__header {
+          &-tr {
+            background: $l-table-th-bg;
+          }
+        }
+
+        td,
+        th {
+          border: solid 2px $l-main-color;
+        }
+
+        .selectedRow {
+          background: $l-modal-area-bg;
+        }
+
+        &__body {
+          tr:hover {
+            background: $l-input-bg;
+          }
+          tr:active {
+            background: $l-modal-area-bg;
+          }
+        }
+      }
+
       .modal {
         background: $l-modal-area-bg;
 
@@ -532,7 +641,17 @@ body {
         }
 
         &__close {
-          color: #000000;
+          color: $l-main-color;
+        }
+
+        &__btn {
+          background: #615666B2;
+          color: $l-main-color;
+
+          &:hover {
+            background: rgba(77, 65, 82, 0.7);
+            box-shadow: $l-box-shadow;
+          }
         }
       }
 
@@ -556,10 +675,12 @@ body {
       .createModal__content {
         &_input {
         }
+
         .input {
           &__block {
             input {
               background: $l-input-bg;
+
               &:active {
                 border: 1px solid $l-main-color;
               }
@@ -568,17 +689,21 @@ body {
         }
 
         &_button {
+          display: flex;
+          justify-content: space-between;
           position: relative;
-          left: 34px;
-          top: 40px;
-          height: 44px;
-          width: 166px;
-          background: #615666B2;
+          top: 22px;
+          flex-direction: column;
+          align-items: center;
+          height: 115px;
 
+          &-confirm,
+          &-cancel {
 
-          &:hover {
-            background: rgba(77, 65, 82, 0.7);
-            box-shadow: $l-box-shadow;
+            &:hover {
+              background: rgba(77, 65, 82, 0.7);
+              box-shadow: $l-box-shadow;
+            }
           }
         }
       }
