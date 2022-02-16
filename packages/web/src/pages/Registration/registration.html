@@ -32,13 +32,16 @@
             </div>
         </header>
         <form class="box" id="box" action="" method="post">
+
             <h1 id='box__title' data-translate="registration">Registration</h1>
             <span class='box__title-1' id='box__title-1' data-translate="loginUC">LOGIN</span>
-            <input type="text" class="text"  name="">
+            <input type="text" class="text"  name="" id='login-input'>
+            <p class="login-message" id='login-message'></p>
 
             <div class="box__pass">
               <span class='box__pass-title-1' id='box__pass-title-1' data-translate="passwordUC">PASSWORD</span>
                 <input type="password" class="pass" id="password-input"  name="password">
+                <p class="password-message" id='password-message'></p>
                 <a href="#" class="checkbox"> <img id="img"
                         src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
             </div>
@@ -46,11 +49,12 @@
             <div class="box__pass">
               <span class='box__pass-title-2' id='box__pass-title-2' data-translate="confPas">CONFIRM PASSWORD</span>
                 <input type="password" class="pass" id="password-input2"  name="password">
+                <p class="password-message2" id='password-message2'></p>
                 <a href="#" class="checkbox" > <img id="img2"
                         src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
             </div>
 
-            <input id='submit' type="submit" value="Register" name="">
+            <input id='submit' type="submit" value="Register" name="" disabled>
 
             <div class='notice'>
               <div class="warning" id='warning' data-translate="account">Already have an account?</div>

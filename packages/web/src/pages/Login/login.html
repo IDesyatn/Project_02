@@ -17,37 +17,50 @@
 <body>
 
 
-    <div class="container" id="container">
-      <header class="header">
-        <div class="header__logo">
-          <span class="header__logo-name">Fantastic Five</span>
-        </div>
 
-        <div class="header__ability">
-          <select  name="select-mode" class="header__ability-select" id="select-mode">
-            <option value="value1" data-translate="dark">Dark</option>
-            <option value="value2" default data-translate="light">Light</option>
-          </select>
-          <select id="select-language" name="select-lang" class="header__ability-select">
+  <div class='container' id='container'>
+    <header class='header'>
+      <div class='header__logo'>
+        <span class='header__logo-name'>Fantastic Five</span>
+      </div>
+
+      <div class='header__ability'>
+        <select name='select-mode' class='header__ability-select' id='select-mode'>
+          <option value='value1' data-translate="dark" id='them-1'>Dark</option>
+          <option value='value2' default data-translate="light" id='them-2'>Light</option>
+        </select>
+         <select id="select-language" name="select-lang" class="header__ability-select">
             <option value="english" data-translate="english">Eng</option>
             <option value="russian" data-translate="russian">Rus</option>
           </select>
-        </div>
-      </header>
-        <form class="box" id="box" action="" method="post">
-            <h1 data-translate="login">Login</h1>
-            <input type="text" id="login-input" class="text" placeholder="Username" name="" data-placeholder="username">
-            <p class="login-message" id='login-message'></p>
-            <div class="box__pass">
-                <input type="password" class="pass" id="password-input" placeholder="Password" name="password" data-placeholder="password">
-                <a href="#" class="checkbox" > <img id="img"
-                        src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
-            </div>
-            <p class="password-message" id='password-message'></p>
-            <input id="login-button" type="submit" value="Log in"  name="" disabled data-placeholder="logIn">
-            <div class="warning" data-translate="account">Already have an account?<a href="registration.html" data-translate="signIn"> Sign in.</a></div>
-        </form>
-    </div>
+      </div>
+    </header>
+
+    <form class='box' id='box' action='' method='post'>
+
+      <h1  data-translate="login" id='box__title'>Login</h1>
+      <span class='box__title-1' id='box__title-1'>LOGIN</span>
+      <input type='text' id='login-input' class='text' name='' placeholder="Username" data-placeholder="username">
+      <p class='login-message' id='login-message'></p>
+
+      <div class='box__pass'>
+        <span class='box__pass-title-1' id='box__pass-title-1'>PASSWORD</span>
+        <input type='password'  class='pass' id='password-input'  placeholder="Password" data-placeholder="password"
+               name='password'>
+        <a href='#' class='checkbox'> <img id='img' src='https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png'></a>
+      </div>
+      <p class='password-message' id='password-message'></p>
+
+      <input id='submit' type='submit' value='Log in' name='' disabled data-placeholder="logIn">
+
+      <div class='notice'>
+        <div class='warning' data-translate="account" id='warning'>Need an account?</div>
+        <a href='registration.html' data-translate="signIn" class='warning-link' id='warning-link'> Sign in.</a>
+      </div>
+
+    </form>
+</div>
+
 
 <!--    <div class='header__ability'>-->
 <!--      <select name='select-mode' class='header__ability-select' id='select-mode'>-->
@@ -79,6 +92,41 @@
 
 <!--  </form>-->
 <!--</div>-->
+
+
+<!--<div class='header__ability'>
+  <select name='select-mode' class='header__ability-select' id='select-mode'>
+    <option value='value1' id='them-1'>Dark</option>
+    <option value='value2' id='them-2'>Light</option>
+  </select>
+  <select name='select-lang' class='header__ability-select' id='select-lang'>
+    <option value='value1' selected='selected'>English</option>
+    <option value='value2'>Russian</option>
+  </select>
+</div>-->
+
+<!-- </header>-->
+
+<!--<form class='box' id='box' action='' method='post'>
+  <h1 id='box__title'>Login</h1>
+  <span class='box__title-1' id='box__title-1'>LOGIN</span>
+  <input type='text' class='text'  name=''>
+  <p class="login-message" id='login-message'></p>
+  <div class='box__pass'>
+    <span class='box__pass-title-1' id='box__pass-title-1'>PASSWORD</span>
+    <input type='password' id="login-input" class='pass' id='password-input'
+           name='password'>
+    <a href='#' class='checkbox'> <img id='img'
+                                       src='https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png'></a>
+  </div>
+  <p class="password-message" id='password-message'></p>
+  <input id='submit' type='submit' value='Log in' name=''>
+  <div class='notice'>
+    <div class='warning' id='warning'>Need an account?</div>
+    <a href='registration.html' class='warning-link' id='warning-link'> Sign in.</a>
+  </div>
+
+</form>-->
 
 
 </body>

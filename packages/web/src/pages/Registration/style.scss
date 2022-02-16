@@ -137,7 +137,6 @@ body {
 
 
   div {
-    margin: 40px 0;
     font-weight: 500;
     letter-spacing: 2px;
     font-size: 20px;
@@ -215,16 +214,25 @@ body {
     outline: 2px solid #ffffff;
   }
 
+  .invalid {
+    outline: 2px solid #ff0000;
+  }
+
+  .invalid:focus {
+    outline: 2px solid #ff0000;
+  }
+
 
   .box__pass {
     display: flex;
     align-items: center;
+    margin: 55px 0;
 
     &-title-1{
       text-transform: uppercase;
       font-size: 17px;
       position: absolute;
-      top: 213px;
+      top: 228px;
       left: 70px;
     }
 
@@ -232,7 +240,7 @@ body {
       text-transform: uppercase;
       font-size: 17px;
       position: absolute;
-      top: 301px;
+      top: 332px;
       left: 70px;
     }
   }
@@ -241,6 +249,52 @@ body {
     width: 10px;
     position: absolute;
     right: 105px;
+  }
+
+  .login-message{
+    position: absolute;
+
+    width: 413px;
+    height: 35px;
+
+    top: 185px;
+    left: 75px;
+
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #ffffff;
+  }
+
+  .password-message{
+    position: absolute;
+    width: 413px;
+    height: 35px;
+
+    bottom: 245px;
+    left: 75px;
+
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #ffffff;
+  }
+
+  .password-message2{
+    position: absolute;
+    width: 413px;
+    height: 35px;
+
+    bottom: 143px;
+    left: 75px;
+
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #ffffff;
   }
 
   input[type="submit"] {
@@ -253,7 +307,7 @@ body {
 
     color: #f6f6f6;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
@@ -289,6 +343,18 @@ body {
   .pass {
     color: #ffffff;
     border-bottom: 0.1px solid #000000;
+  }
+
+  .login-message{
+    color: #000000;
+  }
+
+  .password-message{
+    color: #000000;
+  }
+
+  .password-message2{
+    color: #000000;
   }
 
 
