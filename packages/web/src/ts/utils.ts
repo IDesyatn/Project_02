@@ -33,3 +33,31 @@ export function setInnerText(id, value): boolean {
   }
   return false;
 }
+
+export function collectData(id): URLSearchParams {
+  const data = new URLSearchParams();
+  const formData = new FormData(<HTMLFormElement>getForm(id));
+  console.log([...formData]);
+  for (const values of formData) {
+    data.append(values[0], <string>values[1]);
+  }
+  return data;
+} 
+
+export function getForm(id): HTMLFormElement | boolean {
+  const form = <HTMLFormElement>document.getElementById(id);
+
+  if (form) {
+    return form;
+  }
+  return false;
+}
+
+export function setTextValue(id, value): boolean {
+  const node = <HTMLInputElement>document.getElementById(id);
+  if (node) {
+    node.innerText = value;
+    return true;
+  }
+  return false;
+}

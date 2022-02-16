@@ -91,10 +91,12 @@ export function languageHandle () {
   };
 
   const localStorageLanguage: string = localStorage.getItem('selected-language') || 'english';
+  // @ts-ignore
   selectedLanguage.value = localStorageLanguage;
   setLanguage(localStorageLanguage);
 
   selectedLanguage.addEventListener('change', (event) => {
+    // @ts-ignore
     setLanguage(selectedLanguage.value);
   })
 
