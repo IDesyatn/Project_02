@@ -111,3 +111,31 @@ export function validateStatusCheck(state): boolean {
   button.removeAttribute('disabled');
   return true;
 }
+
+export function showPass(inp, btt) {
+            const input  = <HTMLInputElement>document.getElementById(inp);
+            const button  = <HTMLInputElement>document.getElementById(btt);
+            if (input.type === "password") {
+                input.type = "text";
+                button.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
+
+            } else {
+                input.type = "password";
+                button.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
+            }
+        }
+
+export function mode() {
+            const a = ((document.getElementById('select-mode'))as HTMLInputElement).value;
+            const b = document.getElementById('box')
+            const c = document.getElementById('container')
+
+            if (a === "value2") {
+                b.classList.add("ligth");
+                c.classList.add("ligth-container");
+            } else {
+                b.classList.remove("ligth");
+                c.classList.remove("ligth-container");
+            }
+
+    }

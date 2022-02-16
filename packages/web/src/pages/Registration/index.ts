@@ -1,18 +1,39 @@
 import "./style.scss"
+import {loginValidation,validateStatusCheck,passwordValidation, confirmPasswordValidation, showPass, mode} from "./logic"
+import { languageHandle } from '../../ts/localization'
+import {addListener} from '../../ts/utils'
 
-import {loginValidation,validateStatusCheck,passwordValidation, confirmPasswordValidation} from "./logic"
-
-import { languageHandle }  from '../../ts/localization'
 
 document.addEventListener("DOMContentLoaded", () => {
-  languageHandle ();
+  languageHandle();
+  init();
 });
+
+
+function init() {
+  const state = {
+    url: '/registration',
+    validateStatus: [false, false],
+  };
+
+  addListener('login-input', 'input', () => {
+    loginValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('password-input', 'input', () => {
+    passwordValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('password-input2', 'input', () => {
+    confirmPasswordValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+}
 
 
 const buttonEye = document.getElementById('img');
 const buttonEye2 = document.getElementById('img2');
 const dropdaunTheme = document.getElementById('select-mode');
-const changeLange = document.getElementById('select-lang');
 
 buttonEye.addEventListener('click', event => {
     showPass('password-input', 'img');
@@ -26,36 +47,9 @@ dropdaunTheme.addEventListener('change', event => {
     mode();
 });
 
- function showPass(inp, btt) {
-            const input  = <HTMLInputElement>document.getElementById(inp);
-            const button  = <HTMLInputElement>document.getElementById(btt);
-            if (input.type === "password") {
-                input.type = "text";
-                button.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
-
-            } else {
-                input.type = "password";
-                button.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
-            }
-        }
-
-function mode() {
-            const a = ((document.getElementById('select-mode'))as HTMLInputElement).value;
-            const b = document.getElementById('box')
-            const c = document.getElementById('container')
-
-            if (a === "value2") {
-                b.classList.add("ligth");
-                c.classList.add("ligth-container");
-            } else {
-                b.classList.remove("ligth");
-                c.classList.remove("ligth-container");
-            }
-
-    }
 
 
-
+//const changeLange = document.getElementById('select-lang');
 /*changeLange.onchange = function(){
   if (changeLange[1].selected === true){
     document.getElementById('box__title').innerText = 'Регистрация';
@@ -82,37 +76,4 @@ function mode() {
   }
 
 }*/
-
-function addListener(id, eventType, callback) {
-  const node = document.getElementById(id);
-  if (node) {
-    node.addEventListener(eventType, callback);
-    return true;
-  }
-  return false;
-}
-
-function init() {
-  const state = {
-    url: '/registration',
-    validateStatus: [false, false],
-  };
-
-  addListener('login-input', 'input', () => {
-    loginValidation.call(null, state);
-    validateStatusCheck.call(null, state);
-  });
-  addListener('password-input', 'input', () => {
-    passwordValidation.call(null, state);
-    validateStatusCheck.call(null, state);
-  });
-  addListener('password-input2', 'input', () => {
-    confirmPasswordValidation.call(null, state);
-    validateStatusCheck.call(null, state);
-  });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  init();
-});
 

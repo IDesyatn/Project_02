@@ -2,15 +2,36 @@ import "./style.scss"
 
 import { languageHandle }  from '../../ts/localization'
 import { showPass, mode, loginValidation, validateStatusCheck, passwordValidation } from "./logic"
+import {addListener} from '../../ts/utils'
+
 
 document.addEventListener("DOMContentLoaded", () => {
-languageHandle ();
+  languageHandle();
+  init();
 });
+
+
+
+function init() {
+    const state = {
+        url: '/login',
+        validateStatus: [false, false],
+    };
+
+    addListener('login-input', 'input', () => {
+        loginValidation.call(null, state);
+        validateStatusCheck.call(null, state);
+    });
+    addListener('password-input', 'input', () => {
+        passwordValidation.call(null, state);
+        validateStatusCheck.call(null, state);
+    });
+}
 
 
 const buttonEye = document.getElementById('img');
 const dropdaunTheme = document.getElementById('select-mode');
-// const changeLange = document.getElementById('select-lang');
+
 
 buttonEye.addEventListener('click', event => {
     showPass()
@@ -20,6 +41,9 @@ dropdaunTheme.addEventListener('change', event => {
     mode();
 });
 
+
+
+// const changeLange = document.getElementById('select-lang');
 
 /*changeLange.onchange = function(){
   if (changeLange[1].selected === true){
@@ -47,33 +71,4 @@ dropdaunTheme.addEventListener('change', event => {
   }
 
 }*/
-
-function addListener(id, eventType, callback) {
-  const node = document.getElementById(id);
-  if (node) {
-    node.addEventListener(eventType, callback);
-    return true;
-  }
-  return false;
-}
-
-function init() {
-    const state = {
-        url: '/login',
-        validateStatus: [false, false],
-    };
-
-    addListener('login-input', 'input', () => {
-        loginValidation.call(null, state);
-        validateStatusCheck.call(null, state);
-    });
-    addListener('password-input', 'input', () => {
-        passwordValidation.call(null, state);
-        validateStatusCheck.call(null, state);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  init();
-});
 
