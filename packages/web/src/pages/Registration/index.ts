@@ -1,4 +1,5 @@
 import "./style.scss"
+import {loginValidation,validateStatusCheck,passwordValidation, confirmPasswordValidation} from "./logic"
 
 const buttonEye = document.getElementById('img');
 const buttonEye2 = document.getElementById('img2');
@@ -46,7 +47,7 @@ function mode() {
     }
 
 
-changeLange.onchange = function(){
+/*changeLange.onchange = function(){
   if (changeLange[1].selected === true){
     document.getElementById('box__title').innerText = 'Регистрация';
     document.getElementById('them-1').innerText = 'Темная';
@@ -71,4 +72,39 @@ changeLange.onchange = function(){
     document.getElementById('box__pass-title-2').innerText = 'CONFIRM PASSWORD';
   }
 
+}*/
+
+function addListener(id, eventType, callback) {
+  const node = document.getElementById(id);
+  if (node) {
+    node.addEventListener(eventType, callback);
+    return true;
+  }
+  return false;
 }
+
+function init() {
+  const state = {
+    url: '/registration',
+    validateStatus: [false, false],
+  };
+
+  addListener('login-input', 'input', () => {
+    loginValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('password-input', 'input', () => {
+    passwordValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('password-input2', 'input', () => {
+    confirmPasswordValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  init();
+});
+
+

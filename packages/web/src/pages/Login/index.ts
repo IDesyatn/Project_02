@@ -1,5 +1,5 @@
 import "./style.scss"
-import {showPass, mode, loginValidation,validateStatusCheck,passwordValidation} from "./logic" 
+import {showPass, mode, loginValidation,validateStatusCheck,passwordValidation} from "./logic"
 
 const buttonEye = document.getElementById('img');
 const dropdaunTheme = document.getElementById('select-mode');
@@ -14,38 +14,7 @@ dropdaunTheme.addEventListener('change', event => {
 });
 
 
-function showPass() {
-            const input  = <HTMLInputElement>document.getElementById("password-input");
-            const button  = <HTMLInputElement>document.getElementById("img");
-            if (input.type === "password") {
-                input.type = "text";
-                button.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
-
-            } else {
-                input.type = "password";
-                button.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
-            }
-        }
-
-function mode() {
-            const a = ((document.getElementById('select-mode'))as HTMLInputElement).value;
-            const b = document.getElementById('box')
-            const c = document.getElementById('container')
-
-            if (a === "value2") {
-                b.classList.add("ligth");
-                c.classList.add("ligth-container");
-            } else {
-                b.classList.remove("ligth");
-                c.classList.remove("ligth-container");
-            }
-
-    }
-
-
-
-
-changeLange.onchange = function(){
+/*changeLange.onchange = function(){
   if (changeLange[1].selected === true){
     document.getElementById('box__title').innerText = 'Вход';
     document.getElementById('them-1').innerText = 'Темная';
@@ -70,7 +39,7 @@ changeLange.onchange = function(){
     document.getElementById('box__pass-title-2').innerText = 'CONFIRM PASSWORD';
   }
 
-}
+}*/
 
 function addListener(id, eventType, callback) {
   const node = document.getElementById(id);
@@ -100,5 +69,4 @@ function init() {
 document.addEventListener('DOMContentLoaded', function () {
   init();
 });
-
 
