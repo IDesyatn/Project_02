@@ -1,4 +1,9 @@
 import "./style.scss"
+import { languageHandle }  from '../../ts/localization'
+
+document.addEventListener("DOMContentLoaded", () => {
+  languageHandle ();
+});
 
  const openModal = document.querySelectorAll('.modal__open');
 
@@ -35,13 +40,13 @@ import "./style.scss"
       });
     }
 }
-  
+
  document.addEventListener('DOMContentLoaded', () => {
     themeHandler();
   });
 
 
-  function themeHandler() {
+ export function themeHandler() {
     const body = <HTMLElement>document.getElementById('body');
     const selectedTheme = <HTMLInputElement>document.getElementById('select-theme');
     const localStorageTheme = localStorage.getItem('selected-theme') || 'light';
@@ -54,7 +59,7 @@ import "./style.scss"
     });
   }
 
-  function setTheme(rootElement, theme) {
+ export function setTheme(rootElement, theme) {
     const darkThemeClass = 'theme-dark';
     const lightThemeClass = 'theme-light';
     localStorage.setItem('selected-theme', theme);
@@ -68,3 +73,24 @@ import "./style.scss"
         break;
     }
   }
+
+function selectedRow() {
+  const table: any = document.getElementById("table");
+  let index;
+
+  for (let i = 1; i < table.rows.length; i++) {
+
+    table.rows[i].onclick = function() {
+
+      if (typeof index !== "undefined") {
+        table.rows[index].classList.toggle("selectedRow");
+      }
+
+      index = this.rowIndex;
+      this.classList.toggle("selectedRow");
+    };
+  }
+}
+selectedRow();
+
+  module.exports = { setTheme, themeHandler }

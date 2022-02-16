@@ -16,8 +16,8 @@
       </div>
       <div class="header__menu">
         <select name="language" id="select-language" class="header__menu_select">
-          <option value="english" class="english" data-translate="english">English</option>
-          <option value="russian" class="russian" data-translate="russian">Russian</option>
+          <option value="english" class="english" data-translate="english">Eng</option>
+          <option value="russian" class="russian" data-translate="russian">Rus</option>
         </select>
         <select name="theme" id="select-theme" class="header__menu_select">
           <option value="light" data-translate="light">Light</option>
@@ -48,9 +48,9 @@
         </select>
       </div>
       <div class="main__container_search">
-        <label class="main__container_search_label" for="search" data-translate="searchFName">Search: First name</label>
+        <label class="main__container_search_label" for="search" data-translate="searchFName">Search: First name or Last name</label>
         <input name="searchFname" class="main__container_search_input" id="search"
-               placeholder="Search Fname..."
+               placeholder="enter first or last name"
                type="text" data-placeholder="searchFirstName">
         <button class="main__container_search_submit" type="submit">
         </button>
@@ -212,165 +212,5 @@
 
   </main>
 </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    themeHandler();
-  });
-
-
-  function themeHandler() {
-    const body = document.getElementById("body");
-    const selectedTheme = document.getElementById("select-theme");
-    const localStorageTheme = localStorage.getItem("selected-theme") || "light";
-
-    selectedTheme.value = localStorageTheme;
-    setTheme(body, localStorageTheme);
-
-    selectedTheme.addEventListener("change", () => {
-      setTheme(body, selectedTheme.value);
-    });
-  }
-
-  function setTheme(rootElement, theme) {
-    const darkThemeClass = "theme-dark";
-    const lightThemeClass = "theme-light";
-    localStorage.setItem("selected-theme", theme);
-    switch (theme) {
-      case "dark":
-        rootElement.className = `${darkThemeClass}`;
-        break;
-
-      case "light":
-        rootElement.className = `${lightThemeClass}`;
-        break;
-    }
-  }
-
-  function selectedRow() {
-    const table = document.getElementById("table");
-    let index;
-
-    for (let i = 1; i < table.rows.length; i++) {
-
-      table.rows[i].onclick = function() {
-
-        if (typeof index !== "undefined") {
-          table.rows[index].classList.toggle("selectedRow");
-        }
-
-        index = this.rowIndex;
-        this.classList.toggle("selectedRow");
-      };
-    }
-  }
-  selectedRow();
-
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    languageHandle ();
-  });
-
-  function languageHandle () {
-    let selectedLanguage = document.getElementById('select-language');
-    const translateElements = document.querySelectorAll('[data-translate]');
-    const placeholderElements = document.querySelectorAll('[data-placeholder]');
-
-    const ruTranslations = {
-      firstName: `Имя`,
-      lastName: 'Фамилия',
-      age: 'Возраст',
-      city: 'Город',
-      phone: 'Телефон',
-      email: 'Електронная почта',
-      company: 'Компания',
-      create: 'Создать',
-      update: 'Изменить',
-      clearAll: 'Очистить все',
-      english: 'Англ',
-      russian: 'Рус',
-      light: 'Светлая',
-      dark: 'Тёмная',
-      settings: 'Настройки',
-      settingsM: 'НАСТРОЙКИ',
-      logout: 'Выйти',
-      confirm: 'Подтвердить',
-      searchFName: "Поиск: По имени",
-      searchFirstName: 'Поиск по имени...',
-      cancel: 'Отменить',
-      delete: 'Удалить',
-      currentPassword: 'Текущий пароль',
-      newPassword: 'Новый пароль',
-      yes: 'ДА',
-      no: 'НЕТ',
-      doYouWant: 'Вы хотите удалить выделеную строку таблицы?'
-    };
-    const enTranslations = {
-      firstName: 'First name',
-      lastName: 'Last name',
-      age: 'Age',
-      city: 'City',
-      phone: 'Phone',
-      email: 'Email',
-      company: 'Company',
-      create: 'Create',
-      update: 'Update',
-      delete: 'DELETE',
-      clearAll: 'Clear All',
-      english: 'English',
-      russian: 'Russian',
-      light: 'Light',
-      dark: 'Dark',
-      settings: 'Settings',
-      settingsM: 'SETTINGS',
-      logout: 'Logout',
-      confirm: 'CONFIRM',
-      cancel: 'CANCEL',
-      newLogin: 'Login',
-      yourPassword: 'Current password',
-      newPassword: 'New password',
-      searchFName: "Search: First name",
-      searchFirstName: 'Search Fname...',
-      yes: 'YES',
-      no: 'NO',
-      doYouWant: 'Do you want to delete the selected row in the table?'
-    };
-    const localStorageLanguage = localStorage.getItem('selected-language') || 'english';
-    selectedLanguage.value = localStorageLanguage;
-    setLanguage(localStorageLanguage);
-
-    selectedLanguage.addEventListener('change', (event) => {
-      setLanguage(selectedLanguage.value);
-    })
-
-    function setLanguage(lang) {
-      let translation = getTranslation(lang);
-      localStorage.setItem('selected-language', lang);
-
-      translateElements.forEach((el) => {
-        const translateKey = el.dataset.translate;
-        el.textContent = translation[translateKey];
-      });
-      placeholderElements.forEach((el) => {
-        const placeholderKey = el.dataset.placeholder;
-        el.placeholder =  translation[placeholderKey];
-      })
-    }
-
-    function getTranslation(lang) {
-      console.log(lang);
-      switch (lang) {
-        case 'russian':
-          return ruTranslations;
-        case 'english':
-          return enTranslations;
-        default:
-          return enTranslations;
-      }
-    }
-  }
-
-</script>
 </body>
 </html>

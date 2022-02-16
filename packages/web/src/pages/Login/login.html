@@ -17,6 +17,7 @@
 <body>
 
 
+
   <div class='container' id='container'>
     <header class='header'>
       <div class='header__logo'>
@@ -25,40 +26,73 @@
 
       <div class='header__ability'>
         <select name='select-mode' class='header__ability-select' id='select-mode'>
-          <option value='value1' id='them-1'>Dark</option>
-          <option value='value2' id='them-2'>Light</option>
+          <option value='value1' data-translate="dark" id='them-1'>Dark</option>
+          <option value='value2' default data-translate="light" id='them-2'>Light</option>
         </select>
-        <select name='select-lang' class='header__ability-select' id='select-lang'>
-          <option value='value1' selected='selected'>English</option>
-          <option value='value2'>Russian</option>
-        </select>
+         <select id="select-language" name="select-lang" class="header__ability-select">
+            <option value="english" data-translate="english">Eng</option>
+            <option value="russian" data-translate="russian">Rus</option>
+          </select>
       </div>
     </header>
 
     <form class='box' id='box' action='' method='post'>
 
-      <h1 id='box__title'>Login</h1>
+      <h1  data-translate="login" id='box__title'>Login</h1>
       <span class='box__title-1' id='box__title-1'>LOGIN</span>
-      <input type='text' id='login-input' class='text' name=''>
+      <input type='text' id='login-input' class='text' name='' placeholder="Username" data-placeholder="username">
       <p class='login-message' id='login-message'></p>
 
       <div class='box__pass'>
         <span class='box__pass-title-1' id='box__pass-title-1'>PASSWORD</span>
-        <input type='password'  class='pass' id='password-input'
+        <input type='password'  class='pass' id='password-input'  placeholder="Password" data-placeholder="password"
                name='password'>
         <a href='#' class='checkbox'> <img id='img' src='https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png'></a>
       </div>
       <p class='password-message' id='password-message'></p>
 
-      <input id='submit' type='submit' value='Log in' name=''>
+      <input id='submit' type='submit' value='Log in' name='' disabled data-placeholder="logIn">
 
       <div class='notice'>
-        <div class='warning' id='warning'>Need an account?</div>
-        <a href='registration.html' class='warning-link' id='warning-link'> Sign in.</a>
+        <div class='warning' data-translate="account" id='warning'>Need an account?</div>
+        <a href='registration.html' data-translate="signIn" class='warning-link' id='warning-link'> Sign in.</a>
       </div>
 
     </form>
 </div>
+
+
+<!--    <div class='header__ability'>-->
+<!--      <select name='select-mode' class='header__ability-select' id='select-mode'>-->
+<!--        <option value='value1' id='them-1' data-translate="dark">Dark</option>-->
+<!--        <option value='value2' id='them-2' data-translate="light">Light</option>-->
+<!--      </select>-->
+<!--      <select id="select-language" name='select-lang' class='header__ability-select'>-->
+<!--        <option value="english" selected='selected' data-translate="english">Eng</option>-->
+<!--        <option value="russian" data-translate="russian">Rus</option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--  </header>-->
+<!--  <form class='box' id='box' action='' method='post'>-->
+<!--    <h1 id='box__title'>Login</h1>-->
+<!--    <span class='box__title-1' id='box__title-1' data-translate="loginUC">LOGIN</span>-->
+<!--    <input type='text' class='text'  name=''>-->
+<!--    <div class='box__pass'>-->
+<!--      <span class='box__pass-title-1' id='box__pass-title-1' data-translate="passwordUC">PASSWORD</span>-->
+<!--      <input type='password' class='pass' id='password-input'-->
+<!--             name='password'>-->
+<!--      <a href='#' class='checkbox'> <img id='img'-->
+<!--                                         src='https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png'></a>-->
+<!--    </div>-->
+<!--    <input id='submit' type='submit' value='Log in' name='' data-placeholder="logIn">-->
+<!--    <div class='notice'>-->
+<!--      <div class='warning' id='warning' data-translate="needAccount">Need an account?</div>-->
+<!--      <a href='registration.html' class='warning-link' id='warning-link' data-translate="signIn"> Sign in.</a>-->
+<!--    </div>-->
+
+<!--  </form>-->
+<!--</div>-->
+
 
 <!--<div class='header__ability'>
   <select name='select-mode' class='header__ability-select' id='select-mode'>

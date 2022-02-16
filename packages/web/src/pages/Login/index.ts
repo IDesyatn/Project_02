@@ -1,9 +1,16 @@
 import "./style.scss"
-import {showPass, mode, loginValidation,validateStatusCheck,passwordValidation} from "./logic"
+
+import { languageHandle }  from '../../ts/localization'
+import { showPass, mode, loginValidation, validateStatusCheck, passwordValidation } from "./logic"
+
+document.addEventListener("DOMContentLoaded", () => {
+languageHandle ();
+});
+
 
 const buttonEye = document.getElementById('img');
 const dropdaunTheme = document.getElementById('select-mode');
-const changeLange = document.getElementById('select-lang');
+// const changeLange = document.getElementById('select-lang');
 
 buttonEye.addEventListener('click', event => {
     showPass()

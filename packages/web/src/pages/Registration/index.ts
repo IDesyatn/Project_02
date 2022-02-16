@@ -1,5 +1,13 @@
 import "./style.scss"
+
 import {loginValidation,validateStatusCheck,passwordValidation, confirmPasswordValidation} from "./logic"
+
+import { languageHandle }  from '../../ts/localization'
+
+document.addEventListener("DOMContentLoaded", () => {
+  languageHandle ();
+});
+
 
 const buttonEye = document.getElementById('img');
 const buttonEye2 = document.getElementById('img2');
@@ -45,6 +53,7 @@ function mode() {
             }
 
     }
+
 
 
 /*changeLange.onchange = function(){
@@ -106,5 +115,4 @@ function init() {
 document.addEventListener('DOMContentLoaded', function () {
   init();
 });
-
 
