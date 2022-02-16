@@ -101,7 +101,7 @@ export function validateStatusCheck(state): boolean {
   button.removeAttribute('disabled');
   return true;
 }
-    
+
 
 
 
