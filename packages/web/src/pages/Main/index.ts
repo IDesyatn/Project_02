@@ -1,14 +1,18 @@
-import './style.scss';
-import { languageHandle } from '../../ts/localization';
-import { themeHandler, openAndClose, selectedRow, selectDB } from './logic';
+
+import "./style.scss"
+import { languageHandle } from '../../ts/localization'
+import {themeHandler, openAndClose, selectedRow, selectDB, firstNameValidation, lastNameValidation, ageValidation , cityValidation, phoneValidation, emailValidation, companyValidation} from './logic'
+import { addListener } from '../../ts/utils';
+import { loginValidation, passwordValidation, validateStatusCheck } from '../Login/logic';
 import { doc } from 'prettier';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   languageHandle();
   themeHandler();
   selectedRow();
+  init();
   selectDB();
-
 });
 
 
@@ -21,5 +25,51 @@ openModal.forEach(function(button) {
     const modalTarget = <HTMLButtonElement>event.target.dataset.modal;
     openAndClose(modalTarget);
   });
+
+function init() {
+  const state = {
+    url: '/main',
+    validateStatus: [false, false],
+  };
+
+  addListener('login-input', 'input', () => {
+    loginValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('password-input', 'input', () => {
+    passwordValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('firstName', 'input', () => {
+    firstNameValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('lastName', 'input', () => {
+    lastNameValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('age', 'input', () => {
+    ageValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('city', 'input', () => {
+    cityValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('phone', 'input', () => {
+    phoneValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('email', 'input', () => {
+    emailValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('company', 'input', () => {
+    companyValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+
+
+}
 });
 
