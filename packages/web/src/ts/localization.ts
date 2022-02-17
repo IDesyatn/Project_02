@@ -68,7 +68,7 @@ export function languageHandle () {
     cancel: 'CANCEL',
     login: 'Login',
     loginUC: 'LOGIN',
-    yourPassword: 'Current password',
+    currentPassword: 'Current password',
     newPassword: 'New password',
     passwordUC: 'PASSWORD',
     password: 'Password',
