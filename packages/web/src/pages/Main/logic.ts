@@ -54,7 +54,6 @@ export function themeHandler() {
     }
   }
 
-
 export function selectedRow() {
   const table: any = document.getElementById("table");
   let index;
@@ -72,8 +71,6 @@ export function selectedRow() {
     };
   }
 }
-
-
 
 export function firstNameValidation(state) {
   const input = document.getElementById('firstName');
@@ -298,6 +295,139 @@ export function companyValidation(state) {
   return true;
 }
 
+export function settingsLoginValidation(state) {
+  const loginRegex = /^[a-zA-Z0-9_]{3,20}$/;
+  const value = <string>getInputValue('newLogin');
+  const loginInput = document.getElementById('newLogin');
+  const loginId = 'setting-login-message';
+
+  if (value === '') {
+    setInnerText(loginId, 'Field can`t be empty');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid')
+    return false;
+  }
+
+  if (value.length < 6) {
+    setInnerText(loginId, 'Login at least 6 characters');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid')
+    return false;
+  }
+
+  if (value.length > 20) {
+    setInnerText(loginId, 'Login can`t be longer than 20 characters');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid')
+    return false;
+  }
+
+  if (!value.match(loginRegex)) {
+    setInnerText(loginId, 'Login must contain only letters, numbers, and underscores');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid')
+    return false;
+  }
+
+  setInnerText(loginId, '');
+  state.validateStatus[0] = true;
+  loginInput.classList.remove('invalid')
+  return true;
+}
+
+export function settingsCurrentPassValidation(state) {
+  const loginRegex = /^[a-zA-Z0-9_]{3,20}$/;
+  const value = <string>getInputValue('newPassword');
+  const loginInput = document.getElementById('newPassword');
+  const loginId = 'setting-newPassword-message';
+
+  if (value === '') {
+    setInnerText(loginId, 'Field can`t be empty');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid')
+    return false;
+  }
+
+  if (value.length < 6) {
+    setInnerText(loginId, 'Login at least 6 characters');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid')
+    return false;
+  }
+
+  if (value.length > 20) {
+    setInnerText(loginId, 'Login can`t be longer than 20 characters');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid')
+    return false;
+  }
+
+  if (!value.match(loginRegex)) {
+    setInnerText(loginId, 'Login must contain only letters, numbers, and underscores');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid')
+    return false;
+  }
+
+  setInnerText(loginId, '');
+  state.validateStatus[0] = true;
+  loginInput.classList.remove('invalid')
+  return true;
+}
+
+export function settingsRepeatPassValidation(state) {
+  const loginRegex = /^[a-zA-Z0-9_]{3,20}$/;
+  const value = <string>getInputValue('repeatPassword');
+  const loginInput = document.getElementById('repeatPassword');
+  const loginId = 'setting-repeatPassword-message';
+
+  if (value === '') {
+    setInnerText(loginId, 'Field can`t be empty');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid')
+    return false;
+  }
+
+  if (value.length < 6) {
+    setInnerText(loginId, 'Login at least 6 characters');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid')
+    return false;
+  }
+
+  if (value.length > 20) {
+    setInnerText(loginId, 'Login can`t be longer than 20 characters');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid')
+    return false;
+  }
+
+  if (!value.match(loginRegex)) {
+    setInnerText(loginId, 'Login must contain only letters, numbers, and underscores');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid')
+    return false;
+  }
+
+  setInnerText(loginId, '');
+  state.validateStatus[0] = true;
+  loginInput.classList.remove('invalid')
+  return true;
+}
+
+export function showPass(inp, btt) {
+  const input  = <HTMLInputElement>document.getElementById(inp);
+  const button  = <HTMLInputElement>document.getElementById(btt);
+  if (input.type === "password") {
+    input.type = "text";
+    button.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
+
+  } else {
+    input.type = "password";
+    button.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
+  }
+}
+
 export function validateStatusCheck(state): boolean {
   const button = <HTMLElement>getElementById('createModal__content_button-confirm modal__btn');
   if (state.validateStatus.includes(false)) {
@@ -309,6 +439,7 @@ export function validateStatusCheck(state): boolean {
   button.removeAttribute('disabled');
   return true;
 }
+
 /*
 export function selectDB() {
   const selectedDB: any = document.getElementById('selectDB') as HTMLElement;
