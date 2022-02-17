@@ -1,4 +1,4 @@
-$d-main-color: #efc4c4;
+$d-main-color: #ffffff;
 $d-body-bg: url("../../assets/img/darkTheme1.jpg") no-repeat;
 $d-logo-bg: url("../../assets/img/icons/logo-white.png") 0 0 no-repeat;
 $d-border-color: rgb(171, 195, 204);
@@ -441,6 +441,56 @@ body {
       @extend %message-shared;
       flex-direction: column;
 
+      p{
+        font-size: 13px;
+        color: #ffffff;
+        text-align: start;
+      }
+
+      .firstName-message{
+        position: absolute;
+        top: 143px;
+        left: 75px;
+      }
+
+      .lastName-message{
+        position: absolute;
+        top: 218px;
+        left: 75px;
+      }
+
+      .age-message{
+        position: absolute;
+        top: 290px;
+        left: 75px;
+      }
+
+      .city-message{
+        position: absolute;
+        top: 364px;
+        left: 75px;
+      }
+
+      .phone-message{
+        position: absolute;
+        top: 142px;
+        left: 386px;
+      }
+
+      .email-message{
+        position: absolute;
+        top: 218px;
+        left: 386px;
+      }
+
+      .company-message{
+        position: absolute;
+        top: 290px;
+        left: 386px;
+      }
+
+
+
       &_input {
         display: flex;
         margin: 15px;
@@ -448,6 +498,14 @@ body {
 
       .input {
         padding: 20px;
+
+        .invalid {
+          outline: 1px solid #ff0000;
+        }
+
+        .invalid:focus {
+          outline: 1px solid #ff0000;
+        }
 
         &__block {
           display: flex;
@@ -677,54 +735,6 @@ body {
 
       .createModal__content {
         &_input {
-        }
-
-        p{
-          font-size: 13px;
-          color: #de0000;
-          text-align: start;
-        }
-
-        .firstName-message{
-          position: absolute;
-          top: 143px;
-          left: 75px;
-        }
-
-        .lastName-message{
-          position: absolute;
-          top: 218px;
-          left: 75px;
-        }
-
-        .age-message{
-          position: absolute;
-          top: 290px;
-          left: 75px;
-        }
-
-        .city-message{
-          position: absolute;
-          top: 364px;
-          left: 75px;
-        }
-
-        .phone-message{
-          position: absolute;
-          top: 142px;
-          left: 386px;
-        }
-
-        .email-message{
-          position: absolute;
-          top: 218px;
-          left: 386px;
-        }
-
-        .company-message{
-          position: absolute;
-          top: 290px;
-          left: 386px;
         }
 
         .input {
