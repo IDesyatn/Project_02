@@ -72,14 +72,14 @@ body {
 
     &__team-name {
       font-size: 38px;
+      line-height: 1.1;
       color: $d-main-color;
     }
 
     &__menu {
       @extend %message-shared;
       justify-content: space-around;
-      width: 554px;
-      height: 60px;
+      padding: 7px;
       border: $d-border-color;
       background: $d-main-bg;
 
@@ -93,6 +93,7 @@ body {
         font-family: Montserrat;
         font-size: 24px;
         padding: 7px 30px 7px 7px;
+        margin: 0 17px;
         cursor: pointer;
 
         option {
@@ -109,6 +110,7 @@ body {
         height: 37px;
         font-size: 24px;
         font-family: 'Montserrat';
+        margin: 0 17px;
         cursor: pointer;
 
         &:hover,
@@ -131,7 +133,8 @@ body {
       &_control-panel {
         display: flex;
         justify-content: space-between;
-
+        flex-wrap: wrap;
+        margin: -4px;
         &-buttons {
           flex: 1 1 auto;
           display: flex;
@@ -148,8 +151,10 @@ body {
           border-radius: 0;
           color: #eaeaea;
           font-size: 24px;
-          padding: 7px 42px;
+          padding: 7px;
+          min-width: 180px;
           cursor: pointer;
+          margin: 4px;
 
           &:hover {
             background: $d-hover-color;
@@ -169,7 +174,7 @@ body {
           padding: 7px 22px 7px 7px;
           cursor: pointer;
           min-width: 200px;
-
+          margin: 4px;
           option {
             background: $d-option-bg;
             cursor: pointer;
@@ -707,6 +712,21 @@ body {
           }
         }
       }
+    }
+  }
+}
+@media (max-width: 1023px) {
+  .wrapper {
+    .header {
+      &__container {
+        flex-direction: column;
+      }
+      &__menu {
+        margin-top: 15px;
+      }
+    }
+    .main {
+      margin-top: 20px;
     }
   }
 }
