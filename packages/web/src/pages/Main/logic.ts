@@ -76,8 +76,7 @@ export function selectedRow() {
 
 
 export function firstNameValidation(state) {
-  //const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$/;
-  //const passwordInput = document.getElementById('password-input');
+  const input = document.getElementById('firstName');
   const validationRegex = /^[A-Za-z]+$/;
   const value = <string>getInputValue('firstName');
   const messageId = 'firstName-message';
@@ -85,33 +84,32 @@ export function firstNameValidation(state) {
   if (value === '') {
     setInnerText(messageId, 'Field can`t be empty');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   if (value.length > 50) {
     setInnerText(messageId, 'First name no more than 50 characters');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   if (!value.match(validationRegex)) {
     setInnerText(messageId, 'First name must contain only letters');
     state.validateStatus[1] = false;
-   // passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   setInnerText(messageId, '');
   state.validateStatus[1] = true;
- // passwordInput.classList.remove('invalid')
+  input.classList.remove('invalid')
   return true;
 }
 
 export function lastNameValidation(state) {
-  //const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$/;
-  //const passwordInput = document.getElementById('password-input');
+  const input = document.getElementById('lastName');
   const validationRegex = /^[A-Za-z]+$/;
   const value = <string>getInputValue('lastName');
   const messageId = 'lastName-message';
@@ -119,33 +117,32 @@ export function lastNameValidation(state) {
   if (value === '') {
     setInnerText(messageId, 'Field can`t be empty');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   if (value.length > 50) {
     setInnerText(messageId, 'Last name no more than 50 characters');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   if (!value.match(validationRegex)) {
     setInnerText(messageId, 'Last name must contain only letters');
     state.validateStatus[1] = false;
-    // passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   setInnerText(messageId, '');
   state.validateStatus[1] = true;
-  // passwordInput.classList.remove('invalid')
+  input.classList.remove('invalid')
   return true;
 }
 
 export function ageValidation(state) {
-  //const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$/;
-  //const passwordInput = document.getElementById('password-input');
+  const input = document.getElementById('age');
   const validationRegex = /^[0-9]+$/
   const value = <string>getInputValue('age');
   const messageId = 'age-message';
@@ -153,40 +150,39 @@ export function ageValidation(state) {
   if (value === '') {
     setInnerText(messageId, 'Field can`t be empty');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   if (!value.match(validationRegex)) {
     setInnerText(messageId, 'Age must contain only numbers');
     state.validateStatus[1] = false;
-    // passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   if (value.length > 3 ) {
     setInnerText(messageId, 'Age no more than 3 characters');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   if (value.length < 2 ) {
     setInnerText(messageId, 'Age no less than 2 characters');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   setInnerText(messageId, '');
   state.validateStatus[1] = true;
-  // passwordInput.classList.remove('invalid')
+  input.classList.remove('invalid')
   return true;
 }
 
 export function cityValidation(state) {
-  //const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$/;
-  //const passwordInput = document.getElementById('password-input');
+  const input = document.getElementById('city');
   const validationRegex = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/
   const value = <string>getInputValue('city');
   const messageId = 'city-message';
@@ -194,33 +190,32 @@ export function cityValidation(state) {
   if (value === '') {
     setInnerText(messageId, 'Field can`t be empty');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   if (!value.match(validationRegex)) {
     setInnerText(messageId, 'Invalid input format');
     state.validateStatus[1] = false;
-    // passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   if (value.length > 50 ) {
     setInnerText(messageId, 'City no more than 50 characters');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   setInnerText(messageId, '');
   state.validateStatus[1] = true;
-  // passwordInput.classList.remove('invalid')
+  input.classList.remove('invalid')
   return true;
 }
 
 export function phoneValidation(state) {
-  //const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$/;
-  //const passwordInput = document.getElementById('password-input');
+  const input = document.getElementById('phone');
   const validationRegex = /((\+38)?\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/
   const value = <string>getInputValue('phone');
   const messageId = 'phone-message';
@@ -228,26 +223,25 @@ export function phoneValidation(state) {
   if (value === '') {
     setInnerText(messageId, 'Field can`t be empty');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   if (!value.match(validationRegex)) {
     setInnerText(messageId, 'Invalid input format');
     state.validateStatus[1] = false;
-    // passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   setInnerText(messageId, '');
   state.validateStatus[1] = true;
-  // passwordInput.classList.remove('invalid')
+  input.classList.remove('invalid')
   return true;
 }
 
 export function emailValidation(state) {
-  //const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$/;
-  //const passwordInput = document.getElementById('password-input');
+  const input = document.getElementById('email');
   const validationRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
   const value = <string>getInputValue('email');
   const messageId = 'email-message';
@@ -255,54 +249,52 @@ export function emailValidation(state) {
   if (value === '') {
     setInnerText(messageId, 'Field can`t be empty');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   if (!value.match(validationRegex)) {
     setInnerText(messageId, 'Invalid input format');
     state.validateStatus[1] = false;
-    // passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   setInnerText(messageId, '');
   state.validateStatus[1] = true;
-  // passwordInput.classList.remove('invalid')
+  input.classList.remove('invalid')
   return true;
 }
 
 export function companyValidation(state) {
-  //const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$/;
-  //const passwordInput = document.getElementById('password-input');
-
+  const input = document.getElementById('company');
   const value = <string>getInputValue('company');
   const messageId = 'company-message';
 
   if (value === '') {
     setInnerText(messageId, 'Field can`t be empty');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   if (value.length > 50) {
     setInnerText(messageId, 'Company name no more than 50 characters');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   if (value.length < 3 ) {
     setInnerText(messageId, 'Company name no less than 3 characters');
     state.validateStatus[1] = false;
-    //passwordInput.classList.add('invalid')
+    input.classList.add('invalid')
     return false;
   }
 
   setInnerText(messageId, '');
   state.validateStatus[1] = true;
-  // passwordInput.classList.remove('invalid')
+  input.classList.remove('invalid')
   return true;
 }
 
@@ -316,7 +308,8 @@ export function validateStatusCheck(state): boolean {
   }
   button.removeAttribute('disabled');
   return true;
-
+}
+/*
 export function selectDB() {
   const selectedDB: any = document.getElementById('selectDB') as HTMLElement;
 
@@ -327,4 +320,4 @@ export function selectDB() {
     localStorage.setItem('selectDB', value);
   });
 
-}
+}*/
