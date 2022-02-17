@@ -5,6 +5,7 @@ import {themeHandler, openAndClose, selectedRow, selectDB, firstNameValidation, 
 import { addListener } from '../../ts/utils';
 import { loginValidation, passwordValidation, validateStatusCheck } from '../Login/logic';
 import { doc } from 'prettier';
+import {clearAll} from './logicProcess/clearAll'
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,11 +27,22 @@ openModal.forEach(function(button) {
     openAndClose(modalTarget);
   });
 
+});
+
+
 function init() {
   const state = {
-    url: '/main',
+    DB: '/mysql',
+    Data: null,
+    SortedData: null,
+    SelectedNode: null,
+    SelectedId: null,
+    SelectedObj: null,
     validateStatus: [false, false],
   };
+
+  addListener('saveClear', 'click', clearAll(state));
+
 
   addListener('login-input', 'input', () => {
     loginValidation.call(null, state);
@@ -68,8 +80,5 @@ function init() {
     companyValidation.call(null, state);
     validateStatusCheck.call(null, state);
   });
-
-
 }
-});
 
