@@ -1,4 +1,4 @@
-import { getInputValue, getElementById, setInnerText } from "../../ts/utils"
+import { getInputValue, getElementById, setInnerText} from "../../ts/utils"
 
 export function showPass() {
             const input  = <HTMLInputElement>document.getElementById("password-input");
@@ -102,7 +102,7 @@ export function passwordValidation(state) {
 }
 
 export function validateStatusCheck(state): boolean {
-  const button = <HTMLElement>getElementById('login-button');
+  const button = <HTMLElement>getElementById('submit');
   if (state.validateStatus.includes(false)) {
     if (!button.hasAttribute('disabled')) {
       button.setAttribute('disabled', 'disabled');
@@ -112,6 +112,38 @@ export function validateStatusCheck(state): boolean {
   button.removeAttribute('disabled');
   return true;
 }
+
+/*export function loginData(state) {
+  if (loginValidation(state) === false || passwordValidation(state) === false) {
+    return false;
+  }
+  
+  const user = ((document.getElementById('login-input')) as HTMLInputElement).value;
+  const password = ((document.getElementById('password-input')) as HTMLInputElement).value;
+  const formData = { 'username': user, 'password': password };
+    
+  postLogin(state.url, formData);
+}
+
+export function postLogin(url, data) {
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  })
+    .then((response: Response) => {
+      if (response.status === 200) {
+        window.location.href = response.url;
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}*/
+
+
 
 
 
