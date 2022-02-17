@@ -1,7 +1,7 @@
 import "./style.scss"
 
 import { languageHandle }  from '../../ts/localization'
-import { showPass, mode, loginValidation, validateStatusCheck, passwordValidation } from "./logic"
+import { showPass, mode, loginValidation, validateStatusCheck, passwordValidation/*, loginData*/ } from "./logic"
 import {addListener} from '../../ts/utils'
 
 
@@ -26,7 +26,12 @@ function init() {
         passwordValidation.call(null, state);
         validateStatusCheck.call(null, state);
     });
+  
+    /*addListener('submit', 'click', () => {
+        loginData(state)
+    });*/
 }
+
 
 
 const buttonEye = document.getElementById('img');

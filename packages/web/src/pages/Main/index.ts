@@ -1,25 +1,29 @@
+
 import "./style.scss"
 import { languageHandle } from '../../ts/localization'
-import {themeHandler, openAndClose, selectedRow, firstNameValidation, lastNameValidation, ageValidation , cityValidation, phoneValidation, emailValidation, companyValidation} from './logic'
+import {themeHandler, openAndClose, selectedRow, selectDB, firstNameValidation, lastNameValidation, ageValidation , cityValidation, phoneValidation, emailValidation, companyValidation} from './logic'
 import { addListener } from '../../ts/utils';
 import { loginValidation, passwordValidation, validateStatusCheck } from '../Login/logic';
+import { doc } from 'prettier';
 
-document.addEventListener("DOMContentLoaded", () => {
+
+document.addEventListener('DOMContentLoaded', () => {
   languageHandle();
   themeHandler();
   selectedRow();
   init();
+  selectDB();
 });
 
 
- const openModal = document.querySelectorAll('.modal__open');
+const openModal = document.querySelectorAll('.modal__open');
 
-  openModal.forEach(function(button) {
-      button.addEventListener('click', (event) => {
-        // @ts-ignore
-      const modalTarget = <HTMLButtonElement>event.target.dataset.modal;
-      openAndClose(modalTarget);
-    });
+openModal.forEach(function(button) {
+  button.addEventListener('click', (event) => {
+
+    // @ts-ignore
+    const modalTarget = <HTMLButtonElement>event.target.dataset.modal;
+    openAndClose(modalTarget);
   });
 
 function init() {
@@ -67,3 +71,5 @@ function init() {
 
 
 }
+});
+

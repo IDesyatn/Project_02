@@ -1,5 +1,5 @@
 import "./style.scss"
-import {loginValidation,validateStatusCheck,passwordValidation, confirmPasswordValidation, showPass, mode} from "./logic"
+import {loginValidation,validateStatusCheck,passwordValidation, confirmPasswordValidation, showPass, mode /*,registerData*/} from "./logic"
 import { languageHandle } from '../../ts/localization'
 import {addListener} from '../../ts/utils'
 
@@ -28,6 +28,10 @@ function init() {
     confirmPasswordValidation.call(null, state);
     validateStatusCheck.call(null, state);
   });
+
+ /* addListener('submit', 'click', () => {
+        registerData(state)
+    });*/
 }
 
 

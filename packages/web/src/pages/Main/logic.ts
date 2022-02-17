@@ -54,6 +54,7 @@ export function themeHandler() {
     }
   }
 
+
 export function selectedRow() {
   const table: any = document.getElementById("table");
   let index;
@@ -71,6 +72,7 @@ export function selectedRow() {
     };
   }
 }
+
 
 
 export function firstNameValidation(state) {
@@ -314,4 +316,15 @@ export function validateStatusCheck(state): boolean {
   }
   button.removeAttribute('disabled');
   return true;
+
+export function selectDB() {
+  const selectedDB: any = document.getElementById('selectDB') as HTMLElement;
+
+  selectedDB.value = localStorage.getItem('selectDB');
+
+  selectedDB.addEventListener('change', (el) => {
+    const value = el.target.value;
+    localStorage.setItem('selectDB', value);
+  });
+
 }

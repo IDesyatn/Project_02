@@ -1,4 +1,4 @@
-$d-main-color: #ffffff;
+$d-main-color: #efc4c4;
 $d-body-bg: url("../../assets/img/darkTheme1.jpg") no-repeat;
 $d-logo-bg: url("../../assets/img/icons/logo-white.png") 0 0 no-repeat;
 $d-border-color: rgb(171, 195, 204);
@@ -32,6 +32,7 @@ $l-modal-area-bg: #837788A6;
 $l-input-bg: #B7ACBCCC;
 $l-search-bg: url('../../assets/img/icons/search-black.png') no-repeat;
 $l-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+$l-shadow-input: 0 0 5px rgba(0, 0, 0, 0.5);
 $l-table-th-bg: linear-gradient(180deg, #D0CBD8 0%, rgba(255, 255, 255, 0.66) 100%);
 
 
@@ -661,10 +662,12 @@ body {
             &__block {
               input {
                 background: $l-input-bg;
+                box-shadow: $l-shadow-input;
                 color: $l-main-color;
 
                 &:active {
                   border: 1px solid $l-main-color;
+                  box-shadow: none;
                 }
               }
             }
@@ -728,9 +731,11 @@ body {
           &__block {
             input {
               background: $l-input-bg;
+              box-shadow: $l-shadow-input;
 
               &:active {
                 border: 1px solid $l-main-color;
+                box-shadow: none;
               }
             }
           }
