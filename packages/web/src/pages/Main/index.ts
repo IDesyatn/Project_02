@@ -1,7 +1,8 @@
 
 import "./style.scss"
 import { languageHandle } from '../../ts/localization'
-import {themeHandler, openAndClose, selectedRow, selectDB, firstNameValidation, lastNameValidation, ageValidation , cityValidation, phoneValidation, emailValidation, companyValidation, settingsLoginValidation, settingsCurrentPassValidation, settingsRepeatPassValidation, showPass} from './logic'
+import { themeHandler } from '../../ts/themeHandler'
+import { openAndClose, selectedRow, selectDB, firstNameValidation, lastNameValidation, ageValidation , cityValidation, phoneValidation, emailValidation, companyValidation, settingsLoginValidation, settingsCurrentPassValidation, settingsRepeatPassValidation, showPass} from './logic'
 import { addListener } from '../../ts/utils';
 import { loginValidation, passwordValidation, validateStatusCheck } from '../Login/logic';
 import { doc } from 'prettier';
@@ -22,6 +23,7 @@ const openModal = document.querySelectorAll('.modal__open');
 
 openModal.forEach(function(button) {
   button.addEventListener('click', (event) => {
+
 
     // @ts-ignore
     const modalTarget = <HTMLButtonElement>event.target.dataset.modal;

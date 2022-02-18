@@ -1,12 +1,13 @@
 import "./style.scss"
 
 import { languageHandle }  from '../../ts/localization'
-import { showPass, mode, loginValidation, validateStatusCheck, passwordValidation/*, loginData*/ } from "./logic"
+import { showPass, loginValidation, validateStatusCheck, passwordValidation/*, loginData*/ } from "./logic"
 import {addListener} from '../../ts/utils'
-
+import { themeHandler } from '../../ts/themeHandler'
 
 document.addEventListener("DOMContentLoaded", () => {
   languageHandle();
+  themeHandler();
   init();
 });
 
@@ -26,7 +27,7 @@ function init() {
         passwordValidation.call(null, state);
         validateStatusCheck.call(null, state);
     });
-  
+
     /*addListener('submit', 'click', () => {
         loginData(state)
     });*/
@@ -35,15 +36,9 @@ function init() {
 
 
 const buttonEye = document.getElementById('img');
-const dropdaunTheme = document.getElementById('select-mode');
-
 
 buttonEye.addEventListener('click', event => {
     showPass()
-});
-
-dropdaunTheme.addEventListener('change', event => {
-    mode();
 });
 
 

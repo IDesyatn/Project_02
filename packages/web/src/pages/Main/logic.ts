@@ -26,33 +26,33 @@ export function openAndClose(modalId) {
     }
 }
 
-export function themeHandler() {
-    const body = <HTMLElement>document.getElementById('body');
-    const selectedTheme = <HTMLInputElement>document.getElementById('select-theme');
-    const localStorageTheme = localStorage.getItem('selected-theme') || 'light';
-
-    selectedTheme.value = localStorageTheme;
-    setTheme(body, localStorageTheme);
-
-    selectedTheme.addEventListener('change', () => {
-      setTheme(body, selectedTheme.value);
-    });
-  }
-
- export function setTheme(rootElement, theme) {
-    const darkThemeClass = 'theme-dark';
-    const lightThemeClass = 'theme-light';
-    localStorage.setItem('selected-theme', theme);
-    switch (theme) {
-      case 'dark':
-        rootElement.className = `${darkThemeClass}`;
-        break;
-
-      case 'light':
-        rootElement.className = `${lightThemeClass}`;
-        break;
-    }
-  }
+// export function themeHandler.ts() {
+//     const body = <HTMLElement>document.getElementById('body');
+//     const selectedTheme = <HTMLInputElement>document.getElementById('select-theme');
+//     const localStorageTheme = localStorage.getItem('selected-theme') || 'light';
+//
+//     selectedTheme.value = localStorageTheme;
+//     setTheme(body, localStorageTheme);
+//
+//     selectedTheme.addEventListener('change', () => {
+//       setTheme(body, selectedTheme.value);
+//     });
+//   }
+//
+//  export function setTheme(rootElement, theme) {
+//     const darkThemeClass = 'theme-dark';
+//     const lightThemeClass = 'theme-light';
+//     localStorage.setItem('selected-theme', theme);
+//     switch (theme) {
+//       case 'dark':
+//         rootElement.className = `${darkThemeClass}`;
+//         break;
+//
+//       case 'light':
+//         rootElement.className = `${lightThemeClass}`;
+//         break;
+//     }
+//   }
 
 export function selectedRow() {
   const table: any = document.getElementById("table");
@@ -440,7 +440,7 @@ export function validateStatusCheck(state): boolean {
   return true;
 }
 
-/*
+
 export function selectDB() {
   const selectedDB: any = document.getElementById('selectDB') as HTMLElement;
 
@@ -451,4 +451,4 @@ export function selectDB() {
     localStorage.setItem('selectDB', value);
   });
 
-}*/
+}

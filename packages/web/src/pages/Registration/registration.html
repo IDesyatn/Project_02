@@ -1,71 +1,71 @@
 <!doctype html>
-<html lang='en'>
+<html lang="en">
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport'
-        content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link
-    href='https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800&display=swap'
-    rel='stylesheet'>
-  <link rel='stylesheet' href='registration.css'>
+    href="https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="registration.css">
   <title>Registration Page</title>
 </head>
 
-<body>
+<body id="body" class="theme-light">
 
-<div class='container' id='container'>
-  <header class='header'>
-    <div class='header__logo'>
-      <span class='header__logo-name'>Fantastic Five</span>
+<div class="container" id="container">
+  <header class="header">
+    <div class="header__logo">
+      <span class="header__logo-name">Fantastic Five</span>
     </div>
 
-    <div class='header__ability'>
-      <select name='select-mode' class='header__ability-select' id='select-mode'>
-        <option value='value1' id='them-1' data-translate='dark'>Dark</option>
-        <option value='value2' id='them-2' data-translate='light'>Light</option>
+    <div class="header__ability">
+      <select name="select-mode" class="header__ability-select" id="select-theme">
+        <option value="dark" id="them-1" data-translate="dark">Dark</option>
+        <option value="light" id="them-2" data-translate="light">Light</option>
       </select>
-      <select name='select-lang' class='header__ability-select' id='select-language'>
-        <option value='english' selected data-translate='english'>Eng</option>
-        <option value='russian' data-translate='russian'>Rus</option>
+      <select name="select-lang" class="header__ability-select" id="select-language">
+        <option value="english" selected data-translate="english">Eng</option>
+        <option value="russian" data-translate="russian">Rus</option>
       </select>
     </div>
   </header>
-  <div class='container__form'>
-    <form class='box' id='box' action='' method='post'>
-      <h1 id='box__title' data-translate='registration'>Registration</h1>
-      <div class='box__login'>
-        <label class='box__title-1' id='box__title-1' data-translate='loginUC'>LOGIN</label>
-        <input type='text' class='text' name='' id='login-input'>
-        <p class='login-message' id='login-message'></p>
+  <div class="container__form">
+    <form class="box" id="box" action="" method="post">
+      <h1 id="box__title" data-translate="registration">Registration</h1>
+      <div class="box__login">
+        <label class="box__title-1" id="box__title-1" data-translate="loginUC">LOGIN</label>
+        <input type="text" class="text" name="" id="login-input">
+        <p class="login-message" id="login-message"></p>
       </div>
 
 
-      <div class='box__pass'>
-        <label class='box__pass-title-1' id='box__pass-title-1'
-               data-translate='passwordUC'>PASSWORD</label>
-        <input type='password' class='pass' id='password-input' name='password'>
-        <p class='password-message' id='password-message'></p>
-        <a href='#' class='checkbox'> <img id='img'
-                                           src='https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png'></a>
+      <div class="box__pass">
+        <label class="box__pass-title-1" id="box__pass-title-1"
+               data-translate="passwordUC">PASSWORD</label>
+        <input type="password" class="pass" id="password-input" name="password">
+        <p class="password-message" id="password-message"></p>
+        <a href="#" class="checkbox"> <img id="img"
+                                           src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
       </div>
 
-      <div class='box__pass'>
-        <label class='box__pass-title-2' id='box__pass-title-2' data-translate='confPas'>CONFIRM PASSWORD</label>
-        <input type='password' class='pass' id='password-input2' name='password'>
-        <p class='password-message2' id='password-message2'></p>
-        <a href='#' class='checkbox'> <img id='img2'
-                                           src='https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png'></a>
+      <div class="box__pass">
+        <label class="box__pass-title-2" id="box__pass-title-2" data-translate="confPas">CONFIRM PASSWORD</label>
+        <input type="password" class="pass" id="password-input2" name="password">
+        <p class="password-message2" id="password-message2"></p>
+        <a href="#" class="checkbox"> <img id="img2"
+                                           src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
       </div>
 
-      <button id='submit' class="btn__submit" type='submit' placeholder='Register' name='' disabled data-translate='registration'>Registration
+      <button id="submit" class="btn__submit" type="submit" placeholder="Register" name="" disabled data-translate="registration">Registration
       </button>
 
 
-      <div class='notice'>
-        <div class='warning' id='warning' data-translate='account'>Already have an account?</div>
-        <a href='login.html' class='warning-link' id='warning-link' data-translate='signIn'>Sign
+      <div class="notice">
+        <div class="warning" id="warning" data-translate="account">Already have an account?</div>
+        <a href="login.html" class="warning-link" id="warning-link" data-translate="signIn">Sign
           up.</a>
       </div>
 
