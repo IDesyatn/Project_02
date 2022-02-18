@@ -32,6 +32,7 @@ $l-modal-area-bg: #837788A6;
 $l-input-bg: #B7ACBCCC;
 $l-search-bg: url('../../assets/img/icons/search-black.png') no-repeat;
 $l-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+$l-shadow-input: 0 0 5px rgba(0, 0, 0, 0.5);
 $l-table-th-bg: linear-gradient(180deg, #D0CBD8 0%, rgba(255, 255, 255, 0.66) 100%);
 
 
@@ -387,6 +388,54 @@ body {
             flex-direction: column;
             padding: 10px;
 
+            p{
+              font-size: 13px;
+              color: #ffffff;
+              text-align: start;
+            }
+
+            .setting-login-message{
+              position: absolute;
+              top: 127px;
+              left: 61px;
+            }
+
+            .setting-newPassword-message{
+              position: absolute;
+              top: 200px;
+              left: 61px;
+            }
+
+            .setting-repeatPassword-message{
+              position: absolute;
+              top: 274px;
+              left: 61px;
+            }
+
+            .checkbox {
+              position: absolute;
+              width: 10px;
+              top: 183px;
+              right: 85px;
+            }
+
+            .checkbox2 {
+              position: absolute;
+              width: 10px;
+              top: 256px;
+              right: 85px;
+            }
+
+            .invalid {
+              outline: 1px solid #ff0000;
+            }
+
+            .invalid:focus {
+              outline: 1px solid #ff0000;
+            }
+
+
+
             input {
               background: rgba(21, 20, 20, 0.4);
               border: none;
@@ -445,13 +494,73 @@ body {
       @extend %message-shared;
       flex-direction: column;
 
+      p{
+        font-size: 13px;
+        color: #ffffff;
+        text-align: start;
+      }
+
+      .firstName-message{
+        position: absolute;
+        top: 143px;
+        left: 75px;
+      }
+
+      .lastName-message{
+        position: absolute;
+        top: 218px;
+        left: 75px;
+      }
+
+      .age-message{
+        position: absolute;
+        top: 290px;
+        left: 75px;
+      }
+
+      .city-message{
+        position: absolute;
+        top: 364px;
+        left: 75px;
+      }
+
+      .phone-message{
+        position: absolute;
+        top: 142px;
+        left: 386px;
+      }
+
+      .email-message{
+        position: absolute;
+        top: 218px;
+        left: 386px;
+      }
+
+      .company-message{
+        position: absolute;
+        top: 290px;
+        left: 386px;
+      }
+
+
       &_input {
         display: flex;
         margin: 15px;
       }
 
+
       .input {
         padding: 20px;
+
+
+        .invalid {
+          outline: 1px solid #ff0000;
+        }
+
+        .invalid:focus {
+          outline: 1px solid #ff0000;
+        }
+
 
         &__block {
           display: flex;
@@ -666,10 +775,12 @@ body {
             &__block {
               input {
                 background: $l-input-bg;
+                box-shadow: $l-shadow-input;
                 color: $l-main-color;
 
                 &:active {
                   border: 1px solid $l-main-color;
+                  box-shadow: none;
                 }
               }
             }
@@ -685,9 +796,11 @@ body {
           &__block {
             input {
               background: $l-input-bg;
+              box-shadow: $l-shadow-input;
 
               &:active {
                 border: 1px solid $l-main-color;
+                box-shadow: none;
               }
             }
           }

@@ -219,13 +219,13 @@ body {
         text-transform: uppercase;
         letter-spacing: 0.5px;
 
-        :hover {
+        &:hover {
           outline: 2px solid #fff;
           background: #f8972a;
           cursor: pointer;
         }
 
-        :active {
+        &:active {
           background: #fd7f02;
           border: 1px solid #ffffff;
         }
@@ -295,7 +295,6 @@ body {
 }*/
 
 
-
 .ligth {
   background: linear-gradient(180deg, #D0CBD8 0%, rgba(29, 74, 115, 0.25) 100%);
   border: 1px solid #000;
@@ -333,12 +332,14 @@ body {
     border: .1px solid #070000;
     color: #000000;
 
-    :hover {
+
+    &:hover {
       outline: .1px solid #827488;
       background: #827488;
     }
 
-    :active {
+
+    &:active {
       background: #63526b;
       border: .1px solid #63526b;
     }

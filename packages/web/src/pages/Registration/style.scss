@@ -26,7 +26,7 @@ body {
       padding-left: 90px;
 
 
-      &-name{
+      &-name {
         font-size: 28px;
         font-weight: 500;
         position: relative;
@@ -39,7 +39,7 @@ body {
       justify-content: space-between;
       border: 1px solid #E5E5E5;
 
-      &-select{
+      &-select {
         border: none;
         color: white;
         background: linear-gradient(180deg, #69AEC5 0%, #448499 0.01%, rgba(15, 60, 93, 0.75) 100%);
@@ -211,13 +211,13 @@ body {
         text-transform: uppercase;
         letter-spacing: 0.5px;
 
-        :hover {
+        &:hover {
           outline: 2px solid #fff;
           background: #f8972a;
           cursor: pointer;
         }
 
-        :active {
+        &:active {
           background: #fd7f02;
           border: 1px solid #ffffff;
         }
@@ -236,7 +236,7 @@ body {
       background: url("../../assets/img/icons/logo-black.png") 0 0 no-repeat;
       background-size: contain;
 
-      &-name{
+      &-name {
         font-size: 28px;
         font-weight: 500;
         position: relative;
@@ -249,7 +249,7 @@ body {
       justify-content: space-between;
       border: 1px solid black;
 
-      &-select{
+      &-select {
         color: #000000;
         background: #B7ACBC;
       }
@@ -286,6 +286,7 @@ body {
 }*/
 
 
+
 .ligth {
   background: linear-gradient(180deg, #D0CBD8 0%, rgba(15, 60, 93, 0.25) 100%);
   border: 1px solid #000;
@@ -307,15 +308,15 @@ body {
     border-bottom: 0.1px solid #000000;
   }
 
-  .login-message{
+  .login-message {
     color: #000000;
   }
 
-  .password-message{
+  .password-message {
     color: #000000;
   }
 
-  .password-message2{
+  .password-message2 {
     color: #000000;
   }
 
@@ -330,19 +331,19 @@ body {
     }
   }
 
-  input[type="submit"] {
+  .box__button {
     background: #b7acbc;
     border: .1px solid #070000;
     color: #000000;
-  }
 
-  input[type="submit"]:hover {
-    outline: .1px solid #827488;
-    background: #827488;
-  }
+    &:hover {
+      outline: .1px solid #827488;
+      background: #827488;
+    }
 
-  input[type="submit"]:active {
-    background: #63526b;
-    border: .1px solid #63526b;
+    &:active {
+      background: #63526b;
+      border: .1px solid #63526b;
+    }
   }
 }

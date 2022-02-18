@@ -138,4 +138,36 @@ export function mode() {
                 c.classList.remove("ligth-container");
             }
 
-    }
+}
+    
+
+/*export function registerData(state) {
+  if (loginValidation(state) === false || passwordValidation(state) === false || confirmPasswordValidation(state) === false) {
+    return false;
+  }
+  
+  const user = ((document.getElementById('login-input')) as HTMLInputElement).value;
+  const password = ((document.getElementById('password-input')) as HTMLInputElement).value;
+  const formData = { 'username': user, 'password': password };
+
+  postRegister(state.url, formData);
+}
+
+export function postRegister(url, data) {
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  })
+    .then((response: Response) => {
+      if (response.status === 200) {
+        window.location.href = response.url;
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}*/
+
