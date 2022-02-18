@@ -1,11 +1,13 @@
 import "./style.scss"
-import {loginValidation,validateStatusCheck,passwordValidation, confirmPasswordValidation, showPass, mode /*,registerData*/} from "./logic"
+import {loginValidation,validateStatusCheck,passwordValidation, confirmPasswordValidation, showPass /*,registerData*/} from "./logic"
 import { languageHandle } from '../../ts/localization'
 import {addListener} from '../../ts/utils'
+import { themeHandler } from '../../ts/themeHandler'
 
 
 document.addEventListener("DOMContentLoaded", () => {
   languageHandle();
+  themeHandler();
   init();
 });
 

@@ -13,20 +13,20 @@ export function showPass() {
             }
         }
 
-export function mode() {
-            const a = ((document.getElementById('select-mode'))as HTMLInputElement).value;
-            const b = document.getElementById('box')
-            const c = document.getElementById('container')
-
-            if (a === "value2") {
-                b.classList.add("ligth");
-                c.classList.add("ligth-container");
-            } else {
-                b.classList.remove("ligth");
-                c.classList.remove("ligth-container");
-            }
-
-}
+// export function mode() {
+//             const a = ((document.getElementById('select-mode'))as HTMLInputElement).value;
+//             const b = document.getElementById('box')
+//             const c = document.getElementById('container')
+//
+//             if (a === "value2") {
+//                 b.classList.add("ligth");
+//                 c.classList.add("ligth-container");
+//             } else {
+//                 b.classList.remove("ligth");
+//                 c.classList.remove("ligth-container");
+//             }
+//
+// }
 
 export function loginValidation(state) {
   const loginRegex = /^[a-zA-Z0-9_]{3,20}$/;
@@ -117,11 +117,11 @@ export function validateStatusCheck(state): boolean {
   if (loginValidation(state) === false || passwordValidation(state) === false) {
     return false;
   }
-  
+
   const user = ((document.getElementById('login-input')) as HTMLInputElement).value;
   const password = ((document.getElementById('password-input')) as HTMLInputElement).value;
   const formData = { 'username': user, 'password': password };
-    
+
   postLogin(state.url, formData);
 }
 

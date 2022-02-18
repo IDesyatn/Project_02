@@ -74,7 +74,7 @@ body {
       justify-content: center;
       align-items: center;
       max-width: 500px;
-      background: linear-gradient(to bottom, rgba(6,155,236,1) 0%, rgba(6,155,236,1) 0%, rgba(1,212,166,0.25) 100%);
+      background: linear-gradient(to bottom, rgba(6, 155, 236, 1) 0%, rgba(6, 155, 236, 1) 0%, rgba(1, 212, 166, 0.25) 100%);
       padding: 15px 30px;
       text-align: center;
       border: 0.1px solid #ffffff;
@@ -86,31 +86,31 @@ body {
       }
 
       a {
-          color: #c77f00;
-          text-decoration: none;
+        color: #c77f00;
+        text-decoration: none;
       }
 
-      .box__title-1{
+      .box__title-1 {
         text-transform: uppercase;
         font-weight: 500;
         letter-spacing: 2px;
         font-size: 17px;
       }
 
-      .notice{
+      .notice {
         display: flex;
         align-items: center;
         justify-content: center;
       }
 
-      .warning{
+      .warning {
         margin: 15px 0;
         font-weight: 500;
         letter-spacing: 2px;
         font-size: 20px;
       }
 
-      .warning-link{
+      .warning-link {
         margin-left: 15px;
         font-size: 20px;
       }
@@ -153,6 +153,7 @@ body {
         color: white;
 
       }
+
       .text:focus {
         outline: 2px solid #ffffff;
       }
@@ -176,6 +177,8 @@ body {
         &-title-1,
         &-title-2 {
           text-transform: uppercase;
+          font-weight: 500;
+          letter-spacing: 2px;
           font-size: 17px;
         }
       }
@@ -226,124 +229,96 @@ body {
   }
 }
 
-.ligth-container {
-  background: url("../../assets/img/lighttheme.jpg") 0 0 no-repeat;
-  color: #000000;
+//Light Theme
 
-  .header {
+.theme-light {
+  .container {
+    background: url("../../assets/img/lighttheme.jpg") 0 0 no-repeat;
+    color: #000000;
 
-    &__logo {
-      background: url("../../assets/img/icons/logo-black.png") 0 0 no-repeat;
-      background-size: contain;
+    .header {
 
-      &-name {
-        font-size: 28px;
-        font-weight: 500;
-        position: relative;
-        top: 35px;
+      &__logo {
+        background: url("../../assets/img/icons/logo-black.png") 0 0 no-repeat;
+        background-size: contain;
+      }
+
+      &__ability {
+        border: 1px solid black;
+
+        &-select {
+          color: #000000;
+          background: #B7ACBC;
+        }
+
+
+        option {
+          background: #A9A0B2FF;
+        }
       }
     }
 
-    &__ability {
-      display: flex;
-      justify-content: space-between;
-      border: 1px solid black;
+    &__form {
+      .box {
+        background: linear-gradient(180deg, #D0CBD8 0%, rgba(29, 74, 115, 0.25) 100%);
+        border: 1px solid #000;
+        color: black;
 
-      &-select {
-        color: #000000;
-        background: #B7ACBC;
+        a {
+          color: #000000;
+          font-weight: 600;
+        }
+
+        .text {
+          color: #ffffff;
+          border-bottom: 0.1px solid #000000;
+
+          &:focus {
+            outline: 2px solid #ffffff;
+          }
+
+          .invalid {
+            outline: 2px solid #ff0000;
+
+            &:focus {
+              outline: 2px solid #ff0000;
+            }
+          }
+        }
+
+        .login-message,
+        .password-message,
+        .password-message2 {
+          color: #000000;
+        }
+
+
+        .box__pass {
+          .img-eye {
+            background-image: url("https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png");
+          }
+
+          .img-eye2 {
+            background-image: url("https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png");
+          }
+        }
+
+        .btn__submit{
+          background: #b7acbc;
+          border: .1px solid #070000;
+          color: #000000;
+
+          &:hover {
+            outline: .1px solid #827488;
+            background: #827488;
+          }
+
+          &:active {
+            background: #63526b;
+            border: .1px solid #63526b;
+          }
+        }
       }
-
-
-      option {
-        background: #A9A0B2FF;
-      }
-    }
-  }
-}
-
-/*.ligth-container {
-  background: url("../../assets/img/lighttheme.jpg") 0 0 no-repeat;
-  color: #000000;
-
-  .header {
-
-    .logo{
-      background: url("../../assets/img/icons/logo-black.png") 0 0 no-repeat;
-      background-size: contain;
-    }
-
-    .ability option {
-
-      background: #ffffff;
-    }
-
-    .select {
-      color: #000000;
-      background-color: #B7ACBC;
-    }
-  }
-}*/
-
-
-
-.ligth {
-  background: linear-gradient(180deg, #D0CBD8 0%, rgba(15, 60, 93, 0.25) 100%);
-  border: 1px solid #000;
-  color: black;
-
-  div a {
-    text-decoration: none;
-    color: #000000;
-    font-weight: 600;
-  }
-
-  .text {
-    color: #ffffff;
-    border-bottom: 0.1px solid #000000;
-  }
-
-  .pass {
-    color: #ffffff;
-    border-bottom: 0.1px solid #000000;
-  }
-
-  .login-message {
-    color: #000000;
-  }
-
-  .password-message {
-    color: #000000;
-  }
-
-  .password-message2 {
-    color: #000000;
-  }
-
-
-  .box__pass {
-    .img-eye {
-      background-image: url("https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png");
-    }
-
-    .img-eye2 {
-      background-image: url("https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png");
-    }
-  }
-
-  .box__button {
-    background: #b7acbc;
-    border: .1px solid #070000;
-    color: #000000;
-
-    &:hover {
-      outline: .1px solid #827488;
-      background: #827488;
-    }
-
-    &:active {
-      background: #63526b;
-      border: .1px solid #63526b;
     }
   }
 }

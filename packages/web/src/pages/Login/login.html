@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="authPage.css">
   <title>Authorization Page</title>
 </head>
-<body>
+<body id="body" class="theme-light">
 <div class="container" id="container">
   <header class="header">
     <div class="header__logo">
@@ -20,9 +20,9 @@
     </div>
 
     <div class="header__ability">
-      <select name="select-mode" class="header__ability-select" id="select-mode">
-        <option value="value1" data-translate="dark" id="them-1">Dark</option>
-        <option value="value2" default data-translate="light" id="them-2">Light</option>
+      <select name="select-mode" class="header__ability-select" id="select-theme">
+        <option value="dark" data-translate="dark" id="them-1">Dark</option>
+        <option value="light" default data-translate="light" id="them-2">Light</option>
       </select>
       <select id="select-language" name="select-lang" class="header__ability-select">
         <option value="english" data-translate="english">Eng</option>

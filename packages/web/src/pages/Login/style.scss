@@ -26,7 +26,7 @@ body {
       padding-left: 90px;
 
 
-      &-name{
+      &-name {
         font-size: 28px;
         font-weight: 500;
         position: relative;
@@ -39,7 +39,7 @@ body {
       justify-content: space-between;
       border: 1px solid #E5E5E5;
 
-      &-select{
+      &-select {
         border: none;
         color: white;
         background: linear-gradient(180deg, #69AEC5 0%, #448499 0.01%, rgba(15, 60, 93, 0.75) 100%);
@@ -74,7 +74,7 @@ body {
       justify-content: center;
       align-items: center;
       max-width: 500px;
-      background: linear-gradient(to bottom, rgba(6,155,236,1) 0%, rgba(6,155,236,1) 0%, rgba(1,212,166,0.25) 100%);
+      background: linear-gradient(to bottom, rgba(6, 155, 236, 1) 0%, rgba(6, 155, 236, 1) 0%, rgba(1, 212, 166, 0.25) 100%);
       padding: 30px;
       text-align: center;
       border: 0.1px solid #ffffff;
@@ -90,27 +90,27 @@ body {
         text-decoration: none;
       }
 
-      .box__title-1{
+      .box__title-1 {
         text-transform: uppercase;
         font-weight: 500;
         letter-spacing: 2px;
         font-size: 17px;
       }
 
-      .notice{
+      .notice {
         display: flex;
         align-items: center;
         justify-content: center;
       }
 
-      .warning{
+      .warning {
         margin: 15px 0;
         font-weight: 500;
         letter-spacing: 2px;
         font-size: 20px;
       }
 
-      .warning-link{
+      .warning-link {
         margin-left: 15px;
         font-size: 20px;
       }
@@ -180,7 +180,7 @@ body {
         margin-top: 20px;
         position: relative;
 
-        &-title-1{
+        &-title-1 {
           text-transform: uppercase;
           font-size: 17px;
         }
@@ -194,8 +194,7 @@ body {
       }
 
       .login-message,
-      .password-message
-      {
+      .password-message {
         max-width: 426px;
         height: 15px;
         margin-top: 5px;
@@ -234,114 +233,79 @@ body {
   }
 }
 
-.ligth-container {
-  background: url("../../assets/img/lighttheme.jpg") 0 0 no-repeat;
-  color: #000000;
+//Light Theme
 
-  .header {
-
-    &__logo {
-      background: url("../../assets/img/icons/logo-black.png") 0 0 no-repeat;
-      background-size: contain;
-
-      &-name{
-        font-size: 28px;
-        font-weight: 500;
-        position: relative;
-        top: 35px;
-      }
-    }
-
-    &__ability {
-      display: flex;
-      justify-content: space-between;
-      border: 1px solid black;
-
-      &-select{
-        color: #000000;
-        background: #B7ACBC;
-      }
-
-
-      option {
-        background: #A9A0B2FF;
-      }
-    }
-  }
-
-}
-
-/*.ligth-container {
-  background: url("../../assets/img/lighttheme.jpg") 0 0 no-repeat;
-  color: #000000;
-
-  .header {
-
-    .logo{
-      background: url("../../assets/img/icons/logo-black.png") 0 0 no-repeat;
-      background-size: contain;
-    }
-
-    .ability option {
-
-      background: #ffffff;
-    }
-
-    .select {
-      color: #000000;
-      background-color: #B7ACBC;
-    }
-  }
-}*/
-
-
-.ligth {
-  background: linear-gradient(180deg, #D0CBD8 0%, rgba(29, 74, 115, 0.25) 100%);
-  border: 1px solid #000;
-  color: black;
-
-  div a {
-    text-decoration: none;
-    color: #000000;
-    font-weight: 600;
-  }
-
-  .text {
-    color: #ffffff;
-    border-bottom: 0.1px solid #000000;
-  }
-
-  .pass {
-    color: #ffffff;
-    border-bottom: 0.1px solid #000000;
-  }
-
-
-  .box__pass {
-    .img-eye {
-      background-image: url("https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png");
-    }
-
-    .img-eye2 {
-      background-image: url("https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png");
-    }
-  }
-
-  .btn-submit {
-    background: #b7acbc;
-    border: .1px solid #070000;
+.theme-light {
+  .container {
+    background: url("../../assets/img/lighttheme.jpg") 0 0 no-repeat;
     color: #000000;
 
+    .header {
 
-    &:hover {
-      outline: .1px solid #827488;
-      background: #827488;
+      &__logo {
+        background: url("../../assets/img/icons/logo-black.png") 0 0 no-repeat;
+        background-size: contain;
+      }
+
+      &__ability {
+        border: 1px solid black;
+
+        &-select {
+          color: #000000;
+          background: #B7ACBC;
+        }
+
+        option {
+          background: #A9A0B2FF;
+        }
+      }
     }
 
+    &__form {
+      .box {
+        background: linear-gradient(180deg, #D0CBD8 0%, rgba(29, 74, 115, 0.25) 100%);
+        border: 1px solid #000;
+        color: black;
 
-    &:active {
-      background: #63526b;
-      border: .1px solid #63526b;
+        a {
+          text-decoration: none;
+          color: #000000;
+          font-weight: 600;
+        }
+
+        .text {
+          color: #ffffff;
+          border-bottom: 0.1px solid #000000;
+        }
+
+        &__pass {
+          .img-eye {
+            background-image: url("https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png");
+          }
+
+          .img-eye2 {
+            background-image: url("https://img.icons8.com/material-sharp/24/ffffff/sleepy-eyes.png");
+          }
+        }
+
+        .btn-submit {
+          background: #b7acbc;
+          border: .1px solid #070000;
+          color: #000000;
+
+
+          &:hover {
+            outline: .1px solid #827488;
+            background: #827488;
+          }
+
+
+          &:active {
+            background: #63526b;
+            border: .1px solid #63526b;
+          }
+        }
+      }
     }
   }
 }
