@@ -4,8 +4,7 @@ body {
 }
 
 .container {
-  height: 100vh;
-
+  min-height: 100vh;
   color: white;
   background: url("../../assets/img/darkTheme1.jpg");
   font-size: 30px;
@@ -16,8 +15,8 @@ body {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    padding-top: 10px;
-    width: 1200px;
+    padding: 10px 15px;
+    max-width: 1200px;
     height: 100px;
 
     &__logo {
@@ -57,6 +56,171 @@ body {
         outline: none;
         border: none;
         letter-spacing: 2px;
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    padding: 0 15px;
+
+    .box {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 500px;
+      background: linear-gradient(to bottom, rgba(6,155,236,1) 0%, rgba(6,155,236,1) 0%, rgba(1,212,166,0.25) 100%);
+      padding: 15px 30px;
+      text-align: center;
+      border: 0.1px solid #ffffff;
+
+      &__login {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      a {
+          color: #c77f00;
+          text-decoration: none;
+      }
+
+      .box__title-1{
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 2px;
+        font-size: 17px;
+      }
+
+      .notice{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .warning{
+        margin: 15px 0;
+        font-weight: 500;
+        letter-spacing: 2px;
+        font-size: 20px;
+      }
+
+      .warning-link{
+        margin-left: 15px;
+        font-size: 20px;
+      }
+
+
+      h1 {
+        margin-bottom: 35px;
+        margin-top: 0;
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 2px;
+        font-size: 30px;
+      }
+
+      .pass {
+        border: 0;
+        background: black;
+        opacity: 0.6;
+        display: block;
+        margin: 0px auto;
+        padding: 14px 10px;
+        width: 400px;
+        font-size: 17px;
+        color: white;
+      }
+
+      .pass:focus {
+        outline: 2px solid #ffffff;
+      }
+
+      .text {
+        border: 0;
+        background: black;
+        opacity: .6;
+        display: block;
+        margin: 0px auto;
+        padding: 14px 10px;
+        width: 400px;
+        font-size: 17px;
+        color: white;
+
+      }
+      .text:focus {
+        outline: 2px solid #ffffff;
+      }
+
+      .invalid {
+        outline: 2px solid #ff0000;
+      }
+
+      .invalid:focus {
+        outline: 2px solid #ff0000;
+      }
+
+
+      .box__pass {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+        position: relative;
+
+        &-title-1,
+        &-title-2 {
+          text-transform: uppercase;
+          font-size: 17px;
+        }
+      }
+
+      .checkbox {
+        position: absolute;
+        top: 28px;
+        right: 14px;
+      }
+
+      .login-message,
+      .password-message,
+      .password-message2 {
+        max-width: 426px;
+        height: 15px;
+        margin-top: 5px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: #ffffff;
+      }
+
+      .btn__submit {
+        background: #faa448;
+        width: 278px;
+        margin-top: 25px;
+        padding: 15px;
+        border: 1px solid #ffffff;
+        color: #f6f6f6;
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+
+        &:hover {
+          outline: 2px solid #fff;
+          background: #f8972a;
+          cursor: pointer;
+        }
+
+        &:active {
+          background: #fd7f02;
+          border: 1px solid #ffffff;
+        }
       }
     }
   }
@@ -121,210 +285,10 @@ body {
   }
 }*/
 
-.box {
-  min-width: 500px;
-  background: linear-gradient(to bottom, rgba(6, 155, 236, 1) 0%, rgba(6, 155, 236, 1) 0%, rgba(1, 212, 166, 0.25) 100%);
-  padding: 30px;
-  text-align: center;
 
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-
-  border: 0.1px solid #ffffff;
-
-
-  div {
-    font-weight: 500;
-    letter-spacing: 2px;
-    font-size: 20px;
-
-    a {
-      color: #c77f00;
-      text-decoration: none;
-    }
-  }
-
-  .box__title-1 {
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: 2px;
-    font-size: 17px;
-    position: absolute;
-    top: 125px;
-    left: 70px
-  }
-
-  .notice {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .warning {
-    margin: 15px 0;
-  }
-
-  .warning-link {
-    margin-left: 15px;
-  }
-
-
-  h1 {
-    margin: 40px 0;
-    text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: 2px;
-    font-size: 30px;
-  }
-
-  .pass {
-    border: 0;
-    background: black;
-    opacity: .6;
-    display: block;
-    margin: 0px auto;
-    padding: 14px 10px;
-    width: 400px;
-
-    font-size: 17px;
-    color: white;
-  }
-
-  .pass:focus {
-    outline: 2px solid #ffffff;
-  }
-
-  .text {
-    border: 0;
-    background: black;
-    opacity: .6;
-    display: block;
-    margin: 0px auto;
-    padding: 14px 10px;
-    width: 400px;
-
-    font-size: 17px;
-    color: white;
-
-  }
-
-  .text:focus {
-    outline: 2px solid #ffffff;
-  }
-
-  .invalid {
-    outline: 2px solid #ff0000;
-  }
-
-  .invalid:focus {
-    outline: 2px solid #ff0000;
-  }
-
-
-  .box__pass {
-    display: flex;
-    align-items: center;
-    margin: 55px 0;
-
-    &-title-1 {
-      text-transform: uppercase;
-      font-size: 17px;
-      position: absolute;
-      top: 228px;
-      left: 70px;
-    }
-
-    &-title-2 {
-      text-transform: uppercase;
-      font-size: 17px;
-      position: absolute;
-      top: 332px;
-      left: 70px;
-    }
-  }
-
-  .checkbox {
-    width: 10px;
-    position: absolute;
-    right: 105px;
-  }
-
-  .login-message {
-
-    position: absolute;
-
-    width: 446px;
-    height: 35px;
-
-    top: 183px;
-    left: 57px;
-
-    text-align: center;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    color: #ffffff;
-  }
-
-  .password-message {
-    position: absolute;
-    width: 466px;
-    height: 35px;
-
-    bottom: 245px;
-    left: 57px;
-
-    text-align: center;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    color: #ffffff;
-  }
-
-  .password-message2 {
-    position: absolute;
-    width: 413px;
-    height: 35px;
-
-    bottom: 143px;
-    left: 75px;
-
-    text-align: center;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    color: #ffffff;
-  }
-
-  &__button {
-    background: #faa448;
-    width: 278px;
-    padding: 15px;
-    border: 1px solid #ffffff;
-    color: #f6f6f6;
-    font-size: 20px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-
-    &:hover {
-      outline: 2px solid #fff;
-      background: #f8972a;
-      cursor: pointer;
-    }
-
-    &:active {
-      background: #fd7f02;
-      border: 1px solid #ffffff;
-    }
-  }
-}
 
 .ligth {
-  background: linear-gradient(180deg, #D0CBD8 0%, rgba(29, 74, 115, 0.25) 100%);
+  background: linear-gradient(180deg, #D0CBD8 0%, rgba(15, 60, 93, 0.25) 100%);
   border: 1px solid #000;
   color: black;
 
