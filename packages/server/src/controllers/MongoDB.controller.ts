@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import { mongoDBConfig } from '../config/mongoDB.config';
 import { ICRUD } from '../interfaces/ICRUD';
 
@@ -7,6 +7,8 @@ export class MongoDBController implements ICRUD {
   private connection;
 
   private person;
+
+  private user;
 
   constructor() {
     this.connect();
@@ -17,21 +19,31 @@ export class MongoDBController implements ICRUD {
     const url = `mongodb+srv://Project_2:${password}@project2.ofsq7.mongodb.net/${name}?retryWrites=true&w=majority`;
     MongoClient.connect(url)
       .then((db) => {
-        this.connection = db;
-        this.connection.collection('person');
+        this.connection = db.db('Project2');
+        // this.person = this.connection.colleSction('person');
+        // this.user = this.connection.collection('user');
+      })
+      .then(() => {
+        this.connectTables();
       })
       .catch((err) => {
-        throw new Error(`Error during mongoDB connection: ${err.message}`);
+        throw err;
       });
+  }
+
+  private connectTables() {
+    this.person = this.connection.collection('person');
+    this.user = this.connection.collection('user');
   }
 
   public dropConnection() {
     this.connection.dropConnection();
   }
 
-  clear(req: Request, res: Response): void {
-    this.person
-      .deleteMany({})
+  clear(query: string, res: Response): void {
+    const execute = JSON.parse(query);
+    return this.person
+      .deleteMany(execute)
       .then(() => {
         res.status(200).end();
       })
@@ -40,10 +52,10 @@ export class MongoDBController implements ICRUD {
       });
   }
 
-  create(req: Request, res: Response): void {
-    const { firstName, lastName, age, phoneNumber, email, city, company } = req.body;
+  create(query: string, res: Response): void {
+    const execute = JSON.parse(query);
     this.person
-      .insertOne({ firstName, lastName, age, phoneNumber, email, city, company })
+      .insertOne(execute)
       .then(() => {
         res.status(200).end();
       })
@@ -52,12 +64,10 @@ export class MongoDBController implements ICRUD {
       });
   }
 
-  delete(req: Request, res: Response): void {
-    const { id } = req.body;
+  delete(query: string, res: Response): void {
+    const execute = JSON.parse(query);
     this.person
-      .deleteOne({
-        _id: id,
-      })
+      .deleteOne(execute)
       .then(() => {
         res.status(200).end();
       })
@@ -66,9 +76,10 @@ export class MongoDBController implements ICRUD {
       });
   }
 
-  read(req: Request, res: Response): void {
+  read(query: string, res: Response): void {
+    const execute = JSON.parse(query);
     this.person
-      .find({})
+      .find(execute)
       .then((result) => {
         res.status(200).json(JSON.stringify(result));
       })
@@ -77,28 +88,52 @@ export class MongoDBController implements ICRUD {
       });
   }
 
-  update(req: Request, res: Response): void {
-    const { id, firstName, lastName, age, phoneNumber, email, city, company } = req.body;
+  update(query: string, res: Response): void {
+    const execute = JSON.parse(query);
     this.person
-      .updateOne(
-        { _id: id },
-        {
-          $set: {
-            firstName,
-            lastName,
-            age,
-            phoneNumber,
-            email,
-            city,
-            company,
-          }
-        }
-      )
+      .updateOne(execute[0], execute[1])
       .then(() => {
         res.status(200).end();
       })
       .catch((err) => {
         res.status(409).json(JSON.stringify(err));
+      });
+  }
+
+  // Костыльный костыль. Бег по граблям. Переделать впадло, времени нет
+  readUser(query: string) {
+    const execute = JSON.parse(query);
+    return this.user
+      .findOne(execute)
+      .then((result) => {
+        return result;
+      })
+      .catch(() => {
+        return false;
+      });
+  }
+
+  createUser(query: string) {
+    const execute = JSON.parse(query);
+    return this.user
+      .insertOne(execute)
+      .then((result) => {
+        return result;
+      })
+      .catch(() => {
+        return false;
+      });
+  }
+
+  updateUser(query: string) {
+    const execute = JSON.parse(query);
+    return this.user
+      .updateOne(execute[0], execute[1])
+      .then((result) => {
+        return result;
+      })
+      .catch(() => {
+        return false;
       });
   }
 }

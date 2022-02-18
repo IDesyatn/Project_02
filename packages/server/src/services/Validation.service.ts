@@ -135,4 +135,32 @@ export class ValidationService {
     }
     return this;
   }
+
+  public validateLogin() {
+    if (!this.req.body.login) {
+      this.res.status(400).end();
+      this.valid = false;
+    }
+    const { login } = this.req.body;
+    const reg = /^[a-zA-Z0-9_]{3,20}$/;
+    if (!reg.test(login)) {
+      this.res.status(400).end();
+      this.valid = false;
+    }
+    return this;
+  }
+
+  public validatePassword() {
+    if (!this.req.body.password) {
+      this.res.status(400).end();
+      this.valid = false;
+    }
+    const { password } = this.req.body;
+    const reg = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]){8,20}$/;
+    if (!reg.test(password)) {
+      this.res.status(400).end();
+      this.valid = false;
+    }
+    return this;
+  }
 }
