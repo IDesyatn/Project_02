@@ -20,7 +20,7 @@ export class RouterMiddleware {
   private setRoutes() {
     this.router
       .route('/registration')
-      .all((req, res) => {
+      .get((req, res) => {
         if (req.cookies.jwt) {
           res.redirect('/main');
         }
@@ -30,9 +30,6 @@ export class RouterMiddleware {
       })
       .post(async (req, res) => {
         await this.authenticationService.registration(req, res);
-      })
-      .put(async (req, res) => {
-        await this.authenticationService.update(req, res);
       });
 
     this.router
@@ -42,18 +39,21 @@ export class RouterMiddleware {
           res.redirect('/main');
         }
         res.sendFile(path.resolve(path.resolve(process.cwd(), '..', 'web', 'dist', 'login.html')));
+      })
+      .post(async (req, res) => {
+        await this.authenticationService.login(req, res);
       });
-    //   .post((req, res) => {
-    //
-    // });
+
+    this.router.route('/main').get((req, res) => {
+      if (!req.cookies.jwt) {
+        res.redirect('/login');
+      }
+      res.sendFile(path.resolve(path.resolve(process.cwd(), '..', 'web', 'dist', 'main.html')));
+    });
 
     this.router
-      .route('/main')
+      .route('/main/data')
       .get((req, res) => {
-        if (!req.cookies.jwt) {
-          res.redirect('/login');
-        }
-        res.sendFile(path.resolve(path.resolve(process.cwd(), '..', 'web', 'dist', 'main.html')));
         this.databaseService.read(req, res);
       })
       .post((req, res) => {
@@ -68,6 +68,10 @@ export class RouterMiddleware {
         }
         this.databaseService.delete(req, res);
       });
+
+    this.router.route('/main/settings').put(async (req, res) => {
+      await this.authenticationService.update(req, res);
+    });
 
     this.router.get('/', (req, res) => {
       if (req.cookies.jwt) {

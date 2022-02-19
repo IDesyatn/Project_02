@@ -1,16 +1,16 @@
-import "./style.scss"
-import {loginValidation,validateStatusCheck,passwordValidation, confirmPasswordValidation, showPass /*,registerData*/} from "./logic"
-import { languageHandle } from '../../ts/localization'
-import {addListener} from '../../ts/utils'
-import { themeHandler } from '../../ts/themeHandler'
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  languageHandle();
-  themeHandler();
-  init();
-});
-
+import './style.scss';
+import {
+  loginValidation,
+  validateStatusCheck,
+  passwordValidation,
+  confirmPasswordValidation,
+  showPass,
+  mode,
+  registerData,
+} from './logic';
+import { languageHandle } from '../../ts/localization';
+import { addListener } from '../../ts/utils';
+import { themeHandler } from '../../ts/themeHandler';
 
 function init() {
   const state = {
@@ -30,33 +30,28 @@ function init() {
     confirmPasswordValidation.call(null, state);
     validateStatusCheck.call(null, state);
   });
-
- /* addListener('submit', 'click', () => {
-        registerData(state)
-    });*/
+  addListener('submit', 'click', () => {
+    registerData(state);
+  });
+  addListener('img', 'click', () => {
+    showPass('password-input', 'img');
+  });
+  addListener('img2', 'click', () => {
+    showPass('password-input2', 'img2');
+  });
+  addListener('select-mode', 'click', () => {
+    mode();
+  });
 }
 
-
-const buttonEye = document.getElementById('img');
-const buttonEye2 = document.getElementById('img2');
-const dropdaunTheme = document.getElementById('select-mode');
-
-buttonEye.addEventListener('click', event => {
-    showPass('password-input', 'img');
+document.addEventListener('DOMContentLoaded', () => {
+  languageHandle();
+  themeHandler();
+  init();
 });
 
-buttonEye2.addEventListener('click', event => {
-    showPass('password-input2', 'img2');
-});
-
-dropdaunTheme.addEventListener('change', event => {
-    mode();
-});
-
-
-
-//const changeLange = document.getElementById('select-lang');
-/*changeLange.onchange = function(){
+// const changeLange = document.getElementById('select-lang');
+/* changeLange.onchange = function(){
   if (changeLange[1].selected === true){
     document.getElementById('box__title').innerText = 'Регистрация';
     document.getElementById('them-1').innerText = 'Темная';
@@ -81,5 +76,4 @@ dropdaunTheme.addEventListener('change', event => {
     document.getElementById('box__pass-title-2').innerText = 'CONFIRM PASSWORD';
   }
 
-}*/
-
+} */

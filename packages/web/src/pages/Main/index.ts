@@ -1,37 +1,35 @@
-
-import "./style.scss"
-import { languageHandle } from '../../ts/localization'
-import { themeHandler } from '../../ts/themeHandler'
-import { openAndClose, selectedRow, selectDB, firstNameValidation, lastNameValidation, ageValidation , cityValidation, phoneValidation, emailValidation, companyValidation, settingsLoginValidation, settingsCurrentPassValidation, settingsRepeatPassValidation, showPass} from './logic'
+import './style.scss';
+import { languageHandle } from '../../ts/localization';
+import { themeHandler } from '../../ts/themeHandler';
+import {
+  openAndClose,
+  selectedRow,
+  selectDB,
+  firstNameValidation,
+  lastNameValidation,
+  ageValidation,
+  cityValidation,
+  phoneValidation,
+  emailValidation,
+  companyValidation,
+  settingsLoginValidation,
+  settingsCurrentPassValidation,
+  settingsRepeatPassValidation,
+  showPass,
+} from './logic';
 import { addListener } from '../../ts/utils';
 import { loginValidation, passwordValidation, validateStatusCheck } from '../Login/logic';
-import { doc } from 'prettier';
-import {clearAll} from './logicProcess/clearAll'
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  languageHandle();
-  themeHandler();
-  selectedRow();
-  init();
-  selectDB();
-});
-
-
+import { clearAll } from './logicProcess/clearAll';
 
 const openModal = document.querySelectorAll('.modal__open');
 
-openModal.forEach(function(button) {
+openModal.forEach((button) => {
   button.addEventListener('click', (event) => {
-
-
     // @ts-ignore
     const modalTarget = <HTMLButtonElement>event.target.dataset.modal;
     openAndClose(modalTarget);
   });
-
 });
-
 
 function init() {
   const state = {
@@ -44,8 +42,7 @@ function init() {
     validateStatus: [false, false],
   };
 
-  addListener('saveClear', 'click', clearAll(state));
-
+  addListener('saveClear', 'click', clearAll.bind(null, state));
 
   addListener('login-input', 'input', () => {
     loginValidation.call(null, state);
@@ -95,16 +92,14 @@ function init() {
     settingsRepeatPassValidation.call(null, state);
     validateStatusCheck.call(null, state);
   });
+  addListener('img', 'click', showPass.bind(null, 'newPassword', 'img'));
+  addListener('img2', 'click', showPass.bind(null, 'repeatPassword', 'img2'));
 }
 
-const buttonEye = document.getElementById('img');
-const buttonEye2 = document.getElementById('img2');
-
-buttonEye.addEventListener('click', event => {
-  showPass('newPassword', 'img');
+document.addEventListener('DOMContentLoaded', () => {
+  languageHandle();
+  themeHandler();
+  selectedRow();
+  init();
+  selectDB();
 });
-
-buttonEye2.addEventListener('click', event => {
-  showPass('repeatPassword', 'img2');
-});
-
