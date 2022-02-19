@@ -161,7 +161,8 @@ export function registerData(state) {
   postRegister(state.url, formData);
 }
 
-/*export function registerData(state) {
+
+  /*export function registerData(state) {
   if (loginValidation(state) === false || passwordValidation(state) === false || confirmPasswordValidation(state) === false) {
     return false;
   }

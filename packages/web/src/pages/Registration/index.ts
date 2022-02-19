@@ -6,6 +6,7 @@ import {
   confirmPasswordValidation,
   showPass,
   registerData
+
 } from './logic';
 import { languageHandle } from '../../ts/localization';
 import { addListener } from '../../ts/utils';
@@ -51,7 +52,7 @@ function init() {
     addListener('img2', 'click', () => {
       showPass('password-input2', 'img2');
     });
-  })
+  });
 }
 
 
