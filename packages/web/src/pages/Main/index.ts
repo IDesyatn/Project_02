@@ -13,6 +13,7 @@ import {
   emailValidation,
   companyValidation,
   settingsLoginValidation,
+  settingsNewLoginValidation,
   settingsCurrentPassValidation,
   settingsRepeatPassValidation,
   showPass,
@@ -119,8 +120,12 @@ function init() {
     companyValidation.call(null, state);
     validateStatusCheck.call(null, state);
   });
-  addListener('newLogin', 'input', () => {
+  addListener('login', 'input', () => {
     settingsLoginValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('newLogin', 'input', () => {
+    settingsNewLoginValidation.call(null, state);
     validateStatusCheck.call(null, state);
   });
   addListener('newPassword', 'input', () => {
@@ -131,8 +136,8 @@ function init() {
     settingsRepeatPassValidation.call(null, state);
     validateStatusCheck.call(null, state);
   });
-  addListener('img', 'click', showPass.bind(null, 'newPassword', 'img'));
-  addListener('img2', 'click', showPass.bind(null, 'repeatPassword', 'img2'));
+  addListener('img', 'click', showPass.bind(null, 'password', 'img'));
+  addListener('img2', 'click', showPass.bind(null, 'newPassword', 'img2'));
   addListener('settingsModal__blockConfirm', 'click', updateAccount);
 }
 
@@ -141,5 +146,5 @@ document.addEventListener('DOMContentLoaded', () => {
   themeHandler();
   init();
   selectDB();
-  
+
 });
