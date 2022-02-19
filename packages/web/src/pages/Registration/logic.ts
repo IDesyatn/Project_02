@@ -125,27 +125,27 @@ export function showPass(inp, btt) {
             }
         }
 
-export function mode() {
-            const a = ((document.getElementById('select-mode'))as HTMLInputElement).value;
-            const b = document.getElementById('box')
-            const c = document.getElementById('container')
-
-            if (a === "value2") {
-                b.classList.add("ligth");
-                c.classList.add("ligth-container");
-            } else {
-                b.classList.remove("ligth");
-                c.classList.remove("ligth-container");
-            }
-
-}
-    
+// export function mode() {
+//             const a = ((document.getElementById('select-mode'))as HTMLInputElement).value;
+//             const b = document.getElementById('box')
+//             const c = document.getElementById('container')
+//
+//             if (a === "value2") {
+//                 b.classList.add("ligth");
+//                 c.classList.add("ligth-container");
+//             } else {
+//                 b.classList.remove("ligth");
+//                 c.classList.remove("ligth-container");
+//             }
+//
+// }
+//
 
 /*export function registerData(state) {
   if (loginValidation(state) === false || passwordValidation(state) === false || confirmPasswordValidation(state) === false) {
     return false;
   }
-  
+
   const user = ((document.getElementById('login-input')) as HTMLInputElement).value;
   const password = ((document.getElementById('password-input')) as HTMLInputElement).value;
   const formData = { 'username': user, 'password': password };

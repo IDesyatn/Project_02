@@ -12,7 +12,7 @@ export function themeHandler() {
   });
 }
 
-function setTheme(rootElement, theme) {
+export function setTheme(rootElement, theme) {
   const darkThemeClass = 'theme-dark';
   const lightThemeClass = 'theme-light';
   localStorage.setItem('selected-theme', theme);
@@ -29,3 +29,4 @@ function setTheme(rootElement, theme) {
       rootElement.className = `${lightThemeClass}`;
   };
 }
+

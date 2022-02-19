@@ -91,25 +91,31 @@
             <span class="settingsModal__content_title modal__title" data-translate="settingsM">SETTINGS</span>
             <div class="input">
               <div class="input__block">
-                <label for="newLogin" data-translate="login">Login</label>
+                <label for="login" data-translate="login">Login</label>
+                <input type="text" name="currentLogin" id="login"
+                       class="settingsModal__block_newLogin" data-clear="clear">
+                <p class="setting-login-message" id="login-message"></p>
+              </div>
+              <div class="input__block">
+                <label for="newLogin" data-translate="newLogin">New Login</label>
                 <input type="text" name="newLogin" id="newLogin"
                        class="settingsModal__block_newLogin" data-clear="clear">
-                <p class='setting-login-message' id='setting-login-message'></p>
+                <p class="setting-login-message" id="setting-login-message"></p>
               </div>
               <div class="input__block">
                 <label for="newPassword" data-translate="currentPassword">Current password</label>
                 <input id="newPassword" class="settingsModal__block_newPassword" type="password"
                        name="newPassword" data-clear="clear">
-                <a href='#' class='checkbox'> <img id='img' src='https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png'></a>
-                <p class='setting-newPassword-message' id='setting-newPassword-message'></p>
+                <a href="#" class="checkbox"> <img id="img" src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
+                <p class="setting-newPassword-message" id="setting-newPassword-message"></p>
               </div>
               <div class="input__block">
                 <label for="repeatPassword" data-translate="newPassword">New password</label>
                 <input id="repeatPassword" class="settingsModal__block_repeatPassword"
                        type="password" name="repeatPassword" data-show="password"
                        data-clear="clear">
-                <a href='#' class='checkbox2'> <img id='img2' src='https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png'></a>
-                <p class='setting-repeatPassword-message' id='setting-repeatPassword-message'></p>
+                <a href="#" class="checkbox2"> <img id="img2" src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
+                <p class="setting-repeatPassword-message" id="setting-repeatPassword-message"></p>
               </div>
             </div>
           </div>
@@ -135,25 +141,25 @@
             <div class="input">
               <div class="input__block">
                 <label for="firstName" data-translate="firstName">First Name</label>
-                <p class='firstName-message' id='firstName-message'></p>
+                <p class="firstName-message" id="firstName-message"></p>
                 <input type="text" name="firstName" id="firstName"
                        class="createModal__content_input_firstName" data-clear="clear">
               </div>
               <div class="input__block">
                 <label for="lastName" data-translate="lastName">Last Name</label>
-                <p class='lastName-message' id='lastName-message'></p>
+                <p class="lastName-message" id="lastName-message"></p>
                 <input type="text" name="lastName" id="lastName"
                        class="createModal__content_input_lastName" data-clear="clear">
               </div>
               <div class="input__block">
                 <label for="age" data-translate="age">Age</label>
-                <p class='age-message' id='age-message'></p>
+                <p class="age-message" id="age-message"></p>
                 <input type="text" name="age" id="age"
                        class="createModal__content_input_age" data-clear="clear">
               </div>
               <div class="input__block">
                 <label for="city" data-translate="city">City</label>
-                <p class='city-message' id='city-message'></p>
+                <p class="city-message" id="city-message"></p>
                 <input type="text" name="city" id="city"
                        class="createModal__content_input_city" data-clear="clear">
               </div>
@@ -161,19 +167,19 @@
             <div class="input">
               <div class="input__block">
                 <label for="phone" data-translate="phone">Phone</label>
-                <p class='phone-message' id='phone-message'></p>
+                <p class="phone-message" id="phone-message"></p>
                 <input type="text" name="phone" id="phone"
                        class="createModal__content_input_phone" data-clear="clear">
               </div>
               <div class="input__block">
                 <label for="email" data-translate="email">Email</label>
-                <p class='email-message' id='email-message'></p>
+                <p class="email-message" id="email-message"></p>
                 <input type="text" name="email" id="email"
                        class="createModal__content_input_email" data-clear="clear">
               </div>
               <div class="input__block">
                 <label for="company" data-translate="company">Company</label>
-                <p class='company-message' id='company-message'></p>
+                <p class="company-message" id="company-message"></p>
                 <input type="text" name="company" id="company"
                        class="createModal__content_input_company" data-clear="clear">
               </div>
