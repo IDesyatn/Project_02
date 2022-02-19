@@ -61,3 +61,15 @@ export function setTextValue(id, value): boolean {
   }
   return false;
 }
+
+export function removeChild(id): boolean {
+  const node = document.getElementById(id);
+
+  if (node) {
+    while (node.firstChild) {
+      node.removeChild(node.firstChild);
+    }
+    return true;
+  }
+  return false;
+}
