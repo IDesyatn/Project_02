@@ -27,8 +27,10 @@ export function openAndClose(modalId) {
 }
 
 
+
 export function selectedRow(state) {
-  
+ 
+
   const table: any = document.getElementById('table');
   let index;
 
@@ -426,4 +428,38 @@ export function selectDB() {
     const { value } = el.target;
     localStorage.setItem('selectDB', value);
   });
+}
+
+export function putSettings(url, data) {
+  fetch(url, {
+    method: 'PUT',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response: Response) => {
+      if (response.status === 200) {
+        console.log(response);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+export function updateAccount() {
+  const password = (document.getElementById('password') as HTMLInputElement).value;
+  const newPassword = (document.getElementById('newPassword') as HTMLInputElement).value;
+  const login = (document.getElementById('login') as HTMLInputElement).value;
+  const newLogin = (document.getElementById('newLogin') as HTMLInputElement).value;
+
+  const data = {
+    password,
+    newPassword: newPassword === '' ? password : newPassword,
+    login,
+    newLogin: newLogin === '' ? login : newLogin,
+  };
+
+  putSettings('/main/settings', data);
 }
