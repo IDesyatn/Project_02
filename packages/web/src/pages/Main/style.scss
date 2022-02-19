@@ -790,6 +790,7 @@ body {
             input {
               background: $l-input-bg;
               box-shadow: $l-shadow-input;
+              color: #000;
 
               &:active {
                 border: 1px solid $l-main-color;
