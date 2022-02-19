@@ -4,7 +4,7 @@ import { getData } from "./getData";
 
 
 export function updatePersonRequest(state, data) {
-  console.log('createPerson')
+  console.log('updatePerson')
   const url = `main/data`;
   fetch(url, {
     method: 'PUT',
@@ -29,9 +29,7 @@ export function updatePerson(state) {
     const phoneNumber = readField('phone');
     const email = readField('email');
     const company = readField('company');
-    const company2 = null;
-    console.log(company);
-    console.log(company2);
+;
     if (!firstName || !lastName) {
         return false;
     }

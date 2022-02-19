@@ -26,6 +26,7 @@ import { getData } from './logicProcess/getData';
 import { addNewPerson } from './logicProcess/createPerson';
 import {renderTable} from './logicProcess/addData'
 import { deletePerson } from './logicProcess/deletePerson';
+import { updatePerson } from './logicProcess/updatePerson';
 
 const openModal = document.querySelectorAll('.modal__open');
 
@@ -45,23 +46,42 @@ function init() {
     SelectedId: null,
     SelectedObj: null,
     validateStatus: [false, false],
+    selectedModal: null
   };
 
+
+  //тестовое, при работе сервака, удалить 
   const test = { id: 1, fname: 'Name', lname: 'LastName', age: 18, city: 'city', phoneNumber:'123', email: 'email', companyName: 'company'}
   const test2 = { id: 2, fname: 'Name2', lname: 'LastName2', age: 18, city: 'city', phoneNumber: '123', email: 'email', companyName: 'company' };
   const test3 = [test, test2];
-
   renderTable(test3);
+  //
 
-
-
+  selectedRow(state);
   getData(state);
+
+
+  addListener('create', 'click', () => {
+    state.selectedModal = 'create'; 
+  });
+
+ addListener('update', 'click', () => {
+    state.selectedModal = 'update'; 
+  });
+
   addListener('confirm_delete_button', 'click', deletePerson.bind(null, state));
-  addListener('createModal__content_button-confirm modal__btn', 'click', addNewPerson.bind(null, state));
+  addListener('createModal__content_button-confirm modal__btn', 'click', () => {
+    if (state.selectedModal === 'create') {
+      addNewPerson(state);
+    } 
+    else {
+      updatePerson(state);
+    } 
+  });
+
   addListener('confirm_clear_button', 'click', clearAll.bind(null, state));
   addListener('selectDB', 'change', changeDB.bind(null, state));
-  addListener('selectDB', 'change', changeDB.bind(null, state));
-  selectedRow(state);
+  
 
   addListener('login-input', 'input', () => {
     loginValidation.call(null, state);
