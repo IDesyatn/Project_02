@@ -105,35 +105,23 @@ export class MongoDBController implements ICRUD {
     const execute = JSON.parse(query);
     return this.user
       .findOne(execute)
-      .then((result) => {
-        return result;
-      })
-      .catch(() => {
-        return false;
-      });
+      .then((result) => result)
+      .catch(() => false);
   }
 
   createUser(query: string) {
     const execute = JSON.parse(query);
     return this.user
       .insertOne(execute)
-      .then((result) => {
-        return result;
-      })
-      .catch(() => {
-        return false;
-      });
+      .then((result) => result)
+      .catch(() => false);
   }
 
   updateUser(query: string) {
     const execute = JSON.parse(query);
     return this.user
       .updateOne(execute[0], execute[1])
-      .then((result) => {
-        return result;
-      })
-      .catch(() => {
-        return false;
-      });
+      .then((result) => result)
+      .catch(() => false);
   }
 }
