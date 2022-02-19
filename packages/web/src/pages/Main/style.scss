@@ -382,6 +382,7 @@ body {
 
         .input {
           padding: 20px;
+          position: relative;
 
           &__block {
             display: flex;
@@ -414,16 +415,14 @@ body {
 
             .checkbox {
               position: absolute;
-              width: 10px;
-              top: 183px;
-              right: 85px;
+              bottom: 106px;
+              right: 40px;
             }
 
             .checkbox2 {
               position: absolute;
-              width: 10px;
-              top: 256px;
-              right: 85px;
+              bottom: 32px;
+              right: 40px;
             }
 
             .invalid {

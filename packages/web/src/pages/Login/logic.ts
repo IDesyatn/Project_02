@@ -12,6 +12,7 @@ export function showPass() {
   }
 }
 
+
 // export function mode() {
 //             const a = ((document.getElementById('select-mode'))as HTMLInputElement).value;
 //             const b = document.getElementById('box')

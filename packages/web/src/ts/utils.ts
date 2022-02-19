@@ -42,7 +42,7 @@ export function collectData(id): URLSearchParams {
     data.append(values[0], <string>values[1]);
   }
   return data;
-} 
+}
 
 export function getForm(id): HTMLFormElement | boolean {
   const form = <HTMLFormElement>document.getElementById(id);

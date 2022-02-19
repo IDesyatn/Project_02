@@ -112,6 +112,7 @@ export function validateStatusCheck(state): boolean {
 }
 
 export function showPass(inp, btt) {
+
   const input = <HTMLInputElement>document.getElementById(inp);
   const button = <HTMLInputElement>document.getElementById(btt);
   if (input.type === 'password') {
