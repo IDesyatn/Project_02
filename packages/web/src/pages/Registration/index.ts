@@ -5,7 +5,8 @@ import {
   passwordValidation,
   confirmPasswordValidation,
   showPass,
-  registerData,
+  registerData
+
 } from './logic';
 import { languageHandle } from '../../ts/localization';
 import { addListener } from '../../ts/utils';
@@ -60,6 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
   themeHandler();
   init();
 });
+
+
 
 // const changeLange = document.getElementById('select-lang');
 /* changeLange.onchange = function(){
