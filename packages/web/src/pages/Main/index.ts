@@ -1,49 +1,67 @@
-
-import "./style.scss"
-import { languageHandle } from '../../ts/localization'
-import { themeHandler } from '../../ts/themeHandler'
-import { openAndClose, selectedRow, selectDB, firstNameValidation, lastNameValidation, ageValidation , cityValidation, phoneValidation, emailValidation, companyValidation, settingsLoginValidation, settingsCurrentPassValidation, settingsRepeatPassValidation, showPass} from './logic'
+import './style.scss';
+import { languageHandle } from '../../ts/localization';
+import { themeHandler } from '../../ts/themeHandler';
+import {
+  openAndClose,
+  selectedRow,
+  selectDB,
+  firstNameValidation,
+  lastNameValidation,
+  ageValidation,
+  cityValidation,
+  phoneValidation,
+  emailValidation,
+  companyValidation,
+  settingsLoginValidation,
+  settingsCurrentPassValidation,
+  settingsRepeatPassValidation,
+  showPass,
+  updateAccount,
+} from './logic';
 import { addListener } from '../../ts/utils';
 import { loginValidation, passwordValidation, validateStatusCheck } from '../Login/logic';
-import { doc } from 'prettier';
-import {clearAll} from './logicProcess/clearAll'
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  languageHandle();
-  themeHandler();
-  selectedRow();
-  init();
-  selectDB();
-});
-
-
+import { clearAll } from './logicProcess/clearAll';
+import { changeDB } from './logicProcess/changeDB';
+import { getData } from './logicProcess/getData';
+import { addNewPerson } from './logicProcess/createPerson';
+import {renderTable} from './logicProcess/addData'
+import { deletePerson } from './logicProcess/deletePerson';
 
 const openModal = document.querySelectorAll('.modal__open');
 
-openModal.forEach(function(button) {
+openModal.forEach((button) => {
   button.addEventListener('click', (event) => {
     // @ts-ignore
     const modalTarget = <HTMLButtonElement>event.target.dataset.modal;
     openAndClose(modalTarget);
   });
-
 });
-
 
 function init() {
   const state = {
     DB: '/mysql',
     Data: null,
     SortedData: null,
-    SelectedNode: null,
     SelectedId: null,
     SelectedObj: null,
     validateStatus: [false, false],
   };
 
-  addListener('saveClear', 'click', clearAll(state));
+  const test = { id: 1, fname: 'Name', lname: 'LastName', age: 18, city: 'city', phoneNumber:'123', email: 'email', companyName: 'company'}
+  const test2 = { id: 2, fname: 'Name2', lname: 'LastName2', age: 18, city: 'city', phoneNumber: '123', email: 'email', companyName: 'company' };
+  const test3 = [test, test2];
 
+  renderTable(test3);
+
+
+
+  getData(state);
+  addListener('confirm_delete_button', 'click', deletePerson.bind(null, state));
+  addListener('createModal__content_button-confirm modal__btn', 'click', addNewPerson.bind(null, state));
+  addListener('confirm_clear_button', 'click', clearAll.bind(null, state));
+  addListener('selectDB', 'change', changeDB.bind(null, state));
+  addListener('selectDB', 'change', changeDB.bind(null, state));
+  selectedRow(state);
 
   addListener('login-input', 'input', () => {
     loginValidation.call(null, state);
@@ -93,16 +111,15 @@ function init() {
     settingsRepeatPassValidation.call(null, state);
     validateStatusCheck.call(null, state);
   });
+  addListener('img', 'click', showPass.bind(null, 'newPassword', 'img'));
+  addListener('img2', 'click', showPass.bind(null, 'repeatPassword', 'img2'));
+  addListener('settingsModal__blockConfirm', 'click', updateAccount);
 }
 
-const buttonEye = document.getElementById('img');
-const buttonEye2 = document.getElementById('img2');
-
-buttonEye.addEventListener('click', event => {
-  showPass('newPassword', 'img');
+document.addEventListener('DOMContentLoaded', () => {
+  languageHandle();
+  themeHandler();
+  init();
+  selectDB();
+  
 });
-
-buttonEye2.addEventListener('click', event => {
-  showPass('repeatPassword', 'img2');
-});
-

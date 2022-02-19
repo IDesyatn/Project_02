@@ -1,16 +1,16 @@
-import "./style.scss"
-import {loginValidation,validateStatusCheck,passwordValidation, confirmPasswordValidation, showPass /*,registerData*/} from "./logic"
-import { languageHandle } from '../../ts/localization'
-import {addListener} from '../../ts/utils'
-import { themeHandler } from '../../ts/themeHandler'
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  languageHandle();
-  themeHandler();
-  init();
-});
-
+import './style.scss';
+import {
+  loginValidation,
+  validateStatusCheck,
+  passwordValidation,
+  confirmPasswordValidation,
+  showPass,
+  mode,
+  registerData,
+} from './logic';
+import { languageHandle } from '../../ts/localization';
+import { addListener } from '../../ts/utils';
+import { themeHandler } from '../../ts/themeHandler';
 
 function init() {
   const state = {
@@ -31,6 +31,7 @@ function init() {
     validateStatusCheck.call(null, state);
   });
 
+
  /* addListener('submit', 'click', () => {
         registerData(state)
     });*/
@@ -41,17 +42,27 @@ const buttonEye = document.getElementById('img');
 const buttonEye2 = document.getElementById('img2');
 
 buttonEye.addEventListener('click', event => {
-    showPass('password-input', 'img');
-});
 
-buttonEye2.addEventListener('click', event => {
+  addListener('submit', 'click', () => {
+    registerData(state);
+  });
+  addListener('img', 'click', () => {
+    showPass('password-input', 'img');
+  });
+  addListener('img2', 'click', () => {
     showPass('password-input2', 'img2');
 });
 
 
 
-//const changeLange = document.getElementById('select-lang');
-/*changeLange.onchange = function(){
+document.addEventListener('DOMContentLoaded', () => {
+  languageHandle();
+  themeHandler();
+  init();
+});
+
+// const changeLange = document.getElementById('select-lang');
+/* changeLange.onchange = function(){
   if (changeLange[1].selected === true){
     document.getElementById('box__title').innerText = 'Регистрация';
     document.getElementById('them-1').innerText = 'Темная';
@@ -76,5 +87,4 @@ buttonEye2.addEventListener('click', event => {
     document.getElementById('box__pass-title-2').innerText = 'CONFIRM PASSWORD';
   }
 
-}*/
-
+} */

@@ -1,51 +1,49 @@
-import "./style.scss"
+import './style.scss';
 
-import { languageHandle }  from '../../ts/localization'
-import { showPass, loginValidation, validateStatusCheck, passwordValidation/*, loginData*/ } from "./logic"
-import {addListener} from '../../ts/utils'
-import { themeHandler } from '../../ts/themeHandler'
+import { languageHandle } from '../../ts/localization';
+import {
+  showPass,
+  loginValidation,
+  validateStatusCheck,
+  passwordValidation,
+  loginData,
+} from './logic';
+import { addListener } from '../../ts/utils';
+import { themeHandler } from '../../ts/themeHandler';
 
-document.addEventListener("DOMContentLoaded", () => {
+function init() {
+  const state = {
+    url: '/login',
+    validateStatus: [false, false],
+  };
+
+  addListener('login-input', 'input', () => {
+    loginValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+  addListener('password-input', 'input', () => {
+    passwordValidation.call(null, state);
+    validateStatusCheck.call(null, state);
+  });
+
+  addListener('submit', 'click', loginData.bind(null, state));
+}
+
+const buttonEye = document.getElementById('img');
+
+buttonEye.addEventListener('click', (event) => {
+  showPass();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
   languageHandle();
   themeHandler();
   init();
 });
 
-
-
-function init() {
-    const state = {
-        url: '/login',
-        validateStatus: [false, false],
-    };
-
-    addListener('login-input', 'input', () => {
-        loginValidation.call(null, state);
-        validateStatusCheck.call(null, state);
-    });
-    addListener('password-input', 'input', () => {
-        passwordValidation.call(null, state);
-        validateStatusCheck.call(null, state);
-    });
-
-    /*addListener('submit', 'click', () => {
-        loginData(state)
-    });*/
-}
-
-
-
-const buttonEye = document.getElementById('img');
-
-buttonEye.addEventListener('click', event => {
-    showPass()
-});
-
-
-
 // const changeLange = document.getElementById('select-lang');
 
-/*changeLange.onchange = function(){
+/* changeLange.onchange = function(){
   if (changeLange[1].selected === true){
     document.getElementById('box__title').innerText = 'Вход';
     document.getElementById('them-1').innerText = 'Темная';
@@ -70,5 +68,4 @@ buttonEye.addEventListener('click', event => {
     document.getElementById('box__pass-title-2').innerText = 'CONFIRM PASSWORD';
   }
 
-}*/
-
+} */
