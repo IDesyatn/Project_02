@@ -1,29 +1,34 @@
 import { getElementById, getInputValue, setInnerText } from '../../ts/utils';
 
 export function openAndClose(modalId) {
-  const modalActive = document.getElementById(modalId);
-  const closeModal = modalActive.querySelector('.modal__close');
-  const modalArea = modalActive.querySelector('.modal__area');
-  const btnCancel = modalActive.querySelector('.modal__close-btn');
 
-  modalActive.classList.add('active');
-  if (closeModal) {
-    closeModal.addEventListener('click', () => {
-      modalActive.classList.remove('active');
-    });
-  }
+    const modalActive = document.getElementById(modalId);
+    const closeModal = modalActive.querySelector('.modal__close');
+    const modalArea = modalActive.querySelector('.modal__area');
+    const btnCancel = modalActive.querySelector('.modal__close-btn');
 
-  if (modalArea) {
-    modalArea.addEventListener('click', () => {
-      modalActive.classList.remove('active');
-    });
-  }
+    modalActive.classList.add('active');
+    document.body.classList.add('hidden')
+    if (closeModal) {
+      closeModal.addEventListener('click', () => {
+        modalActive.classList.remove('active');
+        document.body.classList.remove('hidden')
+      });
+    }
 
-  if (btnCancel) {
-    btnCancel.addEventListener('click', () => {
-      modalActive.classList.remove('active');
-    });
-  }
+    if (modalArea) {
+      modalArea.addEventListener('click', () => {
+        modalActive.classList.remove('active');
+        document.body.classList.remove('hidden')
+      });
+    }
+
+    if (btnCancel) {
+      btnCancel.addEventListener('click', () => {
+        modalActive.classList.remove('active');
+        document.body.classList.remove('hidden')
+      });
+    }
 }
 
 

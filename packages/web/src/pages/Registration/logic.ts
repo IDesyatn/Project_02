@@ -113,6 +113,24 @@ export function validateStatusCheck(state): boolean {
 
 export function showPass(inp, btt) {
 
+            const input  = <HTMLInputElement>document.getElementById(inp);
+            const button  = <HTMLInputElement>document.getElementById(btt);
+            if (input.type === "password") {
+                input.type = "text";
+                button.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
+
+            } else {
+                input.type = "password";
+                button.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
+            }
+}
+
+/*export function registerData(state) {
+  if (loginValidation(state) === false || passwordValidation(state) === false || confirmPasswordValidation(state) === false) {
+    return false;
+  }
+
+
   const input = <HTMLInputElement>document.getElementById(inp);
   const button = <HTMLInputElement>document.getElementById(btt);
   if (input.type === 'password') {

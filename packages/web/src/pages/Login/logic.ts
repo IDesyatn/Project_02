@@ -1,32 +1,20 @@
 import { getInputValue, getElementById, setInnerText } from '../../ts/utils';
 
 export function showPass() {
-  const input = <HTMLInputElement>document.getElementById('password-input');
-  const button = <HTMLInputElement>document.getElementById('img');
-  if (input.type === 'password') {
-    input.type = 'text';
-    button.src = 'https://img.icons8.com/material/24/ffffff/visible--v1.png';
-  } else {
-    input.type = 'password';
-    button.src = 'https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png';
-  }
-}
 
-
-// export function mode() {
-//             const a = ((document.getElementById('select-mode'))as HTMLInputElement).value;
-//             const b = document.getElementById('box')
-//             const c = document.getElementById('container')
-//
-//             if (a === "value2") {
-//                 b.classList.add("ligth");
-//                 c.classList.add("ligth-container");
-//             } else {
-//                 b.classList.remove("ligth");
-//                 c.classList.remove("ligth-container");
-//             }
-//
-// }
+            const input  = <HTMLInputElement>document.getElementById("password-input");
+            const button  = <HTMLInputElement>document.getElementById("img");
+            if (input.type === "password") {
+                input.type = "text";
+                button.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
+                return true;
+            } else {
+                input.type = "password";
+                button.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
+                return false;
+            }
+        }
+        
 
 export function loginValidation(state) {
   const loginRegex = /^[a-zA-Z0-9_]{3,20}$/;

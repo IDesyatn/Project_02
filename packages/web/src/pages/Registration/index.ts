@@ -30,6 +30,19 @@ function init() {
     confirmPasswordValidation.call(null, state);
     validateStatusCheck.call(null, state);
   });
+
+
+ /* addListener('submit', 'click', () => {
+        registerData(state)
+    });*/
+}
+
+
+const buttonEye = document.getElementById('img');
+const buttonEye2 = document.getElementById('img2');
+
+buttonEye.addEventListener('click', event => {
+
   addListener('submit', 'click', () => {
     registerData(state);
   });
@@ -38,11 +51,9 @@ function init() {
   });
   addListener('img2', 'click', () => {
     showPass('password-input2', 'img2');
-  });
-  addListener('select-mode', 'click', () => {
-    mode();
-  });
-}
+});
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   languageHandle();
