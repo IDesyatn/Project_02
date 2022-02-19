@@ -21,6 +21,11 @@ import {
 import { addListener } from '../../ts/utils';
 import { loginValidation, passwordValidation, validateStatusCheck } from '../Login/logic';
 import { clearAll } from './logicProcess/clearAll';
+import { changeDB } from './logicProcess/changeDB';
+import { getData } from './logicProcess/getData';
+import { addNewPerson } from './logicProcess/createPerson';
+import {renderTable} from './logicProcess/addData'
+import { deletePerson } from './logicProcess/deletePerson';
 
 const openModal = document.querySelectorAll('.modal__open');
 
@@ -37,13 +42,26 @@ function init() {
     DB: '/mysql',
     Data: null,
     SortedData: null,
-    SelectedNode: null,
     SelectedId: null,
     SelectedObj: null,
     validateStatus: [false, false],
   };
 
-  addListener('saveClear', 'click', clearAll.bind(null, state));
+  const test = { id: 1, fname: 'Name', lname: 'LastName', age: 18, city: 'city', phoneNumber:'123', email: 'email', companyName: 'company'}
+  const test2 = { id: 2, fname: 'Name2', lname: 'LastName2', age: 18, city: 'city', phoneNumber: '123', email: 'email', companyName: 'company' };
+  const test3 = [test, test2];
+
+  renderTable(test3);
+
+
+
+  getData(state);
+  addListener('confirm_delete_button', 'click', deletePerson.bind(null, state));
+  addListener('createModal__content_button-confirm modal__btn', 'click', addNewPerson.bind(null, state));
+  addListener('confirm_clear_button', 'click', clearAll.bind(null, state));
+  addListener('selectDB', 'change', changeDB.bind(null, state));
+  addListener('selectDB', 'change', changeDB.bind(null, state));
+  selectedRow(state);
 
   addListener('login-input', 'input', () => {
     loginValidation.call(null, state);
@@ -101,7 +119,7 @@ function init() {
 document.addEventListener('DOMContentLoaded', () => {
   languageHandle();
   themeHandler();
-  selectedRow();
   init();
   selectDB();
+  
 });

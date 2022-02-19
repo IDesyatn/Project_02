@@ -26,7 +26,11 @@ export function openAndClose(modalId) {
   }
 }
 
-export function selectedRow() {
+
+
+export function selectedRow(state) {
+ 
+
   const table: any = document.getElementById('table');
   let index;
 
@@ -34,13 +38,18 @@ export function selectedRow() {
     table.rows[i].onclick = function () {
       if (typeof index !== 'undefined') {
         table.rows[index].classList.toggle('selectedRow');
+        
       }
 
       index = this.rowIndex;
       this.classList.toggle('selectedRow');
+      state.SelectedId = table.rows[index].id;
+      console.log(state.SelectedId);
     };
   }
 }
+
+
 
 export function firstNameValidation(state) {
   const input = document.getElementById('firstName');
