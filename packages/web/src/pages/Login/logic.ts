@@ -13,22 +13,7 @@ export function showPass() {
                 return false;
             }
         }
-
-// export function mode() {
-//             const a = ((document.getElementById('select-mode'))as HTMLInputElement).value;
-//             const b = document.getElementById('box')
-//             const c = document.getElementById('container')
-//
-//             if (a === "value2") {
-//                 b.classList.add("ligth");
-//                 c.classList.add("ligth-container");
-//             } else {
-//                 b.classList.remove("ligth");
-//                 c.classList.remove("ligth-container");
-//             }
-//
-// }
-
+        
 export function loginValidation(state) {
   const loginRegex = /^[a-zA-Z0-9_]{3,20}$/;
   const value = <string>getInputValue('login-input');

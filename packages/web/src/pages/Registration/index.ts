@@ -39,7 +39,6 @@ function init() {
 
 const buttonEye = document.getElementById('img');
 const buttonEye2 = document.getElementById('img2');
-const dropdaunTheme = document.getElementById('select-mode');
 
 buttonEye.addEventListener('click', event => {
     showPass('password-input', 'img');
@@ -47,10 +46,6 @@ buttonEye.addEventListener('click', event => {
 
 buttonEye2.addEventListener('click', event => {
     showPass('password-input2', 'img2');
-});
-
-dropdaunTheme.addEventListener('change', event => {
-    mode();
 });
 
 

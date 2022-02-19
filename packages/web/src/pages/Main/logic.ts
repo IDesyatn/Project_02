@@ -7,21 +7,25 @@ export function openAndClose(modalId) {
     const btnCancel = modalActive.querySelector('.modal__close-btn');
 
     modalActive.classList.add('active');
+    document.body.classList.add('hidden')
     if (closeModal) {
       closeModal.addEventListener('click', () => {
         modalActive.classList.remove('active');
+        document.body.classList.remove('hidden')
       });
     }
 
     if (modalArea) {
       modalArea.addEventListener('click', () => {
         modalActive.classList.remove('active');
+        document.body.classList.remove('hidden')
       });
     }
 
     if (btnCancel) {
       btnCancel.addEventListener('click', () => {
         modalActive.classList.remove('active');
+        document.body.classList.remove('hidden')
       });
     }
 }
