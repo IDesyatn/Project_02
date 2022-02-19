@@ -28,6 +28,7 @@ import { addNewPerson } from './logicProcess/createPerson';
 import {renderTable} from './logicProcess/addData'
 import { deletePerson } from './logicProcess/deletePerson';
 import { updatePerson } from './logicProcess/updatePerson';
+import {sortTable} from './logicProcess/addData'
 
 const openModal = document.querySelectorAll('.modal__open');
 
@@ -52,10 +53,10 @@ function init() {
 
 
   //тестовое, при работе сервака, удалить 
-  const test = { id: 1, fname: 'Name', lname: 'LastName', age: 18, city: 'city', phoneNumber:'123', email: 'email', companyName: 'company'}
-  const test2 = { id: 2, fname: 'Name2', lname: 'LastName2', age: 18, city: 'city', phoneNumber: '123', email: 'email', companyName: 'company' };
-  const test3 = [test, test2];
-  renderTable(test3);
+  const test = { id: 4, firstName: 'ZName', lastName: 'LastName', age: 23, city: 'city', phoneNumber:'123', email: 'email', company: 'company'}
+  const test2 = { id: 2, firstName: 'Name2', lastName: 'LastName2', age: 18, city: 'Zity', phoneNumber: '123', email: 'email', company: 'company' };
+  state.Data = [test, test2];
+  renderTable(state.Data);
   //
 
   selectedRow(state);
@@ -139,6 +140,15 @@ function init() {
   addListener('img', 'click', showPass.bind(null, 'password', 'img'));
   addListener('img2', 'click', showPass.bind(null, 'newPassword', 'img2'));
   addListener('settingsModal__blockConfirm', 'click', updateAccount);
+
+  addListener('filter-radio-0', 'input', sortTable.bind(null, state, 'id'));
+  addListener('filter-radio-1', 'input', sortTable.bind(null, state, 'firstName'));
+  addListener('filter-radio-2', 'input', sortTable.bind(null, state, 'lastName'));
+  addListener('filter-radio-3', 'input', sortTable.bind(null, state, 'age'));
+  addListener('filter-radio-4', 'input', sortTable.bind(null, state, 'city'));
+  addListener('filter-radio-5', 'input', sortTable.bind(null, state, 'phoneNumber'));
+  addListener('filter-radio-6', 'input', sortTable.bind(null, state, 'email'));
+  addListener('filter-radio-7', 'input', sortTable.bind(null, state, 'company'));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -146,5 +156,4 @@ document.addEventListener('DOMContentLoaded', () => {
   themeHandler();
   init();
   selectDB();
-
 });
