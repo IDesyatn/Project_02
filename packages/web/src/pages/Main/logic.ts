@@ -34,7 +34,7 @@ export function openAndClose(modalId) {
 
 
 export function selectedRow(state) {
- 
+
 
   const table: any = document.getElementById('table');
   let index;
@@ -43,7 +43,7 @@ export function selectedRow(state) {
     table.rows[i].onclick = function () {
       if (typeof index !== 'undefined') {
         table.rows[index].classList.toggle('selectedRow');
-        
+
       }
 
       index = this.rowIndex;
@@ -282,9 +282,49 @@ export function companyValidation(state) {
 
 export function settingsLoginValidation(state) {
   const loginRegex = /^[a-zA-Z0-9_]{3,20}$/;
+  const value = <string>getInputValue('login');
+  const loginInput = document.getElementById('login');
+  const loginId = 'setting-login-message';
+
+  if (value === '') {
+    setInnerText(loginId, 'Field can`t be empty');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid');
+    return false;
+  }
+
+  if (value.length < 6) {
+    setInnerText(loginId, 'Login at least 6 characters');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid');
+    return false;
+  }
+
+  if (value.length > 20) {
+    setInnerText(loginId, 'Login can`t be longer than 20 characters');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid');
+    return false;
+  }
+
+  if (!value.match(loginRegex)) {
+    setInnerText(loginId, 'Login must contain only letters, numbers, and underscores');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid');
+    return false;
+  }
+
+  setInnerText(loginId, '');
+  state.validateStatus[0] = true;
+  loginInput.classList.remove('invalid');
+  return true;
+}
+
+export function settingsNewLoginValidation(state) {
+  const loginRegex = /^[a-zA-Z0-9_]{3,20}$/;
   const value = <string>getInputValue('newLogin');
   const loginInput = document.getElementById('newLogin');
-  const loginId = 'setting-login-message';
+  const loginId = 'setting-newLogin-message';
 
   if (value === '') {
     setInnerText(loginId, 'Field can`t be empty');
