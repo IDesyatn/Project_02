@@ -16,6 +16,7 @@ import {
   settingsCurrentPassValidation,
   settingsRepeatPassValidation,
   showPass,
+  updateAccount,
 } from './logic';
 import { addListener } from '../../ts/utils';
 import { loginValidation, passwordValidation, validateStatusCheck } from '../Login/logic';
@@ -94,6 +95,7 @@ function init() {
   });
   addListener('img', 'click', showPass.bind(null, 'newPassword', 'img'));
   addListener('img2', 'click', showPass.bind(null, 'repeatPassword', 'img2'));
+  addListener('settingsModal__blockConfirm', 'click', updateAccount);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
