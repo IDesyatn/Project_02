@@ -125,36 +125,6 @@ export function showPass(inp, btt) {
             }
 }
 
-/*export function registerData(state) {
-  if (loginValidation(state) === false || passwordValidation(state) === false || confirmPasswordValidation(state) === false) {
-    return false;
-  }
-
-
-  const input = <HTMLInputElement>document.getElementById(inp);
-  const button = <HTMLInputElement>document.getElementById(btt);
-  if (input.type === 'password') {
-    input.type = 'text';
-    button.src = 'https://img.icons8.com/material/24/ffffff/visible--v1.png';
-  } else {
-    input.type = 'password';
-    button.src = 'https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png';
-  }
-}
-
-export function mode() {
-  const a = (document.getElementById('select-mode') as HTMLInputElement).value;
-  const b = document.getElementById('box');
-  const c = document.getElementById('container');
-
-  if (a === 'value2') {
-    b.classList.add('ligth');
-    c.classList.add('ligth-container');
-  } else {
-    b.classList.remove('ligth');
-    c.classList.remove('ligth-container');
-  }
-}
 
 export function postRegister(url, data) {
   fetch(url, {
@@ -190,3 +160,37 @@ export function registerData(state) {
 
   postRegister(state.url, formData);
 }
+
+/*export function registerData(state) {
+  if (loginValidation(state) === false || passwordValidation(state) === false || confirmPasswordValidation(state) === false) {
+    return false;
+  }
+
+
+  const input = <HTMLInputElement>document.getElementById(inp);
+  const button = <HTMLInputElement>document.getElementById(btt);
+  if (input.type === 'password') {
+    input.type = 'text';
+    button.src = 'https://img.icons8.com/material/24/ffffff/visible--v1.png';
+  } else {
+    input.type = 'password';
+    button.src = 'https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png';
+  }
+}
+
+export function mode() {
+  const a = (document.getElementById('select-mode') as HTMLInputElement).value;
+  const b = document.getElementById('box');
+  const c = document.getElementById('container');
+
+  if (a === 'value2') {
+    b.classList.add('ligth');
+    c.classList.add('ligth-container');
+  } else {
+    b.classList.remove('ligth');
+    c.classList.remove('ligth-container');
+  }
+}
+
+
+}*/
