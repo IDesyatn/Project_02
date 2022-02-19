@@ -1,5 +1,5 @@
 
-function renderTable(table) {
+export function renderTable(table) {
   const tBody = document.getElementById('tbody');
   tBody.innerHTML = '';
 
@@ -7,8 +7,10 @@ function renderTable(table) {
     const elementTr = document.createElement('tr');
     elementTr.classList.add('table__body-tr');
     elementTr.setAttribute('data-index', table[i].id);
+    elementTr.setAttribute('id', table[i].id);
     elementTr.innerHTML = `
-        <td class='tr__td td-firstName'>${table[i].fname}</td>
+        <td 'class='tr__td td-firstName'>${table[i].id}</td>
+        <td 'class='tr__td td-firstName'>${table[i].fname}</td>
         <td class='tr__td td-lastName'>${table[i].lname}</td>
         <td class='tr__td td-age'>${table[i].age}</td>
         <td class='tr__td td-city'>${table[i].city}</td>
