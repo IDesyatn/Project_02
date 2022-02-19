@@ -2,6 +2,7 @@ import { getData } from "./getData";
 import { removeChild } from "../../../ts/utils";
 
 export function deletePerson(state) {
+    console.log('delete person');
     const url = `main/data`;
     const data = { 'db': state.DB, 'id': state.SelectedId, 'truncate': false }
     console.log('delete');

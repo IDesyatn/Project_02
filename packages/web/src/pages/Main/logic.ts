@@ -7,7 +7,7 @@ export function openAndClose(modalId) {
     const modalArea = modalActive.querySelector('.modal__area');
     const btnCancel = modalActive.querySelector('.modal__close-btn');
 
-    modalActive.classList.add('active');
+  modalActive.classList.add('active');
     document.body.classList.add('hidden')
     if (closeModal) {
       closeModal.addEventListener('click', () => {
@@ -434,6 +434,7 @@ export function selectDB() {
     localStorage.setItem('selectDB', value);
   });
 }
+
 
 export function putSettings(url, data) {
   fetch(url, {
