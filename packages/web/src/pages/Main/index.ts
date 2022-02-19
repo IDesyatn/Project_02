@@ -44,6 +44,7 @@ function init() {
   const state = {
     DB: '/mysql',
     Data: null,
+    SortBy: 'id',
     SortedData: null,
     SelectedId: null,
     SelectedObj: null,
@@ -52,11 +53,14 @@ function init() {
   };
 
 
+
+
   //тестовое, при работе сервака, удалить 
-  const test = { id: 4, firstName: 'ZName', lastName: 'LastName', age: 23, city: 'city', phoneNumber:'123', email: 'email', company: 'company'}
-  const test2 = { id: 2, firstName: 'Name2', lastName: 'LastName2', age: 18, city: 'Zity', phoneNumber: '123', email: 'email', company: 'company' };
+  const test = { id: 4, firstName: 'ZName', lastName: 'LastName', age: 23, city: 'city', phoneNumber: '6123', email: 'email', company: 'Zcompany' }
+  const test2 = { id: 2, firstName: 'Name2', lastName: 'LastName2', age: 18, city: 'Zity', phoneNumber: '123', email: 'Aemail', company: 'company' };
   state.Data = [test, test2];
-  renderTable(state.Data);
+
+  renderTable(state);
   //
 
   selectedRow(state);
@@ -64,21 +68,21 @@ function init() {
 
 
   addListener('create', 'click', () => {
-    state.selectedModal = 'create'; 
+    state.selectedModal = 'create';
   });
 
- addListener('update', 'click', () => {
-    state.selectedModal = 'update'; 
+  addListener('update', 'click', () => {
+    state.selectedModal = 'update';
   });
 
   addListener('confirm_delete_button', 'click', deletePerson.bind(null, state));
   addListener('createModal__content_button-confirm modal__btn', 'click', () => {
     if (state.selectedModal === 'create') {
       addNewPerson(state);
-    } 
+    }
     else {
       updatePerson(state);
-    } 
+    }
   });
 
   addListener('confirm_clear_button', 'click', clearAll.bind(null, state));
@@ -141,14 +145,40 @@ function init() {
   addListener('img2', 'click', showPass.bind(null, 'newPassword', 'img2'));
   addListener('settingsModal__blockConfirm', 'click', updateAccount);
 
-  addListener('filter-radio-0', 'input', sortTable.bind(null, state, 'id'));
-  addListener('filter-radio-1', 'input', sortTable.bind(null, state, 'firstName'));
-  addListener('filter-radio-2', 'input', sortTable.bind(null, state, 'lastName'));
-  addListener('filter-radio-3', 'input', sortTable.bind(null, state, 'age'));
-  addListener('filter-radio-4', 'input', sortTable.bind(null, state, 'city'));
-  addListener('filter-radio-5', 'input', sortTable.bind(null, state, 'phoneNumber'));
-  addListener('filter-radio-6', 'input', sortTable.bind(null, state, 'email'));
-  addListener('filter-radio-7', 'input', sortTable.bind(null, state, 'company'));
+
+  addListener('filter-radio-0', 'input', () => {
+    state.SortBy = 'id'
+    renderTable(state);
+  });
+  addListener('filter-radio-1', 'input', () => {
+    state.SortBy = 'firstName'
+    renderTable(state);
+  });
+  addListener('filter-radio-2', 'input', () => {
+    state.SortBy = 'lastName'
+    renderTable(state);
+  });
+  addListener('filter-radio-3', 'input', () => {
+    state.SortBy = 'age'
+    renderTable(state)
+  });
+  addListener('filter-radio-4', 'input', () => {
+    state.SortBy = 'phoneNumber'
+    renderTable(state)
+  });
+  addListener('filter-radio-5', 'input', () => {
+    state.SortBy = 'city'
+    renderTable(state)
+  });
+  addListener('filter-radio-6', 'input', () => {
+    state.SortBy = 'email'
+    renderTable(state)
+  });
+  addListener('filter-radio-7', 'input', () => {
+    state.SortBy = 'company'
+    renderTable(state)
+  });
+  
 }
 
 document.addEventListener('DOMContentLoaded', () => {
