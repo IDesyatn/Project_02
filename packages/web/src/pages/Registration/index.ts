@@ -5,7 +5,6 @@ import {
   passwordValidation,
   confirmPasswordValidation,
   showPass,
-  mode,
   registerData,
 } from './logic';
 import { languageHandle } from '../../ts/localization';
@@ -32,27 +31,28 @@ function init() {
   });
 
 
- /* addListener('submit', 'click', () => {
-        registerData(state)
-    });*/
+  /* addListener('submit', 'click', () => {
+         registerData(state)
+     });*/
+
+
+
+  const buttonEye = document.getElementById('img');
+  const buttonEye2 = document.getElementById('img2');
+
+  buttonEye.addEventListener('click', event => {
+
+    addListener('submit', 'click', () => {
+      registerData(state);
+    });
+    addListener('img', 'click', () => {
+      showPass('password-input', 'img');
+    });
+    addListener('img2', 'click', () => {
+      showPass('password-input2', 'img2');
+    });
+  });
 }
-
-
-const buttonEye = document.getElementById('img');
-const buttonEye2 = document.getElementById('img2');
-
-buttonEye.addEventListener('click', event => {
-
-  addListener('submit', 'click', () => {
-    registerData(state);
-  });
-  addListener('img', 'click', () => {
-    showPass('password-input', 'img');
-  });
-  addListener('img2', 'click', () => {
-    showPass('password-input2', 'img2');
-});
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
