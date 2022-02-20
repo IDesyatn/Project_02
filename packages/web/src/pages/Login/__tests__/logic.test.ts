@@ -25,30 +25,45 @@ describe('showPass', () => {
 
 
 describe('login validation', () => {
+  const input: any = document.createAttribute('login-input');
   test('should be function', () => {
     expect(loginValidation).toBeDefined();
   });
   test('should be function typeof function', () => {
     expect(typeof loginValidation).toBe('function');
   });
-});
+  test('1', () => {
+        if (input === '') {
+      expect(loginValidation).toBe(false)
+    }});
+    test('2', () => {
+      if (input.length < 6) {
+        expect(loginValidation).toBe(false)
+      }
+    });
+    test('3', () => {
+      if (input.length > 20) {
+        expect(loginValidation).toBe(false)
+      }
+    });
+  });
 
 
-describe('password Validation', () => {
-  test('should be function', () => {
-    expect(passwordValidation).toBeDefined();
+  describe('password Validation', () => {
+    test('should be function', () => {
+      expect(passwordValidation).toBeDefined();
+    });
+    test('should be function typeof function', () => {
+      expect(typeof passwordValidation).toBe('function');
+    });
   });
-  test('should be function typeof function', () => {
-    expect(typeof passwordValidation).toBe('function');
-  });
-});
 
-describe('validateStatusCheck', () => {
-  test('should be function', () => {
-    expect(validateStatusCheck).toBeDefined();
+  describe('validateStatusCheck', () => {
+    test('should be function', () => {
+      expect(validateStatusCheck).toBeDefined();
+    });
+    test('should be function typeof function', () => {
+      expect(typeof validateStatusCheck).toBe('function');
+    });
   });
-  test('should be function typeof function', () => {
-    expect(typeof validateStatusCheck).toBe('function');
-  });
-});
 
