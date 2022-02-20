@@ -100,7 +100,6 @@ export class MongoDBController implements ICRUD {
       });
   }
 
-  // Костыльный костыль. Бег по граблям. Переделать впадло, времени нет
   readUser(query: string) {
     const execute = JSON.parse(query);
     return this.user

@@ -5,8 +5,7 @@ import {
   passwordValidation,
   confirmPasswordValidation,
   showPass,
-  registerData
-
+  registerData,
 } from './logic';
 import { languageHandle } from '../../ts/localization';
 import { addListener } from '../../ts/utils';
@@ -30,40 +29,19 @@ function init() {
     confirmPasswordValidation.call(null, state);
     validateStatusCheck.call(null, state);
   });
-
-
-  /* addListener('submit', 'click', () => {
-         registerData(state)
-     });*/
-
-
-
-  const buttonEye = document.getElementById('img');
-  const buttonEye2 = document.getElementById('img2');
-
-  buttonEye.addEventListener('click', event => {
-
-    addListener('submit', 'click', () => {
-      registerData(state);
-    });
-    addListener('img', 'click', () => {
-      showPass('password-input', 'img');
-    });
-    addListener('img2', 'click', () => {
-      showPass('password-input2', 'img2');
-    });
-  });
+  addListener('submit', 'click', registerData.bind(null, state));
+  // addListener('submit', 'click', () => {
+  //   registerData(state);
+  // });
+  addListener('img', 'click', showPass.bind(null, 'password-input', 'img'));
+  addListener('img2', 'click', showPass.bind(null, 'password-input2', 'img2'));
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
   languageHandle();
   themeHandler();
   init();
 });
-
-
-
 // const changeLange = document.getElementById('select-lang');
 /* changeLange.onchange = function(){
   if (changeLange[1].selected === true){

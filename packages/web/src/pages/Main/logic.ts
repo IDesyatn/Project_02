@@ -471,3 +471,11 @@ export function updateAccount() {
 
   putSettings('/main/settings', data);
 }
+
+export function userLogout() {
+  fetch('/main/logout', {
+    method: 'POST'
+  }).then((res) => {
+    window.location.href = res.url;
+  });
+}

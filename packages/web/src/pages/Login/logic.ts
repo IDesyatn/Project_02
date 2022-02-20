@@ -1,20 +1,18 @@
 import { getInputValue, getElementById, setInnerText } from '../../ts/utils';
 
 export function showPass() {
-
-            const input  = <HTMLInputElement>document.getElementById("password-input");
-            const button  = <HTMLInputElement>document.getElementById("img");
-            if (input.type === "password") {
-                input.type = "text";
-                button.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
-                return true;
-            } else {
-                input.type = "password";
-                button.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
-                return false;
-            }
-        }
-        
+  const input = <HTMLInputElement>document.getElementById('password-input');
+  const button = <HTMLInputElement>document.getElementById('img');
+  if (input.type === 'password') {
+    input.type = 'text';
+    button.src = 'https://img.icons8.com/material/24/ffffff/visible--v1.png';
+    return true;
+  } else {
+    input.type = 'password';
+    button.src = 'https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png';
+    return false;
+  }
+}
 
 export function loginValidation(state) {
   const loginRegex = /^[a-zA-Z0-9_]{3,20}$/;
@@ -90,14 +88,14 @@ export function passwordValidation(state) {
 }
 
 export function validateStatusCheck(state): boolean {
-  const button = <HTMLElement>getElementById('submit');
+  const button = getElementById('submit') as HTMLButtonElement;
   if (state.validateStatus.includes(false)) {
-    if (!button.hasAttribute('disabled')) {
-      button.setAttribute('disabled', 'disabled');
+    if (!button.disabled) {
+      button.disabled = true;
     }
     return false;
   }
-  button.removeAttribute('disabled');
+  button.disabled = false;
   return true;
 }
 
@@ -111,7 +109,6 @@ export function postLogin(url, data) {
   })
     .then((response: Response) => {
       if (response.status === 200) {
-        console.log(response);
         window.location.href = response.url;
       }
     })
