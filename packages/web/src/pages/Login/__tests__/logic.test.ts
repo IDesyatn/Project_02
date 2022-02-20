@@ -32,33 +32,56 @@ describe('login validation', () => {
   test('should be function typeof function', () => {
     expect(typeof loginValidation).toBe('function');
   });
-  test('1', () => {
+  test('Checking a function for emptiness', () => {
         if (input === '') {
       expect(loginValidation).toBe(false)
     }});
-    test('2', () => {
+    test('Checking a function for the number of characters', () => {
       if (input.length < 6) {
         expect(loginValidation).toBe(false)
       }
     });
-    test('3', () => {
+    test('Checking a function for the number of characters - 2', () => {
       if (input.length > 20) {
         expect(loginValidation).toBe(false)
       }
     });
+  test('Checking a function against a regular expression', () => {
+    const loginRegex = /^[a-zA-Z0-9_]{3,20}$/;
+    if (input === loginRegex) {
+      expect(loginValidation).toBe(false)
+    }
+  });
   });
 
 
-  describe('password Validation', () => {
+describe('password Validation', () => {
+    const input: any = document.createAttribute('password-input');
     test('should be function', () => {
       expect(passwordValidation).toBeDefined();
     });
-    test('should be function typeof function', () => {
-      expect(typeof passwordValidation).toBe('function');
-    });
+  test('should be function typeof function', () => {
+    expect(typeof passwordValidation).toBe('function');
+  });
+  test('Checking a function for emptiness', () => {
+    if (input === '') {
+      expect(passwordValidation).toBe(false)
+    }});
+  test('Checking a function for the number of characters', () => {
+    if (input.length < 8) {
+      expect(passwordValidation).toBe(false)
+    }
+  });
+  test('Checking a function against a regular expression', () => {
+    const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$/;
+    if (input === passwordRegex) {
+      expect(passwordValidation).toBe(false)
+    }
+  });
   });
 
-  describe('validateStatusCheck', () => {
+
+describe('validateStatusCheck', () => {
     test('should be function', () => {
       expect(validateStatusCheck).toBeDefined();
     });

@@ -281,7 +281,6 @@ body {
         .tr {
           &-id {
             width: 60px;
-
           }
 
           &-fname {
@@ -327,6 +326,7 @@ body {
       tr {
         cursor: pointer;
         transition: all 0.25s ease-in-out;
+        text-align: center;
       }
 
       &__body {

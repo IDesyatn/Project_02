@@ -1,9 +1,10 @@
 import {
-  openAndClose, selectedRow, firstNameValidation, lastNameValidation, cityValidation, ageValidation,
+  openAndClose , selectedRow ,firstNameValidation, lastNameValidation, cityValidation, ageValidation,
   phoneValidation, emailValidation, companyValidation, settingsCurrentPassValidation,
-  settingsRepeatPassValidation, settingsLoginValidation, showPass, validateStatusCheck
-} from '../logic'
+  settingsRepeatPassValidation, settingsLoginValidation, showPass , validateStatusCheck
+} from '../logicProcess/validation'
 import { getInputValue } from '../../../ts/utils';
+import { loginValidation } from '../../Login/logic';
 
 
 // describe('showPass', () => {
@@ -29,11 +30,27 @@ import { getInputValue } from '../../../ts/utils';
 
 
 describe('firstNameValidation', () => {
+  const input: any = document.createAttribute('lastName');
   test('should be function', () => {
     expect(firstNameValidation).toBeDefined();
   });
   test('should be function typeof function', () => {
     expect(typeof firstNameValidation).toBe('function');
+  });
+  test('Checking a function for emptiness', () => {
+    if (input === '') {
+      expect(firstNameValidation).toBe(false)
+    }});
+  test('Checking a function for the number of characters - 2', () => {
+    if (input.length > 50) {
+      expect(firstNameValidation).toBe(false)
+    }
+  });
+  test('Checking a function against a regular expression', () => {
+    const validationRegex = /^[а-яА-Яa-zA-Z]+$/;
+    if (input === validationRegex) {
+      expect(firstNameValidation).toBe(false)
+    }
   });
 });
 
