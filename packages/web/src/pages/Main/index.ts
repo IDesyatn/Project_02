@@ -1,11 +1,8 @@
 import './style.scss';
 import { languageHandle } from '../../ts/localization';
 import { themeHandler } from '../../ts/themeHandler';
-import {
-  openAndClose,
-  selectedRow,
-  selectDB,
-  firstNameValidation,
+import {openAndClose,selectDB, showPass, updateAccount} from './logic';
+import {firstNameValidation,
   lastNameValidation,
   ageValidation,
   cityValidation,
@@ -15,10 +12,9 @@ import {
   settingsLoginValidation,
   settingsNewLoginValidation,
   settingsCurrentPassValidation,
-  settingsRepeatPassValidation,
-  showPass,
   updateAccount, userLogout,
 } from './logic';
+import { settingsRepeatPassValidation } from './logicProcess/validation'
 import { addListener } from '../../ts/utils';
 import { loginValidation, passwordValidation, validateStatusCheck } from '../Login/logic';
 import { clearAll } from './logicProcess/clearAll';
@@ -28,8 +24,8 @@ import { addNewPerson } from './logicProcess/createPerson';
 import {renderTable} from './logicProcess/addData'
 import { deletePerson } from './logicProcess/deletePerson';
 import { updatePerson } from './logicProcess/updatePerson';
-import {sortTable} from './logicProcess/addData'
-import { searchPerson } from './logicProcess/searchPerson';
+import {pasteIntoCreateUpdateModal, selectedRow} from './logicProcess/selectedRowLogic'
+
 
 const openModal = document.querySelectorAll('.modal__open');
 
@@ -71,10 +67,12 @@ function init() {
   //modal create/update
   addListener('create', 'click', () => {
     state.selectedModal = 'create';
+    pasteIntoCreateUpdateModal(state);
   });
 
   addListener('update', 'click', () => {
     state.selectedModal = 'update';
+    pasteIntoCreateUpdateModal(state);
   });
 
 
