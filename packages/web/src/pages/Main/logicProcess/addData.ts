@@ -9,8 +9,8 @@ export function renderTable(table) {
     elementTr.setAttribute('data-index', table[i].id);
     elementTr.setAttribute('id', table[i].id);
     elementTr.innerHTML = `
-        <td 'class='tr__td td-firstName'>${table[i].id}</td>
-        <td 'class='tr__td td-firstName'>${table[i].fname}</td>
+        <td class='tr__td td-id'>${table[i].id}</td>
+        <td class='tr__td td-firstName'>${table[i].fname}</td>
         <td class='tr__td td-lastName'>${table[i].lname}</td>
         <td class='tr__td td-age'>${table[i].age}</td>
         <td class='tr__td td-city'>${table[i].city}</td>

@@ -34,25 +34,88 @@ export function openAndClose(modalId) {
 
 
 export function selectedRow(state) {
- 
+
 
   const table: any = document.getElementById('table');
   let index;
 
   for (let i = 1; i < table.rows.length; i++) {
+
     table.rows[i].onclick = function () {
       if (typeof index !== 'undefined') {
         table.rows[index].classList.toggle('selectedRow');
-        
+
       }
 
       index = this.rowIndex;
       this.classList.toggle('selectedRow');
       state.SelectedId = table.rows[index].id;
+
       console.log(state.SelectedId);
-    };
+
+      const fNameInput = document.getElementById('firstName') as HTMLInputElement;
+      const lNameInput = document.getElementById('lastName') as HTMLInputElement;
+      const ageInput = document.getElementById('age') as HTMLInputElement;
+      const cityInput = document.getElementById('city') as HTMLInputElement;
+      const phoneInput = document.getElementById('phone') as HTMLInputElement;
+      const emailInput = document.getElementById('email') as HTMLInputElement;
+      const companyInput = document.getElementById('company') as HTMLInputElement;
+
+      const targetTr = table.rows[index].closest('tr')
+
+        if (targetTr) {
+
+          const dataFirstName = targetTr.querySelector('.td-firstName');
+          const dataLastName = targetTr.querySelector('.td-lastName');
+          const dataAge = targetTr.querySelector('.td-age');
+          const dataCity = targetTr.querySelector('.td-city');
+          const dataPhoneNumber = targetTr.querySelector('.td-phoneNumber');
+          const dataEmail = targetTr.querySelector('.td-email');
+          const dataCompanyName = targetTr.querySelector('.td-companyName');
+
+          fNameInput.value = dataFirstName.textContent;
+          lNameInput.value = dataLastName.textContent;
+          ageInput.value = dataAge.textContent;
+          cityInput.value = dataCity.textContent;
+          phoneInput.value = dataPhoneNumber.textContent;
+          emailInput.value = dataEmail.textContent;
+          companyInput.value = dataCompanyName.textContent;
+
+          state.SelectedObj = {
+            firstName: fNameInput.value,
+            lastName: lNameInput.value,
+            age: +ageInput.value,
+            city: cityInput.value,
+            phone: phoneInput.value,
+            email: emailInput.value,
+            company: companyInput.value
+          }
+
+          console.log(state.SelectedObj );
+        }
+    }
   }
 }
+
+export function pasteIntoUpdateModal(state) {
+  const fNameInput = document.getElementById('firstName') as HTMLInputElement;
+  const lNameInput = document.getElementById('lastName') as HTMLInputElement;
+  const ageInput = document.getElementById('age') as HTMLInputElement;
+  const cityInput = document.getElementById('city') as HTMLInputElement;
+  const phoneInput = document.getElementById('phone') as HTMLInputElement;
+  const emailInput = document.getElementById('email') as HTMLInputElement;
+  const companyInput = document.getElementById('company') as HTMLInputElement;
+
+  fNameInput.innerHTML = state.SelectedObj.firstName;
+  lNameInput.innerHTML = state.SelectedObj.lastName;
+  ageInput.innerHTML = state.SelectedObj.age;
+  cityInput.innerHTML = state.SelectedObj.city;
+  phoneInput.innerHTML = state.SelectedObj.phone;
+  emailInput.innerHTML = state.SelectedObj.email;
+  companyInput.innerHTML = state.SelectedObj.company;
+
+}
+
 
 
 
