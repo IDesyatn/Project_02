@@ -32,6 +32,13 @@ export function openAndClose(modalId) {
   }
 }
 
+export function closeModal(modalid){
+  const modalActive = document.getElementById(modalid);
+  modalActive.classList.remove('active');
+  document.body.classList.remove('hidden');
+}
+
+
 export function showPass(inp, btt) {
   const input = <HTMLInputElement>document.getElementById(inp);
   const button = <HTMLInputElement>document.getElementById(btt);
