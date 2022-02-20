@@ -1,7 +1,7 @@
 import './style.scss';
 import { languageHandle } from '../../ts/localization';
 import { themeHandler } from '../../ts/themeHandler';
-import { openAndClose, selectDB, showPass, updateAccount, userLogout, changeNameModal } from './logic';
+import { openAndClose, selectDB, showPass, updateAccount, userLogout, changeNameModal, closeModal } from './logic';
 import {
   settingsRepeatPassValidation,
   firstNameValidation,
@@ -97,15 +97,25 @@ function init() {
   addListener('createModal__content_button-confirm modal__btn', 'click', () => {
     if (state.selectedModal === 'create') {
       addNewPerson(state);
+      closeModal("modal-create");
     } else {
       updatePerson(state);
+      closeModal("modal-create");
     }
   });
 
 
   // delete/clear
-  addListener('confirm_delete_button', 'click', deletePerson.bind(null, state));
-  addListener('confirm_clear_button', 'click', clearAll.bind(null, state));
+  addListener('confirm_delete_button', 'click', ()=>{
+    deletePerson(state);
+    closeModal("modal-delete");
+  });
+
+  addListener('confirm_clear_button', 'click', ()=>{
+    clearAll(state);
+    closeModal("modal-clear");
+  });
+  
 
   // select DB
   addListener('selectDB', 'change', changeDB.bind(null, state));
@@ -169,7 +179,11 @@ function init() {
   // show pass
   addListener('img', 'click', showPass.bind(null, 'password', 'img'));
   addListener('img2', 'click', showPass.bind(null, 'newPassword', 'img2'));
-  addListener('settingsModal__blockConfirm', 'click', updateAccount);
+
+  addListener('settingsModal__blockConfirm', 'click', () => {
+    updateAccount();
+    closeModal('modal-settings');
+  });
 
   // filter
   addListener('filter-radio-0', 'input', () => {
