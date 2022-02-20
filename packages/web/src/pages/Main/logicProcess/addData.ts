@@ -1,5 +1,5 @@
 import { removeChild } from "../../../ts/utils";
-import {selectedRow} from "../logic"
+import {selectedRow} from "./selectedRowLogic"
 import {searchPerson} from "./searchPerson"
 
 export function renderTable(state) {
