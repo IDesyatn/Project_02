@@ -16,6 +16,7 @@ export function renderTable(state) {
     elementTr.setAttribute('data-index', sortedData[i].id);
     elementTr.setAttribute('id', sortedData[i].id);
     elementTr.innerHTML = `
+
         <td class='tr__td td-id'>${sortedData[i].id}</td>
         <td class='tr__td td-firstName'>${sortedData[i].firstName}</td>
         <td class='tr__td td-lastName'>${sortedData[i].lastName}</td>
