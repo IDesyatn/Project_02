@@ -5,17 +5,17 @@ export function openAndClose(modalId) {
   const closeModal = modalActive.querySelector('.modal__close');
   const modalArea = modalActive.querySelector('.modal__area');
   const btnCancel = modalActive.querySelector('.modal__close-btn');
+  const btnSubmit = modalActive.querySelector('.modal__btn');
 
   modalActive.classList.add('active');
 
   document.body.classList.add('hidden');
-  if (closeModal) {
+  if (closeModal || btnSubmit) {
     closeModal.addEventListener('click', () => {
       modalActive.classList.remove('active');
       document.body.classList.remove('hidden');
     });
   }
-
 
   if (modalArea) {
     modalArea.addEventListener('click', () => {
@@ -101,8 +101,6 @@ export function updateAccount() {
   putSettings('/main/settings', data);
 }
 
-
-
 export function userLogout() {
   fetch('/main/logout', {
     method: 'POST',
@@ -111,10 +109,8 @@ export function userLogout() {
   });
 }
 
-
 export function changeNameModal(state) {
   const title = document.getElementById('changeName');
-
   const localStorageLanguage = localStorage.getItem('selected-language') || 'english';
   console.log(localStorageLanguage);
   if (state.selectedModal === 'create') {

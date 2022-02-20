@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import { MySQLController } from '../controllers/MySQL.controller';
 import { MongoDBController } from '../controllers/MongoDB.controller';
 import { ValidationService } from './Validation.service';
+import { log } from 'util';
 
 export class DatabaseService {
   private mySql: MySQLController;
@@ -182,25 +183,23 @@ export class DatabaseService {
   }
 
   async updateUser(req: Request, res: Response) {
-    this.validator.refresh(req, res).validateLogin().validatePassword().refresh();
-    if (!res.status) {
-      const hashPassword = await bcrypt.hash(req.body.newPassword, 7, (hash) => hash);
-      const query = JSON.stringify([
-        { _id: req.body.id },
-        {
-          $set: {
-            login: req.body.newLogin,
-            password: hashPassword,
+    // this.validator.refresh(req, res).validateLogin().validatePassword().refresh();
+    if (res.statusCode === 200) {
+      return bcrypt.hash(req.body.newPassword, 7).then((result) => {
+        const query = JSON.stringify([
+          { _id: req.body.id },
+          {
+            $set: {
+              login: req.body.newLogin,
+              password: result,
+            },
           },
-        },
-      ]);
-      const newUser = await this.mongoDB.updateUser(query);
-      if (newUser) {
-        return newUser;
-      }
-      return false;
+        ]);
+        return this.mongoDB
+          .updateUser(query)
+          .then((newUser) => newUser)
+          .catch((err) => err);
+      });
     }
-    res.status(400).end();
-    return false;
   }
 }

@@ -5,7 +5,6 @@ import { openAndClose, selectDB, showPass, updateAccount, userLogout, changeName
 import {
   settingsRepeatPassValidation,
   firstNameValidation,
-
   lastNameValidation,
   ageValidation,
   cityValidation,
@@ -22,12 +21,10 @@ import { clearAll } from './logicProcess/clearAll';
 import { changeDB } from './logicProcess/changeDB';
 import { getData } from './logicProcess/getData';
 import { addNewPerson } from './logicProcess/createPerson';
-
 import { renderTable } from './logicProcess/addData';
 import { deletePerson } from './logicProcess/deletePerson';
 import { updatePerson } from './logicProcess/updatePerson';
 import { pasteIntoCreateUpdateModal, selectedRow } from './logicProcess/selectedRowLogic';
-
 
 const openModal = document.querySelectorAll('.modal__open');
 
@@ -220,5 +217,4 @@ document.addEventListener('DOMContentLoaded', () => {
   themeHandler();
   init();
   selectDB();
-
 });

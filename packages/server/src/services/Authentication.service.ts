@@ -24,19 +24,23 @@ export class AuthenticationService {
 
   async update(req, res) {
     const user = await this.databaseService.findUser(req, res);
+    const { newLogin } = req.body;
     if (user) {
-      const match = await bcrypt.match(req.password, user.password);
+      const match = await bcrypt.compare(req.body.password, user.password);
       if (match) {
         const newUser = await this.databaseService.updateUser(req, res);
         if (newUser) {
-          const { _id, login } = newUser;
-          AuthenticationService.generateJWTCookie(res, _id, login);
+          const { _id } = user;
+          AuthenticationService.generateJWTCookie(res, _id, newLogin);
+        } else {
+          res.status(400).end();
         }
-        res.status(400).json({ message: 'Error during user data update' });
+      } else {
+        res.status(400).end();
       }
-      res.status(400).json({ message: 'Incorrect password' });
+    } else {
+      res.status(400).end();
     }
-    res.status(400).json({ message: 'User not found' });
   }
 
   async login(req, res) {
