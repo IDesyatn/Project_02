@@ -88,10 +88,14 @@ function init() {
   });
 
   addListener('update', 'click', () => {
-    state.selectedModal = 'update';
-    changeNameModal(state);
-    pasteIntoCreateUpdateModal(state);
-
+    if(state.SelectedId){
+      state.selectedModal = 'update';
+      changeNameModal(state);
+      pasteIntoCreateUpdateModal(state);
+    }
+    else {
+      closeModal('modal-create');
+    }
   });
 
   addListener('createModal__content_button-confirm modal__btn', 'click', () => {
@@ -106,6 +110,15 @@ function init() {
 
 
   // delete/clear
+  addListener('delete', 'click', () => {
+    if(state.SelectedId){
+      openAndClose('delete');
+    }
+    else {
+      closeModal('modal-delete');
+    }
+  });
+
   addListener('confirm_delete_button', 'click', ()=>{
     deletePerson(state);
     closeModal("modal-delete");
