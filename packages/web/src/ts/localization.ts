@@ -116,7 +116,7 @@ export function languageHandle () {
     })
   }
 
-  function getTranslation(lang) {
+function getTranslation(lang) {
     switch (lang) {
       case 'russian':
         return ruTranslations;

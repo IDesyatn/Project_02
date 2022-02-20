@@ -1,7 +1,7 @@
 import './style.scss';
 import { languageHandle } from '../../ts/localization';
 import { themeHandler } from '../../ts/themeHandler';
-import {openAndClose,selectDB, showPass, updateAccount} from './logic';
+import {openAndClose,selectDB, showPass, updateAccount, changeNameModal} from './logic';
 import {firstNameValidation,
   lastNameValidation,
   ageValidation,
@@ -19,10 +19,13 @@ import { clearAll } from './logicProcess/clearAll';
 import { changeDB } from './logicProcess/changeDB';
 import { getData } from './logicProcess/getData';
 import { addNewPerson } from './logicProcess/createPerson';
-import {renderTable} from './logicProcess/addData'
+import { renderTable } from './logicProcess/addData'
 import { deletePerson } from './logicProcess/deletePerson';
 import { updatePerson } from './logicProcess/updatePerson';
-import {pasteIntoCreateUpdateModal, selectedRow} from './logicProcess/selectedRowLogic'
+import {
+  pasteIntoCreateUpdateModal,
+  selectedRow,
+} from './logicProcess/selectedRowLogic';
 
 
 const openModal = document.querySelectorAll('.modal__open');
@@ -50,7 +53,7 @@ function init() {
 
 
 
-  //тестовое, при работе сервака, удалить 
+  //тестовое, при работе сервака, удалить
   const test = { id: 4, firstName: 'ZName', lastName: 'LastName', age: 23, city: 'city', phoneNumber: '6123', email: 'email', company: 'Zcompany' }
   const test2 = { id: 2, firstName: 'Name2', lastName: 'LastName2', age: 18, city: 'Zity', phoneNumber: '123', email: 'Aemail', company: 'company' };
   state.Data = [test, test2];
@@ -62,18 +65,21 @@ function init() {
   getData(state);
 
 
-  //modal create/update 
+  //modal create/update
   addListener('create', 'click', () => {
     state.selectedModal = 'create';
+    changeNameModal(state)
     pasteIntoCreateUpdateModal(state);
   });
 
   addListener('update', 'click', () => {
     state.selectedModal = 'update';
+    changeNameModal(state);
     pasteIntoCreateUpdateModal(state);
+
   });
 
- 
+
   addListener('createModal__content_button-confirm modal__btn', 'click', () => {
     if (state.selectedModal === 'create') {
       addNewPerson(state);
@@ -83,14 +89,14 @@ function init() {
     }
   });
 
-  //delete/clear 
+  //delete/clear
   addListener('confirm_delete_button', 'click', deletePerson.bind(null, state));
   addListener('confirm_clear_button', 'click', clearAll.bind(null, state));
 
   //select DB
   addListener('selectDB', 'change', changeDB.bind(null, state));
-  
-  //validation 
+
+  //validation
   addListener('login-input', 'input', () => {
     loginValidation.call(null, state);
     validateStatusCheck.call(null, state);
@@ -145,7 +151,7 @@ function init() {
   });
 
 
-  //show pass 
+  //show pass
   addListener('img', 'click', showPass.bind(null, 'password', 'img'));
   addListener('img2', 'click', showPass.bind(null, 'newPassword', 'img2'));
   addListener('settingsModal__blockConfirm', 'click', updateAccount);
@@ -184,7 +190,7 @@ function init() {
     state.SortBy = 'company'
     renderTable(state)
   });
-  
+
 
   //search
   addListener('searchButton', 'click', renderTable.bind(null, state));
@@ -195,4 +201,5 @@ document.addEventListener('DOMContentLoaded', () => {
   themeHandler();
   init();
   selectDB();
+
 });
