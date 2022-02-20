@@ -130,3 +130,4 @@ export function changeNameModal(state) {
       title.textContent = 'Изменить'
     }
   }
+}
