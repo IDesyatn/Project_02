@@ -1,7 +1,7 @@
 import { readField } from "../../../ts/utils";
 
 export function searchPerson(state) {
-    
+
     let searchResult = [];
     const searchStr = readField('search');
 
@@ -11,13 +11,12 @@ export function searchPerson(state) {
     else{
         const data = state.Data;
         data.forEach(element => {
-        if (element.firstName.toLowerCase().toString() === searchStr.toLowerCase().toString() 
+        if (element.firstName.toLowerCase().toString() === searchStr.toLowerCase().toString()
             || element.lastName.toLowerCase().toString() === searchStr.toLowerCase().toString()) {
-            searchResult.push(element);  
+            searchResult.push(element);
         }
     });
     }
-    state.SortedData = searchResult; 
-
+    state.SortedData = searchResult;
 
 }
