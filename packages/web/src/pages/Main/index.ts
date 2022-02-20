@@ -28,8 +28,8 @@ import { addNewPerson } from './logicProcess/createPerson';
 import {renderTable} from './logicProcess/addData'
 import { deletePerson } from './logicProcess/deletePerson';
 import { updatePerson } from './logicProcess/updatePerson';
-import {sortTable} from './logicProcess/addData'
-import { searchPerson } from './logicProcess/searchPerson';
+import {pasteIntoCreateUpdateModal} from './logic'
+
 
 const openModal = document.querySelectorAll('.modal__open');
 
@@ -71,10 +71,12 @@ function init() {
   //modal create/update 
   addListener('create', 'click', () => {
     state.selectedModal = 'create';
+    pasteIntoCreateUpdateModal(state);
   });
 
   addListener('update', 'click', () => {
     state.selectedModal = 'update';
+    pasteIntoCreateUpdateModal(state);
   });
 
  

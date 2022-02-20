@@ -90,14 +90,12 @@ export function selectedRow(state) {
             email: emailInput.value,
             company: companyInput.value
           }
-
-          console.log(state.SelectedObj );
         }
     }
   }
 }
 
-export function pasteIntoUpdateModal(state) {
+export function pasteIntoCreateUpdateModal(state) {
   const fNameInput = document.getElementById('firstName') as HTMLInputElement;
   const lNameInput = document.getElementById('lastName') as HTMLInputElement;
   const ageInput = document.getElementById('age') as HTMLInputElement;
@@ -106,14 +104,26 @@ export function pasteIntoUpdateModal(state) {
   const emailInput = document.getElementById('email') as HTMLInputElement;
   const companyInput = document.getElementById('company') as HTMLInputElement;
 
-  fNameInput.innerHTML = state.SelectedObj.firstName;
-  lNameInput.innerHTML = state.SelectedObj.lastName;
-  ageInput.innerHTML = state.SelectedObj.age;
-  cityInput.innerHTML = state.SelectedObj.city;
-  phoneInput.innerHTML = state.SelectedObj.phone;
-  emailInput.innerHTML = state.SelectedObj.email;
-  companyInput.innerHTML = state.SelectedObj.company;
+  console.log(state.selectedModal)
 
+  if(state.selectedModal ==='update'){
+    fNameInput.innerHTML = state.SelectedObj.firstName;
+    lNameInput.innerHTML = state.SelectedObj.lastName;
+    ageInput.innerHTML = state.SelectedObj.age;
+    cityInput.innerHTML = state.SelectedObj.city;
+    phoneInput.innerHTML = state.SelectedObj.phone;
+    emailInput.innerHTML = state.SelectedObj.email;
+    companyInput.innerHTML = state.SelectedObj.company;
+}
+  else{
+    fNameInput.innerHTML = '';
+    lNameInput.innerHTML = '';
+    ageInput.innerHTML = '';
+    cityInput.innerHTML = '';
+    phoneInput.innerHTML = '';
+    emailInput.innerHTML = '';
+    companyInput.innerHTML = '';
+  }
 }
 
 
