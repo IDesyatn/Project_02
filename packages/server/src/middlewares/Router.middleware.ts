@@ -73,6 +73,10 @@ export class RouterMiddleware {
       await this.authenticationService.update(req, res);
     });
 
+    this.router.route('/main/logout').post(async (req, res) => {
+      await this.authenticationService.logout(req, res);
+    });
+
     this.router.get('/', (req, res) => {
       if (req.cookies.jwt) {
         res.redirect('/main');
