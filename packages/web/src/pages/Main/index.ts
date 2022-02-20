@@ -29,6 +29,7 @@ import {renderTable} from './logicProcess/addData'
 import { deletePerson } from './logicProcess/deletePerson';
 import { updatePerson } from './logicProcess/updatePerson';
 import {sortTable} from './logicProcess/addData'
+import { searchPerson } from './logicProcess/searchPerson';
 
 const openModal = document.querySelectorAll('.modal__open');
 
@@ -67,6 +68,7 @@ function init() {
   getData(state);
 
 
+  //modal create/update 
   addListener('create', 'click', () => {
     state.selectedModal = 'create';
   });
@@ -75,7 +77,7 @@ function init() {
     state.selectedModal = 'update';
   });
 
-  addListener('confirm_delete_button', 'click', deletePerson.bind(null, state));
+ 
   addListener('createModal__content_button-confirm modal__btn', 'click', () => {
     if (state.selectedModal === 'create') {
       addNewPerson(state);
@@ -85,10 +87,14 @@ function init() {
     }
   });
 
+  //delete/clear 
+  addListener('confirm_delete_button', 'click', deletePerson.bind(null, state));
   addListener('confirm_clear_button', 'click', clearAll.bind(null, state));
+
+  //select DB
   addListener('selectDB', 'change', changeDB.bind(null, state));
   
-
+  //validation 
   addListener('login-input', 'input', () => {
     loginValidation.call(null, state);
     validateStatusCheck.call(null, state);
@@ -141,11 +147,15 @@ function init() {
     settingsRepeatPassValidation.call(null, state);
     validateStatusCheck.call(null, state);
   });
+
+
+  //show pass 
   addListener('img', 'click', showPass.bind(null, 'password', 'img'));
   addListener('img2', 'click', showPass.bind(null, 'newPassword', 'img2'));
   addListener('settingsModal__blockConfirm', 'click', updateAccount);
 
 
+  //filter
   addListener('filter-radio-0', 'input', () => {
     state.SortBy = 'id'
     renderTable(state);
@@ -179,6 +189,9 @@ function init() {
     renderTable(state)
   });
   
+
+  //search
+  addListener('searchButton', 'click', renderTable.bind(null, state));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
