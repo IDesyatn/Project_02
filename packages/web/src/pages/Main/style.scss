@@ -392,7 +392,7 @@ body {
           &__block {
             display: flex;
             flex-direction: column;
-            padding: 10px;
+            padding: 5px;
 
             p{
               font-size: 13px;
@@ -400,33 +400,22 @@ body {
               text-align: start;
             }
 
-            .setting-login-message{
-              position: absolute;
-              top: 127px;
-              left: 61px;
-            }
-
-            .setting-newPassword-message{
-              position: absolute;
-              top: 200px;
-              left: 61px;
-            }
-
-            .setting-repeatPassword-message{
-              position: absolute;
-              top: 274px;
-              left: 61px;
+            .message{
+              height: 16px;
+              padding: 0;
+              margin: 0;
             }
 
             .checkbox {
               position: absolute;
-              bottom: 106px;
+              bottom: 122px;
               right: 40px;
+
             }
 
             .checkbox2 {
               position: absolute;
-              bottom: 32px;
+              bottom: 43px;
               right: 40px;
             }
 
@@ -801,6 +790,7 @@ body {
             input {
               background: $l-input-bg;
               box-shadow: $l-shadow-input;
+              color: #000;
 
               &:active {
                 border: 1px solid $l-main-color;

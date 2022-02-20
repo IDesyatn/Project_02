@@ -1,10 +1,10 @@
-import { removeChild } from "../../../ts/utils";
+import { removeChild, readField } from "../../../ts/utils";
 import { getData } from "./getData";
 
 
 
 export function updatePersonRequest(state, data) {
-  console.log('createPerson')
+  console.log('updatePerson')
   const url = `main/data`;
   fetch(url, {
     method: 'PUT',
@@ -29,9 +29,7 @@ export function updatePerson(state) {
     const phoneNumber = readField('phone');
     const email = readField('email');
     const company = readField('company');
-    const company2 = null;
-    console.log(company);
-    console.log(company2);
+;
     if (!firstName || !lastName) {
         return false;
     }
@@ -40,13 +38,3 @@ export function updatePerson(state) {
     updatePersonRequest(state.url, formData);
 }
 
-export function readField(id) {
-    let result = (document.getElementById(id) as HTMLInputElement).value;
-    
-    if (result) {
-        return result;
-    }
-    else {
-        return null
-    }
-}

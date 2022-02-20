@@ -7,7 +7,7 @@ export function openAndClose(modalId) {
     const modalArea = modalActive.querySelector('.modal__area');
     const btnCancel = modalActive.querySelector('.modal__close-btn');
 
-    modalActive.classList.add('active');
+  modalActive.classList.add('active');
     document.body.classList.add('hidden')
     if (closeModal) {
       closeModal.addEventListener('click', () => {
@@ -121,7 +121,7 @@ export function pasteIntoUpdateModal(state) {
 
 export function firstNameValidation(state) {
   const input = document.getElementById('firstName');
-  const validationRegex = /^[A-Za-z]+$/;
+  const validationRegex = /^[а-яА-Яa-zA-Z]+$/;
   const value = <string>getInputValue('firstName');
   const messageId = 'firstName-message';
 
@@ -154,7 +154,7 @@ export function firstNameValidation(state) {
 
 export function lastNameValidation(state) {
   const input = document.getElementById('lastName');
-  const validationRegex = /^[A-Za-z]+$/;
+  const validationRegex = /^[а-яА-Яa-zA-Z]+$/;
   const value = <string>getInputValue('lastName');
   const messageId = 'lastName-message';
 
@@ -191,14 +191,7 @@ export function ageValidation(state) {
   const value = <string>getInputValue('age');
   const messageId = 'age-message';
 
-  if (value === '') {
-    setInnerText(messageId, 'Field can`t be empty');
-    state.validateStatus[1] = false;
-    input.classList.add('invalid');
-    return false;
-  }
-
-  if (!value.match(validationRegex)) {
+  if (value.length > 0 && !value.match(validationRegex)) {
     setInnerText(messageId, 'Age must contain only numbers');
     state.validateStatus[1] = false;
     input.classList.add('invalid');
@@ -212,7 +205,7 @@ export function ageValidation(state) {
     return false;
   }
 
-  if (value.length < 2) {
+  if (value.length < 2 && value.length > 0) {
     setInnerText(messageId, 'Age no less than 2 characters');
     state.validateStatus[1] = false;
     input.classList.add('invalid');
@@ -231,14 +224,7 @@ export function cityValidation(state) {
   const value = <string>getInputValue('city');
   const messageId = 'city-message';
 
-  if (value === '') {
-    setInnerText(messageId, 'Field can`t be empty');
-    state.validateStatus[1] = false;
-    input.classList.add('invalid');
-    return false;
-  }
-
-  if (!value.match(validationRegex)) {
+  if (value.length > 0 && !value.match(validationRegex)) {
     setInnerText(messageId, 'Invalid input format');
     state.validateStatus[1] = false;
     input.classList.add('invalid');
@@ -266,13 +252,10 @@ export function phoneValidation(state) {
   const messageId = 'phone-message';
 
   if (value === '') {
-    setInnerText(messageId, 'Field can`t be empty');
-    state.validateStatus[1] = false;
-    input.classList.add('invalid');
-    return false;
+
   }
 
-  if (!value.match(validationRegex)) {
+  if (value.length > 0 && !value.match(validationRegex)) {
     setInnerText(messageId, 'Invalid input format');
     state.validateStatus[1] = false;
     input.classList.add('invalid');
@@ -291,14 +274,7 @@ export function emailValidation(state) {
   const value = <string>getInputValue('email');
   const messageId = 'email-message';
 
-  if (value === '') {
-    setInnerText(messageId, 'Field can`t be empty');
-    state.validateStatus[1] = false;
-    input.classList.add('invalid');
-    return false;
-  }
-
-  if (!value.match(validationRegex)) {
+  if (value.length > 0 && !value.match(validationRegex)) {
     setInnerText(messageId, 'Invalid input format');
     state.validateStatus[1] = false;
     input.classList.add('invalid');
@@ -316,22 +292,8 @@ export function companyValidation(state) {
   const value = <string>getInputValue('company');
   const messageId = 'company-message';
 
-  if (value === '') {
-    setInnerText(messageId, 'Field can`t be empty');
-    state.validateStatus[1] = false;
-    input.classList.add('invalid');
-    return false;
-  }
-
   if (value.length > 50) {
     setInnerText(messageId, 'Company name no more than 50 characters');
-    state.validateStatus[1] = false;
-    input.classList.add('invalid');
-    return false;
-  }
-
-  if (value.length < 3) {
-    setInnerText(messageId, 'Company name no less than 3 characters');
     state.validateStatus[1] = false;
     input.classList.add('invalid');
     return false;
@@ -345,9 +307,49 @@ export function companyValidation(state) {
 
 export function settingsLoginValidation(state) {
   const loginRegex = /^[a-zA-Z0-9_]{3,20}$/;
+  const value = <string>getInputValue('login');
+  const loginInput = document.getElementById('login');
+  const loginId = 'setting-login-message';
+
+  if (value === '') {
+    setInnerText(loginId, 'Field can`t be empty');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid');
+    return false;
+  }
+
+  if (value.length < 6) {
+    setInnerText(loginId, 'Login at least 6 characters');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid');
+    return false;
+  }
+
+  if (value.length > 20) {
+    setInnerText(loginId, 'Login can`t be longer than 20 characters');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid');
+    return false;
+  }
+
+  if (!value.match(loginRegex)) {
+    setInnerText(loginId, 'Login must contain only letters, numbers, and underscores');
+    state.validateStatus[0] = false;
+    loginInput.classList.add('invalid');
+    return false;
+  }
+
+  setInnerText(loginId, '');
+  state.validateStatus[0] = true;
+  loginInput.classList.remove('invalid');
+  return true;
+}
+
+export function settingsNewLoginValidation(state) {
+  const loginRegex = /^[a-zA-Z0-9_]{3,20}$/;
   const value = <string>getInputValue('newLogin');
   const loginInput = document.getElementById('newLogin');
-  const loginId = 'setting-login-message';
+  const loginId = 'setting-newLogin-message';
 
   if (value === '') {
     setInnerText(loginId, 'Field can`t be empty');
@@ -497,6 +499,7 @@ export function selectDB() {
     localStorage.setItem('selectDB', value);
   });
 }
+
 
 export function putSettings(url, data) {
   fetch(url, {

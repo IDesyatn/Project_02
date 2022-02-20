@@ -36,7 +36,7 @@
           <button data-modal="modal-create" class="control-panel__create modal__open" id="create" data-translate="create">
             Create
           </button>
-          <button class="control-panel__update" id="update" data-translate="update">Update</button>
+          <button data-modal="modal-create" class="control-panel__update modal__open" id="update" data-translate="update">Update</button>
           <button data-modal="modal-delete" class="control-panel__delete modal__open" id="delete" data-translate="delete">
             Delete
           </button>
@@ -52,20 +52,20 @@
         <input name="searchFname" class="main__container_search_input" id="search"
                placeholder="enter first or last name"
                type="text" data-placeholder="searchFirstName">
-        <button class="main__container_search_submit" type="submit">
+        <button class="main__container_search_submit" type="submit" id="searchButton">
         </button>
       </div>
       <table id="table" class="table">
         <thead class="table__header">
         <tr class="table__header-tr tr">
-          <th class="tr-id"><span>Id</span></th>
-          <th class="tr-fname"><span data-translate="firstName">First name</span></th>
-          <th class="tr-lname"><span data-translate="lastName">Last name</span></th>
-          <th class="tr-age"><span data-translate="age">Age</span></th>
-          <th class="tr-phone"><span data-translate="phone">Phone</span></th>
-          <th class="tr-city"><span data-translate="city">City</span></th>
-          <th class="tr-email"><span data-translate="email">Email</span></th>
-          <th class="tr-company"><span data-translate="company">Company</span></th>
+          <th class="tr-id"><span>Id</span><input type="radio" name="filter" id="filter-radio-0" checked ></th>
+          <th class="tr-fname"><span data-translate="firstName">First name</span><input type="radio" name="filter" id="filter-radio-1"></th>
+          <th class="tr-lname"><span data-translate="lastName">Last name</span><input type="radio" name="filter" id="filter-radio-2"></th>
+          <th class="tr-age"><span data-translate="age">Age</span><input type="radio" name="filter" id="filter-radio-3"></th>
+          <th class="tr-phone"><span data-translate="phone">Phone</span><input type="radio" name="filter" id="filter-radio-4"></th>
+          <th class="tr-city"><span data-translate="city">City</span><input type="radio" name="filter" id="filter-radio-5"></th>
+          <th class="tr-email"><span data-translate="email">Email</span><input type="radio" name="filter" id="filter-radio-6"></th>
+          <th class="tr-company"><span data-translate="company">Company</span><input type="radio" name="filter" id="filter-radio-7"></th>
         </tr>
         </thead>
         <tbody id="tbody" class="table__body">
@@ -92,21 +92,21 @@
               <div class="input__block">
                 <label for="login" data-translate="login">Login</label>
                 <input type="text" name="currentLogin" id="login"
-                       class="settingsModal__block_newLogin" data-clear="clear">
-                <p class="setting-login-message" id="login-message"></p>
+                       class="settingsModal__block_newLogin" data-clear="clear" disabled>
+                <p class="setting-login-message message" id="setting-login-message"> </p>
               </div>
               <div class="input__block">
                 <label for="newLogin" data-translate="newLogin">New Login</label>
                 <input type="text" name="newLogin" id="newLogin"
                        class="settingsModal__block_newLogin" data-clear="clear">
-                <p class="setting-login-message" id="setting-login-message"></p>
+                <p class="setting-newLogin-message message" id="setting-newLogin-message"></p>
               </div>
               <div class="input__block">
                 <label for="password" data-translate="currentPassword">Password</label>
                 <input id="password" class="settingsModal__block_newPassword" type="password"
                        name="newPassword" data-clear="clear">
                 <a href="#" class="checkbox"> <img id="img" src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
-                <p class="setting-newPassword-message" id="setting-newPassword-message"></p>
+                <p class="setting-repeatPassword-message message" id="setting-repeatPassword-message"></p>
               </div>
               <div class="input__block">
                 <label for="newPassword" data-translate="newPassword">New password</label>
@@ -114,7 +114,7 @@
                        type="password" name="repeatPassword" data-show="password"
                        data-clear="clear">
                 <a href="#" class="checkbox2"> <img id="img2" src="https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"></a>
-                <p class="setting-repeatPassword-message" id="setting-repeatPassword-message"></p>
+                <p class="setting-newPassword-message message" id="setting-newPassword-message"></p>
               </div>
             </div>
           </div>
@@ -134,7 +134,7 @@
       <div class="createModal__body modal__body">
         <div class="createModal__content modal__content">
           <a href="#" class="modal__close">&#10006;</a>
-          <div class="createModal__content_title modal__title" data-translate="create">CREATE</div>
+          <div class="createModal__content_title modal__title" data-translate="create"></div>
           <div class="createModal__content_input">
             <div class="input">
               <div class="input__block">
