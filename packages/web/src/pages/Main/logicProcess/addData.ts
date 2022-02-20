@@ -10,6 +10,15 @@ export function renderTable(state) {
   const tBody = document.getElementById('tbody');
   tBody.innerHTML = '';
 
+  if (sortedData.length === 0) {
+    const elemtTr = document.createElement('tr');
+    elemtTr.classList.add('table__empty');
+    elemtTr.innerHTML = `
+      <td class='table__empty-message' colspan='8'>There is no data in the database</td>
+      `;
+    tBody.append(elemtTr);
+  } else {
+
   for(let i = 0; i < sortedData.length; i++){
     const elementTr = document.createElement('tr');
     elementTr.classList.add('table__body-tr');
@@ -27,6 +36,8 @@ export function renderTable(state) {
         <td class='tr__td td-companyName'>${sortedData[i].company}</td>
         `;
     tBody.append(elementTr);
+  }
+
   }
    selectedRow(state);
 }
