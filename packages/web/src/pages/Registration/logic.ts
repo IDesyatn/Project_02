@@ -5,30 +5,47 @@ export function loginValidation(state) {
   const value = <string>getInputValue('login-input');
   const loginInput = document.getElementById('login-input');
   const loginId = 'login-message';
+  const localStorageLanguage = localStorage.getItem('selected-language') || 'english';
 
   if (value === '') {
-    setInnerText(loginId, 'Field can`t be empty');
+    if (localStorageLanguage === 'russian') {
+      setInnerText(loginId, 'Поле не может быть пустым');
+    } else {
+      setInnerText(loginId, 'Field can`t be empty');
+    }
     state.validateStatus[0] = false;
     loginInput.classList.add('invalid');
     return false;
   }
 
   if (value.length < 6) {
-    setInnerText(loginId, 'Login at least 6 characters');
+    if (localStorageLanguage === 'russian') {
+      setInnerText(loginId, 'Логин не менее 6 символов');
+    } else {
+      setInnerText(loginId, 'Login at least 6 characters');
+    }
     state.validateStatus[0] = false;
     loginInput.classList.add('invalid');
     return false;
   }
 
   if (value.length > 20) {
-    setInnerText(loginId, 'Login can`t be longer than 20 characters');
+    if (localStorageLanguage === 'russian') {
+      setInnerText(loginId, 'Поле не может быть пустым');
+    } else {
+      setInnerText(loginId, 'Login can`t be longer than 20 characters');
+    }
     state.validateStatus[0] = false;
     loginInput.classList.add('invalid');
     return false;
   }
 
   if (!value.match(loginRegex)) {
-    setInnerText(loginId, 'Login must contain only letters, numbers, and underscores');
+    if (localStorageLanguage === 'russian') {
+      setInnerText(loginId, 'Логин должен содержать только буквы, цифры и символы подчеркивания');
+    } else {
+      setInnerText(loginId, 'Login must contain only letters, numbers, and underscores');
+    }
     state.validateStatus[0] = false;
     loginInput.classList.add('invalid');
     return false;
@@ -45,23 +62,36 @@ export function passwordValidation(state) {
   const value = <string>getInputValue('password-input');
   const passwordInput = document.getElementById('password-input');
   const passwordId = 'password-message';
+  const localStorageLanguage = localStorage.getItem('selected-language') || 'english';
 
   if (value === '') {
-    setInnerText(passwordId, 'Field can`t be empty');
+    if (localStorageLanguage === 'russian') {
+      setInnerText(passwordId, 'Поле не может быть пустым');
+    } else {
+      setInnerText(passwordId, 'Field can`t be empty');
+    }
     state.validateStatus[1] = false;
     passwordInput.classList.add('invalid');
     return false;
   }
 
   if (value.length < 8) {
-    setInnerText(passwordId, 'Password at least 8 characters');
+    if (localStorageLanguage === 'russian') {
+      setInnerText(passwordId, 'Пароль минимум 8 символов');
+    } else {
+      setInnerText(passwordId, 'Password at least 8 characters');
+    }
     state.validateStatus[1] = false;
     passwordInput.classList.add('invalid');
     return false;
   }
 
   if (!value.match(passwordRegex)) {
-    setInnerText(passwordId, 'Password must contain letters, numbers, and special symbols');
+    if (localStorageLanguage === 'russian') {
+      setInnerText(passwordId, 'Пароль должен содержать буквы, цифры и специальные символы');
+    } else {
+      setInnerText(passwordId, 'Password must contain letters, numbers, and special symbols');
+    }
     state.validateStatus[1] = false;
     passwordInput.classList.add('invalid');
     return false;
@@ -78,16 +108,25 @@ export function confirmPasswordValidation(state) {
   const pass2 = <string>getInputValue('password-input2');
   const passwordInput = document.getElementById('password-input2');
   const passwordId = 'password-message2';
+  const localStorageLanguage = localStorage.getItem('selected-language') || 'english';
 
   if (pass !== pass2) {
-    setInnerText(passwordId, 'Passwords don`t match');
+    if (localStorageLanguage === 'russian') {
+      setInnerText(passwordId, 'Пароли не совпадают');
+    } else {
+      setInnerText(passwordId, 'Passwords don`t match');
+    }
     state.validateStatus[1] = false;
     passwordInput.classList.add('invalid');
     return false;
   }
 
   if (pass === '') {
-    setInnerText(passwordId, 'Field can`t be empty');
+    if (localStorageLanguage === 'russian') {
+      setInnerText(passwordId, 'Поле не может быть пустым');
+    } else {
+      setInnerText(passwordId, 'Field can`t be empty');
+    }
     state.validateStatus[1] = false;
     passwordInput.classList.add('invalid');
     return false;

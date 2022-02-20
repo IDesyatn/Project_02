@@ -119,15 +119,13 @@ export function userLogout() {
 export function changeNameModal(state) {
   const title = document.getElementById('changeName');
   const localStorageLanguage = localStorage.getItem('selected-language') || 'english';
-  console.log(localStorageLanguage);
+
   if (state.selectedModal === 'create') {
-    title.setAttribute('data-translate', 'create')
     title.textContent = 'Create'
     if (localStorageLanguage === 'russian') {
       title.textContent = 'Создать'
     }
   } else {
-    title.setAttribute('data-translate', 'update')
     title.textContent = 'Update'
     if (localStorageLanguage === 'russian') {
       title.textContent = 'Изменить'
