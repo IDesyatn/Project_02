@@ -151,8 +151,8 @@ export class DatabaseService {
   }
 
   async findUser(req: Request, res: Response) {
-    this.validator.refresh(req, res).validateLogin().refresh();
-    if (!res.status) {
+    // this.validator.refresh(req, res).validateLogin().refresh();
+    if (res.statusCode === 200) {
       const query = JSON.stringify({ login: req.body.login });
       const user = await this.mongoDB.readUser(query);
       if (user) {
@@ -165,21 +165,20 @@ export class DatabaseService {
   }
 
   async createUser(req: Request, res: Response) {
-    this.validator.refresh(req, res).validateLogin().validatePassword().refresh();
-    if (!res.status) {
-      const hashPassword = await bcrypt.hash(req.body.password, 7, (hash) => hash);
-      const query = JSON.stringify({
-        login: req.body.login,
-        password: hashPassword,
+    // this.validator.refresh(req, res).validateLogin().validatePassword().refresh();
+    if (res.statusCode === 200) {
+      let query;
+      return bcrypt.hash(req.body.password, 7).then((result) => {
+        query = JSON.stringify({
+          login: req.body.login,
+          password: result,
+        });
+        return this.mongoDB
+          .createUser(query)
+          .then((newUser) => newUser)
+          .catch((err) => err);
       });
-      const newUser = await this.mongoDB.createUser(query);
-      if (newUser) {
-        return newUser;
-      }
-      return false;
     }
-    res.status(400).end();
-    return false;
   }
 
   async updateUser(req: Request, res: Response) {

@@ -100,31 +100,29 @@ export function confirmPasswordValidation(state) {
 }
 
 export function validateStatusCheck(state): boolean {
-  const button = <HTMLElement>getElementById('submit');
+  const button = getElementById('submit') as HTMLButtonElement;
   if (state.validateStatus.includes(false)) {
-    if (!button.hasAttribute('disabled')) {
-      button.setAttribute('disabled', 'disabled');
+    if (!button.disabled) {
+      button.disabled = true;
     }
     return false;
   }
-  button.removeAttribute('disabled');
+  button.disabled = false;
   return true;
 }
 
 export function showPass(inp, btt) {
+  const input = <HTMLInputElement>document.getElementById(inp);
+  const button = <HTMLInputElement>document.getElementById(btt);
+  if (input.type === 'password') {
+    input.type = 'text';
+    button.src = 'https://img.icons8.com/material/24/ffffff/visible--v1.png';
 
-            const input  = <HTMLInputElement>document.getElementById(inp);
-            const button  = <HTMLInputElement>document.getElementById(btt);
-            if (input.type === "password") {
-                input.type = "text";
-                button.src = "https://img.icons8.com/material/24/ffffff/visible--v1.png"
-
-            } else {
-                input.type = "password";
-                button.src = "https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png"
-            }
+  } else {
+    input.type = 'password';
+    button.src = 'https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png';
+  }
 }
-
 
 export function postRegister(url, data) {
   fetch(url, {
@@ -146,6 +144,7 @@ export function postRegister(url, data) {
 }
 
 export function registerData(state) {
+  console.log('Зашла хуйня');
   if (
     loginValidation(state) === false ||
     passwordValidation(state) === false ||
@@ -156,41 +155,41 @@ export function registerData(state) {
 
   const user = (document.getElementById('login-input') as HTMLInputElement).value;
   const password = (document.getElementById('password-input') as HTMLInputElement).value;
-  const formData = { username: user, password };
+  const formData = { login: user, password };
+  console.log(formData);
 
   postRegister(state.url, formData);
 }
 
+/*export function registerData(state) {
+if (loginValidation(state) === false || passwordValidation(state) === false || confirmPasswordValidation(state) === false) {
+  return false;
+}
 
-  /*export function registerData(state) {
-  if (loginValidation(state) === false || passwordValidation(state) === false || confirmPasswordValidation(state) === false) {
-    return false;
-  }
 
-
-  const input = <HTMLInputElement>document.getElementById(inp);
-  const button = <HTMLInputElement>document.getElementById(btt);
-  if (input.type === 'password') {
-    input.type = 'text';
-    button.src = 'https://img.icons8.com/material/24/ffffff/visible--v1.png';
-  } else {
-    input.type = 'password';
-    button.src = 'https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png';
-  }
+const input = <HTMLInputElement>document.getElementById(inp);
+const button = <HTMLInputElement>document.getElementById(btt);
+if (input.type === 'password') {
+  input.type = 'text';
+  button.src = 'https://img.icons8.com/material/24/ffffff/visible--v1.png';
+} else {
+  input.type = 'password';
+  button.src = 'https://img.icons8.com/material-rounded/24/ffffff/sleepy-eyes.png';
+}
 }
 
 export function mode() {
-  const a = (document.getElementById('select-mode') as HTMLInputElement).value;
-  const b = document.getElementById('box');
-  const c = document.getElementById('container');
+const a = (document.getElementById('select-mode') as HTMLInputElement).value;
+const b = document.getElementById('box');
+const c = document.getElementById('container');
 
-  if (a === 'value2') {
-    b.classList.add('ligth');
-    c.classList.add('ligth-container');
-  } else {
-    b.classList.remove('ligth');
-    c.classList.remove('ligth-container');
-  }
+if (a === 'value2') {
+  b.classList.add('ligth');
+  c.classList.add('ligth-container');
+} else {
+  b.classList.remove('ligth');
+  c.classList.remove('ligth-container');
+}
 }
 
 
