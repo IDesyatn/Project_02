@@ -1,36 +1,34 @@
 import { getElementById, getInputValue, setInnerText } from '../../ts/utils';
 
 export function openAndClose(modalId) {
-
-    const modalActive = document.getElementById(modalId);
-    const closeModal = modalActive.querySelector('.modal__close');
-    const modalArea = modalActive.querySelector('.modal__area');
-    const btnCancel = modalActive.querySelector('.modal__close-btn');
+  const modalActive = document.getElementById(modalId);
+  const closeModal = modalActive.querySelector('.modal__close');
+  const modalArea = modalActive.querySelector('.modal__area');
+  const btnCancel = modalActive.querySelector('.modal__close-btn');
 
   modalActive.classList.add('active');
-    document.body.classList.add('hidden')
-    if (closeModal) {
-      closeModal.addEventListener('click', () => {
-        modalActive.classList.remove('active');
-        document.body.classList.remove('hidden')
-      });
-    }
+  document.body.classList.add('hidden');
+  if (closeModal) {
+    closeModal.addEventListener('click', () => {
+      modalActive.classList.remove('active');
+      document.body.classList.remove('hidden');
+    });
+  }
 
-    if (modalArea) {
-      modalArea.addEventListener('click', () => {
-        modalActive.classList.remove('active');
-        document.body.classList.remove('hidden')
-      });
-    }
+  if (modalArea) {
+    modalArea.addEventListener('click', () => {
+      modalActive.classList.remove('active');
+      document.body.classList.remove('hidden');
+    });
+  }
 
-    if (btnCancel) {
-      btnCancel.addEventListener('click', () => {
-        modalActive.classList.remove('active');
-        document.body.classList.remove('hidden')
-      });
-    }
+  if (btnCancel) {
+    btnCancel.addEventListener('click', () => {
+      modalActive.classList.remove('active');
+      document.body.classList.remove('hidden');
+    });
+  }
 }
-
 
 export function showPass(inp, btt) {
   const input = <HTMLInputElement>document.getElementById(inp);
@@ -66,7 +64,6 @@ export function selectDB() {
     localStorage.setItem('selectDB', value);
   });
 }
-
 
 export function putSettings(url, data) {
   fetch(url, {
@@ -104,7 +101,7 @@ export function updateAccount() {
 
 export function userLogout() {
   fetch('/main/logout', {
-    method: 'POST'
+    method: 'POST',
   }).then((res) => {
     window.location.href = res.url;
   });
