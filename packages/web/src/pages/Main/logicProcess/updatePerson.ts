@@ -1,4 +1,4 @@
-import { removeChild } from "../../../ts/utils";
+import { removeChild, readField } from "../../../ts/utils";
 import { getData } from "./getData";
 
 
@@ -38,13 +38,3 @@ export function updatePerson(state) {
     updatePersonRequest(state.url, formData);
 }
 
-export function readField(id) {
-    let result = (document.getElementById(id) as HTMLInputElement).value;
-    
-    if (result) {
-        return result;
-    }
-    else {
-        return null
-    }
-}

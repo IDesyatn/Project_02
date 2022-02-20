@@ -1,9 +1,11 @@
 import { removeChild } from "../../../ts/utils";
 import {selectedRow} from "../logic"
+import {searchPerson} from "./searchPerson"
 
 export function renderTable(state) {
   removeChild('tbody');
   sortTable(state, state.SortBy);
+  searchPerson(state);
   const sortedData = state.SortedData;
   const tBody = document.getElementById('tbody');
   tBody.innerHTML = '';

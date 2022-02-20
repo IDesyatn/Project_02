@@ -73,3 +73,14 @@ export function removeChild(id): boolean {
   }
   return false;
 }
+
+export function readField(id) {
+    let result = (document.getElementById(id) as HTMLInputElement).value;
+    
+    if (result) {
+        return result;
+    }
+    else {
+        return null
+    }
+}
