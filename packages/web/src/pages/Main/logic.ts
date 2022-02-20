@@ -7,6 +7,7 @@ export function openAndClose(modalId) {
   const btnCancel = modalActive.querySelector('.modal__close-btn');
 
   modalActive.classList.add('active');
+
   document.body.classList.add('hidden');
   if (closeModal) {
     closeModal.addEventListener('click', () => {
@@ -14,6 +15,7 @@ export function openAndClose(modalId) {
       document.body.classList.remove('hidden');
     });
   }
+
 
   if (modalArea) {
     modalArea.addEventListener('click', () => {
@@ -99,6 +101,8 @@ export function updateAccount() {
   putSettings('/main/settings', data);
 }
 
+
+
 export function userLogout() {
   fetch('/main/logout', {
     method: 'POST',
@@ -106,3 +110,23 @@ export function userLogout() {
     window.location.href = res.url;
   });
 }
+
+
+export function changeNameModal(state) {
+  const title = document.getElementById('changeName');
+
+  const localStorageLanguage = localStorage.getItem('selected-language') || 'english';
+  console.log(localStorageLanguage);
+  if (state.selectedModal === 'create') {
+    title.setAttribute('data-translate', 'create')
+    title.textContent = 'Create'
+    if (localStorageLanguage === 'russian') {
+      title.textContent = 'Создать'
+    }
+  } else {
+    title.setAttribute('data-translate', 'update')
+    title.textContent = 'Update'
+    if (localStorageLanguage === 'russian') {
+      title.textContent = 'Изменить'
+    }
+  }

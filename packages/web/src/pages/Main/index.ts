@@ -1,10 +1,11 @@
 import './style.scss';
 import { languageHandle } from '../../ts/localization';
 import { themeHandler } from '../../ts/themeHandler';
-import { openAndClose, selectDB, showPass, updateAccount, userLogout } from './logic';
+import { openAndClose, selectDB, showPass, updateAccount, userLogout, changeNameModal } from './logic';
 import {
   settingsRepeatPassValidation,
   firstNameValidation,
+
   lastNameValidation,
   ageValidation,
   cityValidation,
@@ -21,10 +22,12 @@ import { clearAll } from './logicProcess/clearAll';
 import { changeDB } from './logicProcess/changeDB';
 import { getData } from './logicProcess/getData';
 import { addNewPerson } from './logicProcess/createPerson';
+
 import { renderTable } from './logicProcess/addData';
 import { deletePerson } from './logicProcess/deletePerson';
 import { updatePerson } from './logicProcess/updatePerson';
 import { pasteIntoCreateUpdateModal, selectedRow } from './logicProcess/selectedRowLogic';
+
 
 const openModal = document.querySelectorAll('.modal__open');
 
@@ -48,6 +51,7 @@ function init() {
     selectedModal: null,
   };
 
+
   // тестовое, при работе сервака, удалить
   const test = {
     id: 4,
@@ -69,6 +73,7 @@ function init() {
     email: 'Aemail',
     company: 'company',
   };
+
   state.Data = [test, test2];
 
   renderTable(state);
@@ -77,15 +82,19 @@ function init() {
   selectedRow(state);
   getData(state);
 
+
   // modal create/update
   addListener('create', 'click', () => {
     state.selectedModal = 'create';
+    changeNameModal(state)
     pasteIntoCreateUpdateModal(state);
   });
 
   addListener('update', 'click', () => {
     state.selectedModal = 'update';
+    changeNameModal(state);
     pasteIntoCreateUpdateModal(state);
+
   });
 
   addListener('createModal__content_button-confirm modal__btn', 'click', () => {
@@ -96,12 +105,14 @@ function init() {
     }
   });
 
+
   // delete/clear
   addListener('confirm_delete_button', 'click', deletePerson.bind(null, state));
   addListener('confirm_clear_button', 'click', clearAll.bind(null, state));
 
   // select DB
   addListener('selectDB', 'change', changeDB.bind(null, state));
+
 
   // validation
   addListener('login-input', 'input', () => {
@@ -157,6 +168,7 @@ function init() {
     validateStatusCheck.call(null, state);
   });
 
+
   // show pass
   addListener('img', 'click', showPass.bind(null, 'password', 'img'));
   addListener('img2', 'click', showPass.bind(null, 'newPassword', 'img2'));
@@ -208,4 +220,5 @@ document.addEventListener('DOMContentLoaded', () => {
   themeHandler();
   init();
   selectDB();
+
 });
