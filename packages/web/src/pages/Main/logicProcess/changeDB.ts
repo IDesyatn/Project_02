@@ -1,8 +1,10 @@
-import { getData } from "./getData";
+import { getData } from './getData';
 
 export function changeDB(state) {
-    state.DB =  ((document.getElementById('selectDB'))as HTMLInputElement).value;
-    state.SelectedId = null;
-    state.Data = null;
-    getData(state);
+  const db = ((document.getElementById('selectDB')) as HTMLInputElement).value;
+  state.DB = db;
+  window.localStorage.setItem('selectDB', db);
+  state.SelectedId = null;
+  state.Data = null;
+  getData(state);
 }

@@ -53,10 +53,9 @@ export class RouterMiddleware {
 
     this.router
       .route('/main/data')
-      .get((req, res) => {
-        this.databaseService.read(req, res);
-      })
       .post((req, res) => {
+        console.log('url', req.url);
+        console.log('body', req.body);
         this.databaseService.create(req, res);
       })
       .put((req, res) => {
@@ -68,6 +67,10 @@ export class RouterMiddleware {
         }
         this.databaseService.delete(req, res);
       });
+
+    this.router.post('/main/data/get', (req, res) => {
+      this.databaseService.read(req, res);
+    });
 
     this.router.route('/main/settings').put(async (req, res) => {
       await this.authenticationService.update(req, res);

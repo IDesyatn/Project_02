@@ -4,13 +4,15 @@ import { getData } from "./getData";
 
 
 export function updatePersonRequest(state, data) {
-  console.log('updatePerson')
   const url = `main/data`;
   fetch(url, {
     method: 'PUT',
     body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+    },
   })
-    .then((response) => {
+    .then(() => {
       removeChild('tbody');
       getData(state);
       return true;

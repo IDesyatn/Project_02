@@ -183,7 +183,6 @@ export function postRegister(url, data) {
 }
 
 export function registerData(state) {
-  console.log('Зашла хуйня');
   if (
     loginValidation(state) === false ||
     passwordValidation(state) === false ||

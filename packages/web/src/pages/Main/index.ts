@@ -25,6 +25,7 @@ import { renderTable } from './logicProcess/addData';
 import { deletePerson } from './logicProcess/deletePerson';
 import { updatePerson } from './logicProcess/updatePerson';
 import { pasteIntoCreateUpdateModal, selectedRow } from './logicProcess/selectedRowLogic';
+import { stat } from 'copy-webpack-plugin/types/utils';
 
 const openModal = document.querySelectorAll('.modal__open');
 
@@ -38,7 +39,7 @@ openModal.forEach((button) => {
 
 function init() {
   const state = {
-    DB: '/mysql',
+    DB: 'mongoDB',
     Data: null,
     SortBy: 'id',
     SortedData: null,
@@ -48,37 +49,8 @@ function init() {
     selectedModal: null,
   };
 
-
-  // тестовое, при работе сервака, удалить
-  const test = {
-    id: 4,
-    firstName: 'ZName',
-    lastName: 'LastName',
-    age: 23,
-    city: 'city',
-    phoneNumber: '6123',
-    email: 'email',
-    company: 'Zcompany',
-  };
-  const test2 = {
-    id: 2,
-    firstName: 'Name2',
-    lastName: 'LastName2',
-    age: 18,
-    city: 'Zity',
-    phoneNumber: '123',
-    email: 'Aemail',
-    company: 'company',
-  };
-
-  state.Data = [test, test2];
-
-  renderTable(state);
-  //
-
   selectedRow(state);
   getData(state);
-
 
   // modal create/update
   addListener('create', 'click', () => {
@@ -128,7 +100,7 @@ function init() {
     clearAll(state);
     closeModal("modal-clear");
   });
-  
+
 
   // select DB
   addListener('selectDB', 'change', changeDB.bind(null, state));
