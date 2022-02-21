@@ -1,4 +1,4 @@
 export const applicationConfig = {
-  host: process.env.HOST || 'localhost',
-  port: Number.parseInt(process.env.PORT || '3000', 10),
+  host: process.env.HOST,
+  port: Number.parseInt(process.env.PORT, 10),
 };
