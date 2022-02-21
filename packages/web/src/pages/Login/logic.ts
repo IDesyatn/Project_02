@@ -129,8 +129,8 @@ export function validateStatusCheck(state): boolean {
   return true;
 }
 
-export function postLogin(url, data) {
-  fetch(url, {
+export function postLogin(data) {
+  fetch('/login', {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {
@@ -156,5 +156,5 @@ export function loginData(state) {
   const password = (document.getElementById('password-input') as HTMLInputElement).value;
   const formData = { login: user, password };
 
-  postLogin(state.url, formData);
+  postLogin(formData);
 }

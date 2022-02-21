@@ -163,8 +163,8 @@ export function showPass(inp, btt) {
   }
 }
 
-export function postRegister(url, data) {
-  fetch(url, {
+export function postRegister(data) {
+  fetch('/registration', {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {
@@ -196,7 +196,7 @@ export function registerData(state) {
   const formData = { login: user, password };
   console.log(formData);
 
-  postRegister(state.url, formData);
+  postRegister(formData);
 }
 
 /*export function registerData(state) {
