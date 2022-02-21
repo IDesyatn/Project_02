@@ -6,10 +6,6 @@ import { ICRUD } from '../interfaces/ICRUD';
 export class MongoDBController implements ICRUD {
   private connection;
 
-  private person;
-
-  private user;
-
   constructor() {
     this.connect();
   }
@@ -20,89 +16,71 @@ export class MongoDBController implements ICRUD {
     MongoClient.connect(url)
       .then((db) => {
         this.connection = db.db('Project2');
-        // this.person = this.connection.colleSction('person');
-        // this.user = this.connection.collection('user');
-      })
-      .then(() => {
-        this.connectTables();
       })
       .catch((err) => {
         throw err;
       });
   }
 
-  private connectTables() {
-    this.person = this.connection.collection('person');
-    this.user = this.connection.collection('user');
-  }
+  // private connectTables() {
+  //   this.person = this.connection.collection('person');
+  //   this.user = this.connection.collection('user');
+  // }
 
   public dropConnection() {
     this.connection.dropConnection();
   }
 
-  clear(query: string, res: Response): void {
+  read(query: string) {
     const execute = JSON.parse(query);
-    return this.person
-      .deleteMany(execute)
-      .then(() => {
-        res.status(200).end();
-      })
-      .catch((err) => {
-        res.status(409).json(JSON.stringify(err));
-      });
-  }
-
-  create(query: string, res: Response): void {
-    const execute = JSON.parse(query);
-    this.person
-      .insertOne(execute)
-      .then(() => {
-        res.status(200).end();
-      })
-      .catch((err) => {
-        res.status(409).json(JSON.stringify(err));
-      });
-  }
-
-  delete(query: string, res: Response): void {
-    const execute = JSON.parse(query);
-    this.person
-      .deleteOne(execute)
-      .then(() => {
-        res.status(200).end();
-      })
-      .catch((err) => {
-        res.status(409).json(JSON.stringify(err));
-      });
-  }
-
-  read(query: string, res: Response): void {
-    const execute = JSON.parse(query);
-    this.person
+    return this.connection
+      .collection('person')
       .find(execute)
-      .then((result) => {
-        res.status(200).json(JSON.stringify(result));
-      })
-      .catch((err) => {
-        res.status(409).json(JSON.stringify(err));
-      });
+      .toArray()
+      .then((result) => result)
+      .catch(() => false);
   }
 
-  update(query: string, res: Response): void {
+  clear(query: string) {
     const execute = JSON.parse(query);
-    this.person
+    return this.connection
+      .collection('person')
+      .deleteMany(execute)
+      .then((result) => result)
+      .catch(() => false);
+  }
+
+  create(query: string) {
+    const execute = JSON.parse(query);
+    return this.connection
+      .collection('person')
+      .insertOne(execute)
+      .then((result) => result)
+      .catch(() => false);
+  }
+
+  delete(query: string) {
+    const execute = JSON.parse(query);
+    return this.connection
+      .collection('person')
+      .deleteOne(execute)
+      .then((result) => result)
+      .catch(() => false);
+  }
+
+  update(query: string) {
+    const execute = JSON.parse(query);
+    return this.connection
+      .collection('person')
       .updateOne(execute[0], execute[1])
-      .then(() => {
-        res.status(200).end();
-      })
-      .catch((err) => {
-        res.status(409).json(JSON.stringify(err));
-      });
+      .then((result) => result)
+      .catch(() => false);
   }
 
   readUser(query: string) {
     const execute = JSON.parse(query);
-    return this.user
+    return this.connection
+      .collection('user')
       .findOne(execute)
       .then((result) => result)
       .catch(() => false);
@@ -110,7 +88,8 @@ export class MongoDBController implements ICRUD {
 
   createUser(query: string) {
     const execute = JSON.parse(query);
-    return this.user
+    return this.connection
+      .collection('user')
       .insertOne(execute)
       .then((result) => result)
       .catch(() => false);
@@ -118,7 +97,8 @@ export class MongoDBController implements ICRUD {
 
   updateUser(query: string) {
     const execute = JSON.parse(query);
-    return this.user
+    return this.connection
+      .collection('user')
       .updateOne(execute[0], execute[1])
       .then((result) => result)
       .catch(() => false);

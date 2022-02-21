@@ -3,7 +3,6 @@ import { Request, Response } from 'express';
 import { MySQLController } from '../controllers/MySQL.controller';
 import { MongoDBController } from '../controllers/MongoDB.controller';
 import { ValidationService } from './Validation.service';
-import { log } from 'util';
 
 export class DatabaseService {
   private mySql: MySQLController;
@@ -19,18 +18,24 @@ export class DatabaseService {
   }
 
   clear(req: Request, res: Response): void {
-    this.validator.refresh(req, res).validateDatabase().refresh();
-    if (!res.status) {
+    // this.validator.refresh(req, res).validateDatabase().refresh();
+    if (!res.statusCode) {
       let query: string;
       const { db } = req.body;
       switch (db) {
         case 'mySql':
           query = 'TRUNCATE TABLE person;';
-          this.mySql.execute(query, res);
+          this.mySql
+            .execute(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         case 'mongoDB':
           query = JSON.stringify({});
-          this.mongoDB.clear(query, res);
+          this.mongoDB
+            .clear(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         default:
           res.status(409).end();
@@ -39,17 +44,21 @@ export class DatabaseService {
   }
 
   create(req: Request, res: Response): void {
-    this.validator.refresh(req, res).validate().refresh();
-    if (!res.status) {
+    // this.validator.refresh(req, res).validate().refresh();
+    if (res.statusCode === 200) {
       let query: string;
       const { db } = req.body;
       switch (db) {
         case 'mySql':
           query =
-            `INSERT INTO person (FirstName, LastName, Age, PhoneNumber, Email, City, Company)` +
-            `VALUES(${req.body.firstName}, ${req.body.lastName}, ${req.body.age}, ` +
-            `${req.body.phoneNumber}, ${req.body.email}, ${req.body.city}, ${req.body.company});`;
-          this.mySql.execute(query, res);
+            `INSERT person (firstName, lastName, age, phoneNumber, email, city, company), ` +
+            `VALUES('${req.body.firstName}', '${req.body.lastName}', ${req.body.age || ''}, ` +
+            `'${req.body.phoneNumber || ''}', '${req.body.email || ''}', ` +
+            `'${req.body.city || ''}', '${req.body.company || ''}');`;
+          this.mySql
+            .execute(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         case 'mongoDB':
           query = JSON.stringify({
@@ -61,7 +70,10 @@ export class DatabaseService {
             city: req.body.city,
             company: req.body.company,
           });
-          this.mongoDB.create(query, res);
+          this.mongoDB
+            .create(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         default:
           res.status(409).end();
@@ -70,18 +82,24 @@ export class DatabaseService {
   }
 
   delete(req: Request, res: Response): void {
-    this.validator.refresh(req, res).validateId().validateDatabase().refresh();
-    if (!res.status) {
+    // this.validator.refresh(req, res).validateId().validateDatabase().refresh();
+    if (res.statusCode === 200) {
       let query: string;
       const { db } = req.body;
       switch (db) {
         case 'mySql':
-          query = `DELETE FROM person WHERE Id = ${req.body.id};`;
-          this.mySql.execute(query, res);
+          query = `DELETE FROM person WHERE id = ${req.body.id};`;
+          this.mySql
+            .execute(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         case 'mongoDB':
           query = JSON.stringify({ _id: req.body.id });
-          this.mongoDB.delete(query, res);
+          this.mongoDB
+            .delete(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         default:
           res.status(409).end();
@@ -90,18 +108,24 @@ export class DatabaseService {
   }
 
   read(req: Request, res: Response): void {
-    this.validator.refresh(req, res).validateDatabase().refresh();
-    if (!res.status) {
+    // this.validator.refresh(req, res).validateDatabase().refresh();
+    if (res.statusCode === 200) {
       let query: string;
       const { db } = req.body;
       switch (db) {
         case 'mySql':
           query = `SELECT * FROM person;`;
-          this.mySql.executeWithResponseData(query, res);
+          this.mySql
+            .execute(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         case 'mongoDB':
           query = JSON.stringify({});
-          this.mongoDB.read(query, res);
+          this.mongoDB
+            .read(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         default:
           res.status(409).end();
@@ -110,23 +134,26 @@ export class DatabaseService {
   }
 
   update(req: Request, res: Response): void {
-    this.validator.refresh(req, res).validateId().validate().refresh();
-    if (!res.status) {
+    // this.validator.refresh(req, res).validateId().validate().refresh();
+    if (res.statusCode === 200) {
       let query: string;
       const { db } = req.body;
       switch (db) {
         case 'mySql':
           query = `UPDATE person
                   SET
-                  FirstName = ${req.body.firstName},
-                  LastName = ${req.body.lastName},
-                  Age = ${req.body.age},
-                  PhoneNumber = ${req.body.phoneNumber},
-                  Email = ${req.body.email},
-                  City = ${req.body.city},
-                  Company = ${req.body.company},
-                  WHERE Id = ${req.body.id};`;
-          this.mySql.execute(query, res);
+                  firstName = ${req.body.firstName},
+                  lastName = ${req.body.lastName},
+                  age = ${req.body.age},
+                  phoneNumber = ${req.body.phoneNumber},
+                  email = ${req.body.email},
+                  city = ${req.body.city},
+                  company = ${req.body.company},
+                  WHERE id = ${req.body.id};`;
+          this.mySql
+            .execute(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         case 'mongoDB':
           query = JSON.stringify([
@@ -143,7 +170,10 @@ export class DatabaseService {
               },
             },
           ]);
-          this.mongoDB.update(query, res);
+          this.mongoDB
+            .update(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         default:
           res.status(409).end();
