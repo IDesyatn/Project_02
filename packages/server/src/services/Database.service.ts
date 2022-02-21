@@ -28,7 +28,6 @@ export class DatabaseService {
           this.mySql
             .execute(query)
             .then((result) => res.json(result))
-            .end()
             .catch((err) => err);
           break;
         case 'mongoDB':
@@ -59,7 +58,6 @@ export class DatabaseService {
           this.mySql
             .execute(query)
             .then((result) => res.json(result))
-            .end()
             .catch((err) => err);
           break;
         case 'mongoDB':
@@ -94,7 +92,6 @@ export class DatabaseService {
           this.mySql
             .execute(query)
             .then((result) => res.json(result))
-            .end()
             .catch((err) => err);
           break;
         case 'mongoDB':
@@ -121,7 +118,6 @@ export class DatabaseService {
           this.mySql
             .execute(query)
             .then((result) => res.json(result))
-            .end()
             .catch((err) => err);
           break;
         case 'mongoDB':
@@ -157,7 +153,6 @@ export class DatabaseService {
           this.mySql
             .execute(query)
             .then((result) => res.json(result))
-            .end()
             .catch((err) => err);
           break;
         case 'mongoDB':
